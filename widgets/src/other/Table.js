@@ -78,6 +78,10 @@
         } else {
             var tData = this._data;
         }
+
+        if (start ==0 && end == 6) {
+            console.log("herere");
+        }
         
         var rows = this.tbody.selectAll("tr").data(tData);
         rows

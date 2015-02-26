@@ -57,7 +57,7 @@
                     if ((context.pageNumber()+1) <= context._tNumPages) {
       
                         var p = context.pageNumber()+1; context.pageNumber(p); 
-                        context._onSelect(context.pageNumber,"next"); 
+                        context._onSelect(p,"next"); 
 
                     }
 
@@ -66,7 +66,7 @@
                     if ((context.pageNumber() - 1) >= 1) {
 
                         var p = context.pageNumber()-1; context.pageNumber(p); 
-                        context._onSelect(context.pageNumber,"previous"); 
+                        context._onSelect(p, "previous"); 
 
                     }
 
