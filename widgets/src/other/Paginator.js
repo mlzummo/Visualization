@@ -20,7 +20,7 @@
     
     Paginator.prototype.publish("itemsPerPage", 2, "number", "Pagination items per page");
     Paginator.prototype.publish("numItems", 10, "number", "Pagination total number of items");
-    Paginator.prototype.publish("pageNumber", 1, "number", "set or get the page number");
+    Paginator.prototype.publish("pageNumber", 1, "number", "Pagination set or get the page number");
 
     Paginator.prototype.enter = function (domNode, element) {
         HTMLWidget.prototype.enter.apply(this, arguments);
