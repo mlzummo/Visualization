@@ -35,11 +35,13 @@
         if (this.pageNumber() > this._tNumPages) { this.pageNumber(1); }
 
         this._numList = [];
-        this._numList.push("previous");
-        for (var i=0; i < this._tNumPages; i++) {
-            this._numList.push(i+1);
+        if (this.numItems()) {
+            this._numList.push("previous");
+            for (var i=0; i < this._tNumPages; i++) {
+                this._numList.push(i+1);
+            }
+            this._numList.push("next");
         }
-        this._numList.push("next");
         
         var page = this.paginator.selectAll("li").data(this._numList,function(d) { return d; });
         var pageText = page 
@@ -74,15 +76,16 @@
                     context.pageNumber(d); 
                     context._onSelect(d);
                 }
-            });
+            })
+        ;
             
-        pageText.text(function(d) { return d; });
+        page.classed("active", function(e, j) { return j == context._pageNumber; })
+            .select("a")
+            .text(function(d) { return d; })
+        ;
         
         page.exit().remove();
         page.order();
-
-        // set active page
-        this.paginator.selectAll("li").classed("active", function(e, j) { return j == context.pageNumber(); });
 
         if (this.numItems() == 0) { //change to .remove() or something
             d3.select(domNode).remove();
