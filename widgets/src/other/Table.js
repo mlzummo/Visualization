@@ -27,8 +27,6 @@
     Table.prototype.enter = function (domNode, element) {
         this.thead = element.append("thead").append("tr");
         this.tbody = element.append("tbody");
-        this.tfoot = element.append("tfoot");
-        //this.paginator.target(this.tfoot.node()); 
     };
 
     Table.prototype.update = function (domNode, element) {

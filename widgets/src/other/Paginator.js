@@ -7,17 +7,15 @@
 }(this, function (HTMLWidget) {
     function Paginator() {
         HTMLWidget.call(this);
-        this._class = "paginator";
+        this._class = "other_Paginator";
 
         this._tag = "div";
         
         this._pageNumber = 1
-        
-        this._onSelect;
 
-        this.np = 1;
+        this.tNumPages = 1; //np
 
-        this.pn = [];
+        this.numList = []; //pn
     };
     
     Paginator.prototype = Object.create(HTMLWidget.prototype);
@@ -33,16 +31,16 @@
 
     Paginator.prototype.update = function (domNode, element) {
         var context = this;
-        this.np = Math.ceil(this.numItems() / this.itemsPerPage()) || 1;
+        this.tNumPages = Math.ceil(this.numItems() / this.itemsPerPage()) || 1;
 
-        this.pn = [];
-        this.pn.push("previous");
-        for (var i=0; i < this.np; i++) {
-            this.pn.push(i+1);
+        this.numList = [];
+        this.numList.push("previous");
+        for (var i=0; i < this.tNumPages; i++) {
+            this.numList.push(i+1);
         }
-        this.pn.push("next");
+        this.numList.push("next");
         
-        var page = this.paginator.selectAll("li").data(this.pn,function(d) { return d; });
+        var page = this.paginator.selectAll("li").data(this.numList,function(d) { return d; });
         var pageText = page 
             .enter() 
             .append("li") 
@@ -55,7 +53,7 @@
                 
                 if (d=='next') {
 
-                    if ((context._pageNumber+1) <= context.np) {
+                    if ((context._pageNumber+1) <= context.tNumPages) {
       
                         context._pageNumber++;  
                         context._onSelect(context._pageNumber,"next"); 
