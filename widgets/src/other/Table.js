@@ -53,7 +53,8 @@
             }
 
             this._numItems(this._data.length);
-            if (this.pageNumber() > this._paginator.tNumPages) { this.pageNumber(1); } // resets if current pagenum selected out of range
+            this._tNumPages = Math.ceil(this._numItems() / this.itemsPerPage()) || 1; // make this into a function in paginator
+            if (this.pageNumber() > this._tNumPages ) { this.pageNumber(1); } // resets if current pagenum selected out of range
 
             this._paginator._onSelect = function(p, d) {
                 console.log('page: '+p);
@@ -82,7 +83,9 @@
         if (start ==0 && end == 6) {
             console.log("herere");
         }
-        
+        console.log("start: " + startIndex + "    " + itemsOnPage);
+        //console.log(end);
+        //console.log(tData);
         var rows = this.tbody.selectAll("tr").data(tData);
         rows
             .enter()
