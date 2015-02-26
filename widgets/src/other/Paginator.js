@@ -79,7 +79,7 @@
             })
         ;
             
-        page.classed("active", function(e, j) { return j == context._pageNumber; })
+        page.classed("active", function(e, j) { return j == context.pageNumber(); })
             .select("a")
             .text(function(d) { return d; })
         ;
