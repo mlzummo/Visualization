@@ -14,15 +14,14 @@
 
         this._columns = [];
 
-        this._pageNumber = 1; // TODO possibly handle this in the paginator instance itself?
-
-        this.paginator = new Paginator();    
+        this._paginator = new Paginator();
     };
     Table.prototype = Object.create(HTMLWidget.prototype);
 
     Table.prototype.publish("pagination", true, "boolean", "enable or disable pagination");
-    Table.prototype.publish("itemsPerPage", 2, "number", "Pagination items per page");
-    //Table.prototype.publish("numItems", 10, "number", "Pagination total number of items"); not needed
+    Table.prototype.publishProxy("itemsPerPage", "_paginator");
+    Table.prototype.publishProxy("_numItems", "_paginator", "numItems", true);
+    Table.prototype.publishProxy("pageNumber", "_paginator", "pageNumber", true);
 
     Table.prototype.enter = function (domNode, element) {
         this.thead = element.append("thead").append("tr");
@@ -44,47 +43,42 @@
             .remove()
         ;
 
-
         if (this.pagination()) {
-            if (this.paginator.target() == null) {
-                //this.paginator.target(this.tfoot.node());
+
+            if (this._paginator.target() == null) {
+
                 var pnode = document.getElementById(this.id()).parentNode.id 
-                this.paginator.target(pnode); 
-                //this.paginator.target(domNode); 
+                this._paginator.target(pnode); 
+
             }
 
-            this.paginator.itemsPerPage(this.itemsPerPage())
-            this.paginator.numItems(this._data.length)
+            this._numItems(this._data.length);
+            if (this.pageNumber() > this._paginator.tNumPages) { this.pageNumber(1); } // resets if current pagenum selected out of range
 
-            this.paginator._onSelect = function(p, d) {
+            this._paginator._onSelect = function(p, d) {
                 console.log('page: '+p);
-                context._pageNumber = p;
+                // context.pageNumber(p); // technically not needed due to tight coupling of widget
                 context.render();
                 return;
             };
-
-            // NOTE: change of itemsPerPage will cause reset of page number by design due to glitch
             
         } else {
-            this.paginator.numItems(0);
-            this.paginator.itemsPerPage(0);
-            this.paginator._pageNumber = 1;
+            this._numItems(0); // remove widget
         }
         
         // pageNumber starts at index 1
-        var pageNumber = this._pageNumber-1;
+        var startIndex = this.pageNumber()-1;
         var itemsOnPage = this.itemsPerPage();
         
-        var start = pageNumber * itemsOnPage;
-        var end = parseInt(pageNumber * itemsOnPage) + parseInt(itemsOnPage);
-        var tData;
-        
-        if (this.pagination()) {
-            tData = this._data.slice(start,end);
-        } else {
-            tData = this._data;
-        }
+        var start = startIndex * itemsOnPage;
+        var end = parseInt(startIndex * itemsOnPage) + parseInt(itemsOnPage);
 
+        if (this.pagination()) {
+            var tData = this._data.slice(start,end);
+        } else {
+            var tData = this._data;
+        }
+        
         var rows = this.tbody.selectAll("tr").data(tData);
         rows
             .enter()
@@ -93,6 +87,7 @@
                 context.click(context.rowToObj(d));
             })
         ;
+
         rows.exit()
             .remove()
         ;
@@ -115,7 +110,7 @@
             .remove()
         ;
 
-        this.paginator.render();
+        this._paginator.render();
 
     };
 
@@ -127,37 +122,23 @@
     Table.prototype.click = function (d) {
     };
 
-    Table.prototype.itemsPerPage = function (_) {
-        if (!arguments.length) return this._itemsPerPage;
-
-        if (this._itemsPerPage !== _ && _ != 0 ) { 
-            this._itemsPerPage = _;
-
-            // todo fix page number 1 thing? 
-            this._pageNumber = 1;
-            this.paginator._pageNumber = 1;
-            //this.paginator.render();
-        }
+    Table.prototype.testData = function(_) {
+        this.columns(["Lat", "Long", "Pin"])
+        this.data([
+            [ 37.665074, -122.384375, "green-dot.png" ],
+            [ 32.690680, -117.178540 ],
+            [ 39.709455, -104.969859 ],
+            [ 41.244123, -95.961610 ],
+            [ 32.688980, -117.192040 ],
+            [ 45.786490, -108.526600 ],
+            [ 45.796180, -108.535652 ],
+            [ 45.774320, -108.494370 ],
+            [ 45.777062, -108.549835, "red-dot.png" ]
+        ]);
         
         return this;
     };
 
-    Table.prototype.testData = function(_) {
-	    this.columns(["Lat", "Long", "Pin"])
-	    this.data([
-	        [ 37.665074, -122.384375, "green-dot.png" ],
-	        [ 32.690680, -117.178540 ],
-	        [ 39.709455, -104.969859 ],
-	        [ 41.244123, -95.961610 ],
-	        [ 32.688980, -117.192040 ],
-	        [ 45.786490, -108.526600 ],
-	        [ 45.796180, -108.535652 ],
-	        [ 45.774320, -108.494370 ],
-	        [ 45.777062, -108.549835, "red-dot.png" ]
-	    ]);
-    	
-    	return this;
-    };
 
     return Table;
 }));

@@ -10,18 +10,17 @@
         this._class = "other_Paginator";
 
         this._tag = "div";
-        
-        this._pageNumber = 1
 
-        this.tNumPages = 1; //np
+        this._tNumPages = 1; //np
 
-        this.numList = []; //pn
+        this._numList = []; //pn
     };
     
     Paginator.prototype = Object.create(HTMLWidget.prototype);
     
     Paginator.prototype.publish("itemsPerPage", 2, "number", "Pagination items per page");
     Paginator.prototype.publish("numItems", 10, "number", "Pagination total number of items");
+    Paginator.prototype.publish("pageNumber", 2, "number", "set or get the page number");
 
     Paginator.prototype.enter = function (domNode, element) {
         HTMLWidget.prototype.enter.apply(this, arguments);
@@ -31,16 +30,18 @@
 
     Paginator.prototype.update = function (domNode, element) {
         var context = this;
-        this.tNumPages = Math.ceil(this.numItems() / this.itemsPerPage()) || 1;
+        this._tNumPages = Math.ceil(this.numItems() / this.itemsPerPage()) || 1;
 
-        this.numList = [];
-        this.numList.push("previous");
-        for (var i=0; i < this.tNumPages; i++) {
-            this.numList.push(i+1);
+        if (this.pageNumber() > this._tNumPages) { this.pageNumber(1); }
+
+        this._numList = [];
+        this._numList.push("previous");
+        for (var i=0; i < this._tNumPages; i++) {
+            this._numList.push(i+1);
         }
-        this.numList.push("next");
+        this._numList.push("next");
         
-        var page = this.paginator.selectAll("li").data(this.numList,function(d) { return d; });
+        var page = this.paginator.selectAll("li").data(this._numList,function(d) { return d; });
         var pageText = page 
             .enter() 
             .append("li") 
@@ -53,25 +54,25 @@
                 
                 if (d=='next') {
 
-                    if ((context._pageNumber+1) <= context.tNumPages) {
+                    if ((context.pageNumber()+1) <= context._tNumPages) {
       
-                        context._pageNumber++;  
-                        context._onSelect(context._pageNumber,"next"); 
+                        var p = context.pageNumber()+1; context.pageNumber(p); 
+                        context._onSelect(context.pageNumber,"next"); 
 
                     }
 
                 } else if (d=='previous') {
 
-                    if ((context._pageNumber-1) >= 1) {
+                    if ((context.pageNumber() - 1) >= 1) {
 
-                        context._pageNumber--; 
-                        context._onSelect(context._pageNumber,"previous"); 
+                        var p = context.pageNumber()-1; context.pageNumber(p); 
+                        context._onSelect(context.pageNumber,"previous"); 
 
                     }
 
                 } else {
-                    context._pageNumber = d; 
-                    context._onSelect(context._pageNumber);
+                    context.pageNumber(d); 
+                    context._onSelect(d);
                 }
             });
             
@@ -81,27 +82,15 @@
         page.order();
 
         // set active page
-        this.paginator.selectAll("li").classed("active", function(e, j) { return j == context._pageNumber; });
+        this.paginator.selectAll("li").classed("active", function(e, j) { return j == context.pageNumber(); });
 
-        // delete all element(s) associated with paginator on removal
-        if (this.numItems() == 0) {
+        if (this.numItems() == 0) { //change to .remove() or something
             d3.select(domNode).remove();
         }        
     };
     
     Paginator.prototype.exit = function (domNode, element) {
         HTMLWidget.prototype.exit.apply(this, arguments);
-    };
-
-    Paginator.prototype.itemsPerPage = function (_) {
-        if (!arguments.length) return this._itemsPerPage;
-        
-        if (this._itemsPerPage != _ ) { 
-            this._itemsPerPage = _; 
-            //this._pageNumber = 1;         
-        }
-
-        return this;
     };
 
     return Paginator;
