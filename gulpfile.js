@@ -17,7 +17,7 @@ const appPaths = {
   dist: 'dist'
 }
 const libs = ["d3", "c3", "colorbrewer", "dagre", "topojson", "d3.layout.cloud", "font-awesome"];
-const bundles = ["common", "api", "chart", "c3chart", "google", "tree", "other", "layout", "graph", "map", "marshaller"];  //  Order is important ---
+const bundles = ["common", "api", "chart", "c3chart", "google", "tree", "other", "layout", "graph", "map", "marshaller", "amcharts"];  //  Order is important ---
 
 function buildModule(module, cb) {
   gutil.log('Building ' + module + '...')
