@@ -25,7 +25,6 @@ require.config({
         'amcharts.serial': "../bower_components/amcharts/dist/amcharts/serial",
         'amcharts.xy': "../bower_components/amcharts/dist/amcharts/xy",
         'amcharts.plugins.responsive': "../bower_components/amcharts/dist/amcharts/plugins/responsive/responsive",
-        'amcharts.plugins.dataloader': "../bower_components/amcharts/dist/amcharts/plugins/dataloader",
 
         "src": "../src"
     },
@@ -75,9 +74,6 @@ require.config({
         'amcharts.plugins.responsive': {
             deps: [ 'amcharts' ]
         },
-        'amcharts.plugins.dataloader': {
-            deps: [ 'amcharts' ]
-        }
     }
 });
 
