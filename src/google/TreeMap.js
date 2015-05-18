@@ -32,7 +32,7 @@
         
     TreeMap.prototype.publish("maxDepth", 1, "number", "The maximum number of node levels to show in the current view. Levels will be flattened into the current plane. If your tree has more levels than this, you will have to go up or down to see them. You can additionally see maxPostDepth levels below this as shaded rectangles within these nodes.",null,{tags:['Intermediate']});
     
-    TreeMap.prototype.publish("maxHighlightColor", null, "hmtl-color", "The highlight color to use for the node with the largest value in column 3. Specify an HTML color value or null; If null, this value will be the value of maxColor lightened by 35%",null,{tags:['Basic']});
+    TreeMap.prototype.publish("maxHighlightColor", null, "html-color", "The highlight color to use for the node with the largest value in column 3. Specify an HTML color value or null; If null, this value will be the value of maxColor lightened by 35%",null,{tags:['Basic']});
     
     TreeMap.prototype.publish("maxPostDepth", 0, "number", "How many levels of nodes beyond maxDepth to show in 'hinted' fashion. Hinted nodes are shown as shaded rectangles within a node that is within the maxDepth limit.",null,{tags:['Advanced']});
     
