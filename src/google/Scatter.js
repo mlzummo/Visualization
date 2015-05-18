@@ -39,8 +39,6 @@
 
     Scatter.prototype.publish("dataOpacity", 1.0, "number", "The transparency of data points, with 1.0 being completely opaque and 0.0 fully transparent. This refers to the visible data (i.e. dots).",null,{tags:['Basic']});
 
-    Scatter.prototype.publish("fontName", 'Arial', "string", "The default font face for all text in the chart. You can override this using properties for specific chart elements.",null,{tags:['Basic']});
- 
     Scatter.prototype.publish("axisFontSize", null, "number", "X/Y Axis Label Font Size",null,{tags:['Basic','Shared']});
     Scatter.prototype.publish("axisFontFamily", null, "string", "X/Y Axis Label Font Name",null,{tags:['Basic','Shared']});
 
