@@ -3,7 +3,7 @@
     if (typeof define === "function" && define.amd) {
         define(["d3", "../common/HTMLWidget", "goog!visualization,1,packages:[treemap]"], factory);
     } else {
-        root.TreeMap = factory(root.d3, root.HTMLWidget);
+        root.TreeMap = factory(root.d3, root.common_HTMLWidget);
     }
 }(this, function (d3, HTMLWidget) {
 
@@ -87,6 +87,7 @@
 
     TreeMap.prototype.enter = function (domNode, element) {
         element.style("overflow", "hidden");
+        HTMLWidget.prototype.enter.apply(this, arguments);
         this.treemapChart = new google.visualization.TreeMap(element.node());
     };
 

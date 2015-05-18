@@ -3,7 +3,7 @@
     if (typeof define === "function" && define.amd) {
         define(["d3", "../common/HTMLWidget", "goog!visualization,1,packages:[timeline]"], factory);
     } else {
-        root.Timeline = factory(root.d3, root.HTMLWidget);
+        root.Timeline = factory(root.d3, root.common_HTMLWidget);
     }
 }(this, function (d3, HTMLWidget) {
 
@@ -12,7 +12,7 @@
         
         this._class = "google_Timeline";
         this._tag = "div";
-        this._chartType = "TimelineChart";
+        this._chartType = "Timeline";
 
         this._data_google = [];
         this.columns([]);
@@ -62,13 +62,14 @@
 
     Timeline.prototype.enter = function (domNode, element) {
         element.style("overflow", "hidden");
-        this.timelineChart = new google.visualization.Timeline(element.node());
+        this._chart = new google.visualization[this._chartType](domNode);
+//        this.timelineChart = new google.visualization.Timeline(element.node());
     };
 
     Timeline.prototype.update = function (domNode, element) {
         HTMLWidget.prototype.update.apply(this, arguments);
        
-        this.timelineChart.draw(this._data_google, this.getChartOptions());
+        this._chart.draw(this._data_google, this.getChartOptions());
     };
     Timeline.prototype.data = function (_) {
         if (!_) {return;}
