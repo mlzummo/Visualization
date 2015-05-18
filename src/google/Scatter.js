@@ -20,17 +20,15 @@
      */
     Scatter.prototype.publish("aggregationTarget", "auto", "string", "How multiple data selections are rolled up into tooltips: 'category'- Group selected data by x-value; 'series'- Group selected data by series; 'auto'- Group selected data by x-value if all selections have the same x-value, and by series otherwise; 'none'- Show only one tooltip per selection.  aggregationTarget will often be used in tandem with selectionMode and tooltip.trigger",null,{tags:['Basic']});
     
-    Scatter.prototype.publish("curveType", null, "string", "Controls the curve of the lines when the line width is not zero. Can be one of the following: 'none' - Straight lines without curve; 'function' - The angles of the line will be smoothed..",null,{tags:['Basic']});
-      
-    Scatter.prototype.publish("orientation", "horizontal", "string", "The orientation of the chart. When set to 'vertical', rotates the axes of the chart.",null,{tags:['Basic']});
+    Scatter.prototype.publish("curveType", "none", "set", "Controls the curve of the lines when the line width is not zero. Can be one of the following: 'none' - Straight lines without curve; 'function' - The angles of the line will be smoothed..",['none', 'function'],{tags:['Basic']});
 
-    Scatter.prototype.publish("pointShape", "circle", "string", "The shape of individual data elements: 'circle', 'triangle', 'square', 'diamond', 'star', or 'polygon'.",null,{tags:['Basic']});
+    Scatter.prototype.publish("pointShape", "circle", "set", "The shape of individual data elements: 'circle', 'triangle', 'square', 'diamond', 'star', or 'polygon'.",['circle', 'triangle', 'square', 'diamond', 'star', 'polygon'],{tags:['Basic']});
     
     Scatter.prototype.publish("pointSize", 7, "number", "Diameter of data points, in pixels. Use zero to hide all points.",null,{tags:['Basic']});
     
     Scatter.prototype.publish("pointsVisible", true, "boolean", "Determines whether points will be displayed. Set to false to hide all points.",null,{tags:['Basic']});
     
-    Scatter.prototype.publish("selectionMode", null, "string", "When selectionMode is 'multiple', users may select multiple data points.",null,{tags:['Basic']});
+    Scatter.prototype.publish("selectionMode", 'single', "set", "When selectionMode is 'multiple', users may select multiple data points.",['single','multiple'],{tags:['Basic']});
     
      /**
      * Publish Params Common To Other Libraries
@@ -58,12 +56,6 @@
     Scatter.prototype.publish("yAxisTitleFontFamily", null, "string", "Vertical Axis Title Text Style (Font Name)",null,{tags:['Intermediate','Shared']});
 
     Scatter.prototype.publish("xAxisLabelRotation", 0, "number", "X Axis Label Angle",null,{tags:['Intermediate','Shared']});
-
-    Scatter.prototype.publish("xAxisBaseline", null, "number", "Specifies the color of the baseline for the horizontal axis",null,{tags:['Intermediate']});
-    Scatter.prototype.publish("yAxisBaseline", null, "number", "Specifies the color of the baseline for the vertical axis",null,{tags:['Intermediate']});
-    
-    Scatter.prototype.publish("xAxisInversed", false, "boolean", "The Direction In Which The Values Along The Horizontal Axis Grow.",null,{tags:['Advanced']});
-    Scatter.prototype.publish("yAxisInversed", false, "boolean", "The Direction In Which The Values Along The Vertical Axis Grow.",null,{tags:['Advanced']});
 
     Scatter.prototype.publish("xAxisTitle", "", "string", "X Axis Title",null,{tags:['Basic','Shared']});
     Scatter.prototype.publish("yAxisTitle", "", "string", "Y Axis Title",null,{tags:['Basic','Shared']});
@@ -112,20 +104,17 @@
 
         retVal.aggregationTarget = this.aggregationTarget();
         retVal.curveType = this.curveType();
-        retVal.orientation = this.orientation();
         retVal.pointShape = this.pointShape();
         retVal.pointSize = this.pointSize();
         retVal.pointsVisible = this.pointsVisible();
         retVal.selectionMode = this.selectionMode();
         retVal.backgroundColor = this.backgroundColor();
         retVal.dataOpacity = this.dataOpacity();
-        retVal.fontName = this.fontName();
 
         retVal.hAxis = {};
         retVal.vAxis = {};
 
         // hAxis
-        retVal.hAxis.baseline = this.xAxisBaseline();
         retVal.hAxis.gridlines = {
             count: this.xAxisGridlinesCount(),
             color: this.xAxisGridlinesColor()
@@ -162,9 +151,7 @@
         };
 
         // vAxis
-        retVal.vAxis.baseline = this.yAxisBaseline();
         retVal.vAxis.baselineColor = this.yAxisBaselineColor();
-        retVal.vAxis.direction = this.yAxisInversed() ? -1 : 1;
         retVal.vAxis.gridlines = {
             count: this.yAxisGridlinesCount(),
             color: this.yAxisGridlinesColor()
@@ -197,6 +184,8 @@
             min: this.yAxisViewWindowMin(),
             max: this.yAxisViewWindowMax()
         };
+        
+        return retVal;
     };
 
     Scatter.prototype.enter = function (domNode, element) {

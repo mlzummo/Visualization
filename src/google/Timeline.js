@@ -25,7 +25,7 @@
      */
       Timeline.prototype.publish("tooltipIsHtml", "true", "boolean", "Set to false to use SVG-rendered (rather than HTML-rendered) tooltips. See Customizing Tooltip Content for more details.",null,{tags:['Advanced']});
     
-    Timeline.prototype.publish("tooltipTrigger", "focus", "string", "The user interaction that causes the tooltip to be displayed: 'focus' - The tooltip will be displayed when the user hovers over the element; 'none' - The tooltip will not be displayed.",null,{tags:['Basic']});
+    Timeline.prototype.publish("tooltipTrigger", "focus", "set", "The user interaction that causes the tooltip to be displayed: 'focus' - The tooltip will be displayed when the user hovers over the element; 'none' - The tooltip will not be displayed.",['none', 'focus'],{tags:['Basic']});
     
     Timeline.prototype.publish("backgroundColor", null, "html-color", "The background color for the main area of the chart. Can be either a simple HTML color string, for example: 'red' or '#00cc00'.",null,{tags:['Basic']});
  
@@ -63,7 +63,6 @@
     Timeline.prototype.enter = function (domNode, element) {
         element.style("overflow", "hidden");
         this._chart = new google.visualization[this._chartType](domNode);
-//        this.timelineChart = new google.visualization.Timeline(element.node());
     };
 
     Timeline.prototype.update = function (domNode, element) {
