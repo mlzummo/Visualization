@@ -17,7 +17,7 @@
         this._data_google = [];
         this.columns([]);
         this.data([]);
-    };
+    }
     Timeline.prototype = Object.create(HTMLWidget.prototype);
 
     /**
@@ -71,7 +71,7 @@
         this.timelineChart.draw(this._data_google, this.getChartOptions());
     };
     Timeline.prototype.data = function (_) {
-        if (!_) {return;};
+        if (!_) {return;}
         var context = this;
 
         if (arguments.length) {
