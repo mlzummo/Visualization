@@ -71,14 +71,14 @@
         this._chart.draw(this._data_google, this.getChartOptions());
     };
     Timeline.prototype.data = function (_) {
-        if (!_) {return;}
+        this._data = _;
         var context = this;
 
         if (arguments.length) {
             this._data_google = new google.visualization.DataTable();
 
             this._data_google.addColumn({ type: 'string', id: 'Label A' });
-            this._data_google.addColumn({ type: 'string', id: 'Label B' }); // optional 
+            this._data_google.addColumn({ type: 'string', id: 'Label B' });  
             this._data_google.addColumn({ type: 'date', id: 'start' });
             this._data_google.addColumn({ type: 'date', id: 'end' });
 
@@ -103,6 +103,6 @@
         ]);
         return this;
     };
- 
+
     return Timeline;
 }));
