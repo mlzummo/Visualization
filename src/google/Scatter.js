@@ -19,23 +19,29 @@
      * Publish Params Unique To This Widget
      */
     Scatter.prototype.publish("aggregationTarget", "auto", "string", "How multiple data selections are rolled up into tooltips: 'category'- Group selected data by x-value; 'series'- Group selected data by series; 'auto'- Group selected data by x-value if all selections have the same x-value, and by series otherwise; 'none'- Show only one tooltip per selection.  aggregationTarget will often be used in tandem with selectionMode and tooltip.trigger",null,{tags:['Basic']});
-    
     Scatter.prototype.publish("curveType", "none", "set", "Controls the curve of the lines when the line width is not zero. Can be one of the following: 'none' - Straight lines without curve; 'function' - The angles of the line will be smoothed..",['none', 'function'],{tags:['Basic']});
-
     Scatter.prototype.publish("pointShape", "circle", "set", "The shape of individual data elements: 'circle', 'triangle', 'square', 'diamond', 'star', or 'polygon'.",['circle', 'triangle', 'square', 'diamond', 'star', 'polygon'],{tags:['Basic']});
-    
     Scatter.prototype.publish("pointSize", 7, "number", "Diameter of data points, in pixels. Use zero to hide all points.",null,{tags:['Basic']});
-    
     Scatter.prototype.publish("pointsVisible", true, "boolean", "Determines whether points will be displayed. Set to false to hide all points.",null,{tags:['Basic']});
-    
     Scatter.prototype.publish("selectionMode", 'single', "set", "When selectionMode is 'multiple', users may select multiple data points.",['single','multiple'],{tags:['Basic']});
-    
+
      /**
      * Publish Params Common To Other Libraries
      */
     Scatter.prototype.publish("backgroundColor", null, "html-color", "The background color for the main area of the chart. Can be either a simple HTML color string, for example: 'red' or '#00cc00', or an object with the following properties.",null,{tags:['Basic']});
-
     Scatter.prototype.publish("dataOpacity", 1.0, "number", "The transparency of data points, with 1.0 being completely opaque and 0.0 fully transparent. This refers to the visible data (i.e. dots).",null,{tags:['Basic']});
+    
+    Scatter.prototype.publish("tooltipIsHtml", "true", "boolean", "Set to false to use SVG-rendered (rather than HTML-rendered) tooltips.",null,{tags:['Advanced']});
+    
+    Scatter.prototype.publish("tooltipTrigger", "focus", "set", "The user interaction that causes the tooltip to be displayed: 'focus' - The tooltip will be displayed when the user hovers over the element; 'none' - The tooltip will not be displayed.",['none', 'focus', 'selection'],{tags:['Basic']});
+
+    Scatter.prototype.publish("crosshairTrigger", "both", "set", "The crosshair color, expressed as either a color name (e.g., 'blue'') or an RGB value (e.g., '#adf').",['both', 'focus', 'selection'],{tags:['Basic']});
+    
+    Scatter.prototype.publish("crosshairColor", null, "html-color", "The crosshair color, expressed as either a color name (e.g., 'blue'') or an RGB value (e.g., '#adf').",null,{tags:['Basic']});
+    
+    Scatter.prototype.publish("crosshairOpacity", 0.7, "number", "The crosshair opacity, with 0.0 being fully transparent and 1.0 fully opaque.",null,{tags:['Basic']});
+    
+    Scatter.prototype.publish("crosshairOrientation", null, "set", "The crosshair orientation, which can be 'vertical' for vertical hairs only, 'horizontal' for horizontal hairs only, or 'both' for traditional crosshairs.",['both', 'vertical', 'horizontal'],{tags:['Basic']});
 
     Scatter.prototype.publish("axisFontSize", null, "number", "X/Y Axis Label Font Size",null,{tags:['Basic','Shared']});
     Scatter.prototype.publish("axisFontFamily", null, "string", "X/Y Axis Label Font Name",null,{tags:['Basic','Shared']});
@@ -59,7 +65,7 @@
 
     Scatter.prototype.publish("xAxisTitle", "", "string", "X Axis Title",null,{tags:['Basic','Shared']});
     Scatter.prototype.publish("yAxisTitle", "", "string", "Y Axis Title",null,{tags:['Basic','Shared']});
-    
+
     Scatter.prototype.publish("xAxisFormat", "", "string", "Format String For Numeric Axis Labels", ["","decimal","scientific","currency","percent","short","long"],{tags:['Intermediate']});
     Scatter.prototype.publish("yAxisFormat", "", "string", "Format String For Numeric Axis Labels", ["","decimal","scientific","currency","percent","short","long"],{tags:['Intermediate']});
 
@@ -110,6 +116,15 @@
         retVal.selectionMode = this.selectionMode();
         retVal.backgroundColor = this.backgroundColor();
         retVal.dataOpacity = this.dataOpacity();
+        retVal.tooltipIsHtml = this.tooltipIsHtml();
+        retVal.tooltipTrigger = this.tooltipTrigger();
+        
+        retVal.crosshair = {
+            color: this.crosshairColor(),
+            orientation: this.crosshairOrientation(),
+            opacity: this.crosshairOpacity(),
+            trigger: this.crosshairTrigger()
+        };
 
         retVal.hAxis = {};
         retVal.vAxis = {};
@@ -184,38 +199,17 @@
             min: this.yAxisViewWindowMin(),
             max: this.yAxisViewWindowMax()
         };
-        
+
         return retVal;
     };
 
     Scatter.prototype.enter = function (domNode, element) {
-        CommonND.prototype.enter.apply(this, arguments); 
+        CommonND.prototype.enter.apply(this, arguments);
     };
 
     Scatter.prototype.update = function (domNode, element) {
         CommonND.prototype.update.apply(this, arguments);
     };
-    
-    Scatter.prototype.data = function (_) {
-        var retVal = HTMLWidget.prototype.data.apply(this, arguments);
-        if (arguments.length) {
-            var data = null;
-            if (this._data.length) {
-                this._columns.shift();
-                this._data.forEach(function(value) {
-                    value.shift();
-                });
-                data = [this._columns].concat(this._data);
-            } else {
-                data = [
-                    ['', { role: 'annotation' }],
-                    ['', '']
-                ];
-            }
-            this._data_google = google.visualization.arrayToDataTable(data);
-        }
-        return retVal;
-    };
- 
+
     return Scatter;
 }));
