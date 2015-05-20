@@ -162,7 +162,7 @@
            'Column 4 Label: ' + data.getColumnLabel(3) + ', Value: ' + data.getValue(row, 3) + '<br>' +
            'Datatable row #: ' + row + '<br>' +
            data.getColumnLabel(2) +' (total value of this cell and its children): ' + size + '<br>' +
-	   data.getColumnLabel(3) + ': ' + value + ' </div>';      };
+     data.getColumnLabel(3) + ': ' + value + ' </div>';      };
  
     return TreeMap;
 }));
