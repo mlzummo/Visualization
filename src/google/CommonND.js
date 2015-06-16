@@ -1,3 +1,6 @@
+/**
+ * @module google/CommonND
+ */
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -6,7 +9,10 @@
         root.google_CommonND = factory(root.d3, root.google_Common, root.api_INDChart);
     }
 }(this, function (d3, Common, INDChart) {
-
+    /**
+     * @class google:CommonND
+     * @classdesc Base CommonND Class for ND Data Charts
+     */
     function CommonND() {
         Common.call(this);
         INDChart.call(this);
@@ -17,6 +23,13 @@
 
     /**
      * Publish Params Common To Other Libraries
+     */
+
+
+    /**
+     * @name paletteID
+     * @method
+     * @param {string} value - The name of the palette to set for the widget.
      */
     CommonND.prototype.publish("paletteID", "default", "set", "Palette ID", CommonND.prototype._palette.switch(),{tags:['Basic','Shared']});
 
@@ -31,7 +44,7 @@
 
         return chartOptions;
     };
-    
+
     CommonND.prototype.update = function (domNode, element) {
         this._palette = this._palette.switch(this.paletteID());
         Common.prototype.update.apply(this, arguments);

@@ -1,3 +1,6 @@
+/**
+ * @module google/Area
+ */
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -6,7 +9,15 @@
         root.google_Area = factory(root.d3, root.google_CommonND);
     }
 }(this, function (d3, CommonND) {
+    /**
+     * @class google:Area
+     * @classdesc Google Area Class
+     * @extends google:CommonND
+     */
 
+    /**
+    * @constructor
+    */
     function Area() {
         CommonND.call(this);
 
@@ -18,7 +29,19 @@
     /**
      * Publish Params Common To Other Libraries
      */
+
+    /**
+     * @name isStacked
+     * @method
+     * @param {boolean} value - Stacks The Elements In A Series.
+     */
     Area.prototype.publish("isStacked", false, "boolean", "Stacks The Elements In A Series",null,{tags:['Advanced','Shared']});
+
+    /**
+     * @name fillOpacity
+     * @method
+     * @param {number} value - Opacity of The Fill Color.
+     */
     Area.prototype.publish("fillOpacity", null, "number", "Opacity of The Fill Color",null,{tags:['Intermediate','Shared']});
 
     Area.prototype.publish("axisFontSize", null, "number", "X/Y Axis Label Font Size",null,{tags:['Basic','Shared']});

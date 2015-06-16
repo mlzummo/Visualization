@@ -1,3 +1,6 @@
+/**
+ * @module google/Bar
+ */
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -6,7 +9,11 @@
         root.google_Bar = factory(root.d3, root.google_CommonND);
     }
 }(this, function (d3, CommonND) {
-
+    /**
+     * @class google:Bar
+     * @classdesc Google Bar Class
+     * @extends google:CommonND
+     */
     function Bar() {
         CommonND.call(this);
 
@@ -18,8 +25,20 @@
     /**
      * Publish Params Common To Other Libraries
      */
+
+    /**
+     * @name isStacked
+     * @method
+     * @param {boolean} value - Stacks The Elements In A Series.
+     */
     Bar.prototype.publish("isStacked", false, "boolean", "Stacks the elements in a series",null,{tags:['Basic','Shared']});
     //opacity?
+
+    /**
+     * @name axisFontSize
+     * @method
+     * @param {number} value - X/Y Axis Label Font Size.
+     */
     Bar.prototype.publish("axisFontSize", null, "number", "X/Y Axis Label Font Size",null,{tags:['Basic','Shared']});
     Bar.prototype.publish("axisFontFamily", null, "string", "X/Y Axis Label Font Name",null,{tags:['Basic','Shared']});
 
