@@ -1,6 +1,3 @@
-/**
- * @module google/Area
- */
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -10,14 +7,10 @@
     }
 }(this, function (d3, CommonND) {
     /**
-     * @class google:Area
+     * @class google/Area
      * @classdesc Google Area Class
-     * @extends google:CommonND
+     * @extends google/CommonND
      */
-
-    /**
-    * @constructor
-    */
     function Area() {
         CommonND.call(this);
 
@@ -31,9 +24,11 @@
      */
 
     /**
+     * Stacks The Elements In A Series
      * @name isStacked
      * @method
-     * @param {boolean} value - Stacks The Elements In A Series.
+     * @param {boolean} value
+     * @memberof google/Area
      */
     Area.prototype.publish("isStacked", false, "boolean", "Stacks The Elements In A Series",null,{tags:['Advanced','Shared']});
 

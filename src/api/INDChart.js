@@ -6,6 +6,9 @@
         root.api_INDChart = factory(root.common_Palette);
     }
 }(this, function (Palette) {
+    /**
+     * @interface api/INDChart
+     */
     function INDChart() {
     }
     INDChart.prototype._palette = Palette.ordinal("default");
@@ -22,7 +25,7 @@
                     [40, 66, 60, 86]
                 ]);
                 break;
-                
+
             default:
                 this.columns(["Subject", "Year 1", "Year 2", "Year 3"]);
                 this.data([
@@ -33,7 +36,7 @@
                 ]);
                 break;
         }
-       
+
         return this;
     };
 

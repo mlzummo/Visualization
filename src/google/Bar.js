@@ -1,6 +1,3 @@
-/**
- * @module google/Bar
- */
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -10,9 +7,9 @@
     }
 }(this, function (d3, CommonND) {
     /**
-     * @class google:Bar
+     * @class google/Bar
      * @classdesc Google Bar Class
-     * @extends google:CommonND
+     * @extends {google/CommonND}
      */
     function Bar() {
         CommonND.call(this);
@@ -29,6 +26,7 @@
     /**
      * @name isStacked
      * @method
+     * @default false
      * @param {boolean} value - Stacks The Elements In A Series.
      */
     Bar.prototype.publish("isStacked", false, "boolean", "Stacks the elements in a series",null,{tags:['Basic','Shared']});

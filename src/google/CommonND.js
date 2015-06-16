@@ -1,6 +1,3 @@
-/**
- * @module google/CommonND
- */
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -10,8 +7,11 @@
     }
 }(this, function (d3, Common, INDChart) {
     /**
-     * @class google:CommonND
+     * @class google/CommonND
+     * @extends google/Common
+     * @implements api/INDChart
      * @classdesc Base CommonND Class for ND Data Charts
+     * @inheritdoc
      */
     function CommonND() {
         Common.call(this);
@@ -19,6 +19,7 @@
     }
     CommonND.prototype = Object.create(Common.prototype);
     CommonND.prototype._class += " google_CommonND";
+
     CommonND.prototype.implements(INDChart.prototype);
 
     /**

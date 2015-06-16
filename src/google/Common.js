@@ -6,7 +6,10 @@
         root.google_Common = factory(root.d3, root.common_HTMLWidget);
     }
 }(this, function (d3, HTMLWidget) {
-
+    /**
+     * @class google/Common
+     * @classdesc Base Common Class for Google Charts
+     */
     function Common(tget) {
         HTMLWidget.call(this);
 
@@ -23,6 +26,15 @@
 
     /**
      * Publish Params Common To Other Libraries
+     */
+
+    /**
+     * @name fontSize
+     * @method
+     * @property {number} value - The name of the palette to set for the widget.
+     * @memberof google/Common
+     * @public
+     * @instance
      */
     Common.prototype.publish("fontSize", null, "number", "Font Size",null,{tags:['Basic','Shared']});
     Common.prototype.publish("fontFamily", null, "string", "Font Name",null,{tags:['Basic','Shared']});
@@ -135,7 +147,7 @@
         };
         return chartOptions;
     };
-    
+
     Common.prototype.getNumSeries = function () {
         return this._columns.slice(1).length;
     };
