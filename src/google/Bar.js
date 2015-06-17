@@ -7,9 +7,9 @@
     }
 }(this, function (d3, CommonND) {
     /**
-     * @class google/Bar
+     * @class google_Bar
      * @classdesc Google Bar Class
-     * @extends {google/CommonND}
+     * @extends google_CommonND
      */
     function Bar() {
         CommonND.call(this);
@@ -28,6 +28,7 @@
      * @method
      * @default false
      * @param {boolean} value - Stacks The Elements In A Series.
+     * @memberof google_Bar
      */
     Bar.prototype.publish("isStacked", false, "boolean", "Stacks the elements in a series",null,{tags:['Basic','Shared']});
     //opacity?
@@ -36,6 +37,7 @@
      * @name axisFontSize
      * @method
      * @param {number} value - X/Y Axis Label Font Size.
+     * @memberof google_Bar
      */
     Bar.prototype.publish("axisFontSize", null, "number", "X/Y Axis Label Font Size",null,{tags:['Basic','Shared']});
     Bar.prototype.publish("axisFontFamily", null, "string", "X/Y Axis Label Font Name",null,{tags:['Basic','Shared']});

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>demos\bower_components\codemirror\mode\tiddlywiki\tiddlywiki.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/fabric.BaseBrush.html">fabric.BaseBrush</a></li>
+                                <li><a href="../classes/fabric.Canvas.html">fabric.Canvas</a></li>
+                                <li><a href="../classes/fabric.Circle.html">fabric.Circle</a></li>
+                                <li><a href="../classes/fabric.CircleBrush.html">fabric.CircleBrush</a></li>
+                                <li><a href="../classes/fabric.Color.html">fabric.Color</a></li>
+                                <li><a href="../classes/fabric.Element.html">fabric.Element</a></li>
+                                <li><a href="../classes/fabric.Ellipse.html">fabric.Ellipse</a></li>
+                                <li><a href="../classes/fabric.Gradient.html">fabric.Gradient</a></li>
+                                <li><a href="../classes/fabric.Group.html">fabric.Group</a></li>
+                                <li><a href="../classes/fabric.Image.filters.BaseFilter.html">fabric.Image.filters.BaseFilter</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Brightness.html">fabric.Image.filters.Brightness</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Convolute.html">fabric.Image.filters.Convolute</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Creates an instance of a PdfPrinter which turns document definition into a pdf.html">fabric.Image.filters.Creates an instance of a PdfPrinter which turns document definition into a pdf</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Image.html">fabric.Image.filters.fabric.Image</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Image.filter.Blend.html">fabric.Image.filters.fabric.Image.filter.Blend</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.IText.html">fabric.Image.filters.fabric.IText</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Text.html">fabric.Image.filters.fabric.Text</a></li>
+                                <li><a href="../classes/fabric.Image.filters.GradientTransparency.html">fabric.Image.filters.GradientTransparency</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Grayscale.html">fabric.Image.filters.Grayscale</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Invert.html">fabric.Image.filters.Invert</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Mask.html">fabric.Image.filters.Mask</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Multiply.html">fabric.Image.filters.Multiply</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Noise.html">fabric.Image.filters.Noise</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Pixelate.html">fabric.Image.filters.Pixelate</a></li>
+                                <li><a href="../classes/fabric.Image.filters.RemoveWhite.html">fabric.Image.filters.RemoveWhite</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Resize.html">fabric.Image.filters.Resize</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Sepia.html">fabric.Image.filters.Sepia</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Sepia2.html">fabric.Image.filters.Sepia2</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Tint.html">fabric.Image.filters.Tint</a></li>
+                                <li><a href="../classes/fabric.Intersection.html">fabric.Intersection</a></li>
+                                <li><a href="../classes/fabric.Line.html">fabric.Line</a></li>
+                                <li><a href="../classes/fabric.Object.html">fabric.Object</a></li>
+                                <li><a href="../classes/fabric.Path.html">fabric.Path</a></li>
+                                <li><a href="../classes/fabric.PathGroup.html">fabric.PathGroup</a></li>
+                                <li><a href="../classes/fabric.Pattern.html">fabric.Pattern</a></li>
+                                <li><a href="../classes/fabric.PatternBrush.html">fabric.PatternBrush</a></li>
+                                <li><a href="../classes/fabric.PencilBrush.html">fabric.PencilBrush</a></li>
+                                <li><a href="../classes/fabric.Point.html">fabric.Point</a></li>
+                                <li><a href="../classes/fabric.Polygon.html">fabric.Polygon</a></li>
+                                <li><a href="../classes/fabric.Polyline.html">fabric.Polyline</a></li>
+                                <li><a href="../classes/fabric.Rect.html">fabric.Rect</a></li>
+                                <li><a href="../classes/fabric.Shadow.html">fabric.Shadow</a></li>
+                                <li><a href="../classes/fabric.SprayBrush.html">fabric.SprayBrush</a></li>
+                                <li><a href="../classes/fabric.StaticCanvas.html">fabric.StaticCanvas</a></li>
+                                <li><a href="../classes/fabric.Triangle.html">fabric.Triangle</a></li>
+                                <li><a href="../classes/google/Area.html">google/Area</a></li>
+                                <li><a href="../classes/google/Bar.html">google/Bar</a></li>
+                                <li><a href="../classes/google/Common.html">google/Common</a></li>
+                                <li><a href="../classes/google/CommonND.html">google/CommonND</a></li>
+                                <li><a href="../classes/jsPDF.html">jsPDF</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/google_Area.html">google/Area</a></li>
+                                <li><a href="../modules/google_Bar.html">google/Bar</a></li>
+                                <li><a href="../modules/google_Common.html">google/Common</a></li>
+                                <li><a href="../modules/google_CommonND.html">google/CommonND</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: demos\bower_components\codemirror\mode\tiddlywiki\tiddlywiki.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+// CodeMirror, copyright (c) by Marijn Haverbeke and others
+// Distributed under an MIT license: http://codemirror.net/LICENSE
+
+/***
+    |&#x27;&#x27;Name&#x27;&#x27;|tiddlywiki.js|
+    |&#x27;&#x27;Description&#x27;&#x27;|Enables TiddlyWikiy syntax highlighting using CodeMirror|
+    |&#x27;&#x27;Author&#x27;&#x27;|PMario|
+    |&#x27;&#x27;Version&#x27;&#x27;|0.1.7|
+    |&#x27;&#x27;Status&#x27;&#x27;|&#x27;&#x27;stable&#x27;&#x27;|
+    |&#x27;&#x27;Source&#x27;&#x27;|[[GitHub|https://github.com/pmario/CodeMirror2/blob/tw-syntax/mode/tiddlywiki]]|
+    |&#x27;&#x27;Documentation&#x27;&#x27;|http://codemirror.tiddlyspace.com/|
+    |&#x27;&#x27;License&#x27;&#x27;|[[MIT License|http://www.opensource.org/licenses/mit-license.php]]|
+    |&#x27;&#x27;CoreVersion&#x27;&#x27;|2.5.0|
+    |&#x27;&#x27;Requires&#x27;&#x27;|codemirror.js|
+    |&#x27;&#x27;Keywords&#x27;&#x27;|syntax highlighting color code mirror codemirror|
+    ! Info
+    CoreVersion parameter is needed for TiddlyWiki only!
+***/
+//{{{
+
+(function(mod) {
+  if (typeof exports == &quot;object&quot; &amp;&amp; typeof module == &quot;object&quot;) // CommonJS
+    mod(require(&quot;../../lib/codemirror&quot;));
+  else if (typeof define == &quot;function&quot; &amp;&amp; define.amd) // AMD
+    define([&quot;../../lib/codemirror&quot;], mod);
+  else // Plain browser env
+    mod(CodeMirror);
+})(function(CodeMirror) {
+&quot;use strict&quot;;
+
+CodeMirror.defineMode(&quot;tiddlywiki&quot;, function () {
+  // Tokenizer
+  var textwords = {};
+
+  var keywords = function () {
+    function kw(type) {
+      return { type: type, style: &quot;macro&quot;};
+    }
+    return {
+      &quot;allTags&quot;: kw(&#x27;allTags&#x27;), &quot;closeAll&quot;: kw(&#x27;closeAll&#x27;), &quot;list&quot;: kw(&#x27;list&#x27;),
+      &quot;newJournal&quot;: kw(&#x27;newJournal&#x27;), &quot;newTiddler&quot;: kw(&#x27;newTiddler&#x27;),
+      &quot;permaview&quot;: kw(&#x27;permaview&#x27;), &quot;saveChanges&quot;: kw(&#x27;saveChanges&#x27;),
+      &quot;search&quot;: kw(&#x27;search&#x27;), &quot;slider&quot;: kw(&#x27;slider&#x27;),   &quot;tabs&quot;: kw(&#x27;tabs&#x27;),
+      &quot;tag&quot;: kw(&#x27;tag&#x27;), &quot;tagging&quot;: kw(&#x27;tagging&#x27;),       &quot;tags&quot;: kw(&#x27;tags&#x27;),
+      &quot;tiddler&quot;: kw(&#x27;tiddler&#x27;), &quot;timeline&quot;: kw(&#x27;timeline&#x27;),
+      &quot;today&quot;: kw(&#x27;today&#x27;), &quot;version&quot;: kw(&#x27;version&#x27;),   &quot;option&quot;: kw(&#x27;option&#x27;),
+
+      &quot;with&quot;: kw(&#x27;with&#x27;),
+      &quot;filter&quot;: kw(&#x27;filter&#x27;)
+    };
+  }();
+
+  var isSpaceName = /[\w_\-]/i,
+  reHR = /^\-\-\-\-+$/,                                 // &lt;hr&gt;
+  reWikiCommentStart = /^\/\*\*\*$/,            // /***
+  reWikiCommentStop = /^\*\*\*\/$/,             // ***/
+  reBlockQuote = /^&lt;&lt;&lt;$/,
+
+  reJsCodeStart = /^\/\/\{\{\{$/,                       // //{{{ js block start
+  reJsCodeStop = /^\/\/\}\}\}$/,                        // //}}} js stop
+  reXmlCodeStart = /^&lt;!--\{\{\{--&gt;$/,           // xml block start
+  reXmlCodeStop = /^&lt;!--\}\}\}--&gt;$/,            // xml stop
+
+  reCodeBlockStart = /^\{\{\{$/,                        // {{{ TW text div block start
+  reCodeBlockStop = /^\}\}\}$/,                 // }}} TW text stop
+
+  reUntilCodeStop = /.*?\}\}\}/;
+
+  function chain(stream, state, f) {
+    state.tokenize = f;
+    return f(stream, state);
+  }
+
+  function jsTokenBase(stream, state) {
+    var sol = stream.sol(), ch;
+
+    state.block = false;        // indicates the start of a code block.
+
+    ch = stream.peek();         // don&#x27;t eat, to make matching simpler
+
+    // check start of  blocks
+    if (sol &amp;&amp; /[&lt;\/\*{}\-]/.test(ch)) {
+      if (stream.match(reCodeBlockStart)) {
+        state.block = true;
+        return chain(stream, state, twTokenCode);
+      }
+      if (stream.match(reBlockQuote)) {
+        return &#x27;quote&#x27;;
+      }
+      if (stream.match(reWikiCommentStart) || stream.match(reWikiCommentStop)) {
+        return &#x27;comment&#x27;;
+      }
+      if (stream.match(reJsCodeStart) || stream.match(reJsCodeStop) || stream.match(reXmlCodeStart) || stream.match(reXmlCodeStop)) {
+        return &#x27;comment&#x27;;
+      }
+      if (stream.match(reHR)) {
+        return &#x27;hr&#x27;;
+      }
+    } // sol
+    ch = stream.next();
+
+    if (sol &amp;&amp; /[\/\*!#;:&gt;|]/.test(ch)) {
+      if (ch == &quot;!&quot;) { // tw header
+        stream.skipToEnd();
+        return &quot;header&quot;;
+      }
+      if (ch == &quot;*&quot;) { // tw list
+        stream.eatWhile(&#x27;*&#x27;);
+        return &quot;comment&quot;;
+      }
+      if (ch == &quot;#&quot;) { // tw numbered list
+        stream.eatWhile(&#x27;#&#x27;);
+        return &quot;comment&quot;;
+      }
+      if (ch == &quot;;&quot;) { // definition list, term
+        stream.eatWhile(&#x27;;&#x27;);
+        return &quot;comment&quot;;
+      }
+      if (ch == &quot;:&quot;) { // definition list, description
+        stream.eatWhile(&#x27;:&#x27;);
+        return &quot;comment&quot;;
+      }
+      if (ch == &quot;&gt;&quot;) { // single line quote
+        stream.eatWhile(&quot;&gt;&quot;);
+        return &quot;quote&quot;;
+      }
+      if (ch == &#x27;|&#x27;) {
+        return &#x27;header&#x27;;
+      }
+    }
+
+    if (ch == &#x27;{&#x27; &amp;&amp; stream.match(/\{\{/)) {
+      return chain(stream, state, twTokenCode);
+    }
+
+    // rudimentary html:// file:// link matching. TW knows much more ...
+    if (/[hf]/i.test(ch)) {
+      if (/[ti]/i.test(stream.peek()) &amp;&amp; stream.match(/\b(ttps?|tp|ile):\/\/[\-A-Z0-9+&amp;@#\/%?=~_|$!:,.;]*[A-Z0-9+&amp;@#\/%=~_|$]/i)) {
+        return &quot;link&quot;;
+      }
+    }
+    // just a little string indicator, don&#x27;t want to have the whole string covered
+    if (ch == &#x27;&quot;&#x27;) {
+      return &#x27;string&#x27;;
+    }
+    if (ch == &#x27;~&#x27;) {    // _no_ CamelCase indicator should be bold
+      return &#x27;brace&#x27;;
+    }
+    if (/[\[\]]/.test(ch)) { // check for [[..]]
+      if (stream.peek() == ch) {
+        stream.next();
+        return &#x27;brace&#x27;;
+      }
+    }
+    if (ch == &quot;@&quot;) {    // check for space link. TODO fix @@...@@ highlighting
+      stream.eatWhile(isSpaceName);
+      return &quot;link&quot;;
+    }
+    if (/\d/.test(ch)) {        // numbers
+      stream.eatWhile(/\d/);
+      return &quot;number&quot;;
+    }
+    if (ch == &quot;/&quot;) { // tw invisible comment
+      if (stream.eat(&quot;%&quot;)) {
+        return chain(stream, state, twTokenComment);
+      }
+      else if (stream.eat(&quot;/&quot;)) { //
+        return chain(stream, state, twTokenEm);
+      }
+    }
+    if (ch == &quot;_&quot;) { // tw underline
+      if (stream.eat(&quot;_&quot;)) {
+        return chain(stream, state, twTokenUnderline);
+      }
+    }
+    // strikethrough and mdash handling
+    if (ch == &quot;-&quot;) {
+      if (stream.eat(&quot;-&quot;)) {
+        // if strikethrough looks ugly, change CSS.
+        if (stream.peek() != &#x27; &#x27;)
+          return chain(stream, state, twTokenStrike);
+        // mdash
+        if (stream.peek() == &#x27; &#x27;)
+          return &#x27;brace&#x27;;
+      }
+    }
+    if (ch == &quot;&#x27;&quot;) { // tw bold
+      if (stream.eat(&quot;&#x27;&quot;)) {
+        return chain(stream, state, twTokenStrong);
+      }
+    }
+    if (ch == &quot;&lt;&quot;) { // tw macro
+      if (stream.eat(&quot;&lt;&quot;)) {
+        return chain(stream, state, twTokenMacro);
+      }
+    }
+    else {
+      return null;
+    }
+
+    // core macro handling
+    stream.eatWhile(/[\w\$_]/);
+    var word = stream.current(),
+    known = textwords.propertyIsEnumerable(word) &amp;&amp; textwords[word];
+
+    return known ? known.style : null;
+  } // jsTokenBase()
+
+  // tw invisible comment
+  function twTokenComment(stream, state) {
+    var maybeEnd = false,
+    ch;
+    while (ch = stream.next()) {
+      if (ch == &quot;/&quot; &amp;&amp; maybeEnd) {
+        state.tokenize = jsTokenBase;
+        break;
+      }
+      maybeEnd = (ch == &quot;%&quot;);
+    }
+    return &quot;comment&quot;;
+  }
+
+  // tw strong / bold
+  function twTokenStrong(stream, state) {
+    var maybeEnd = false,
+    ch;
+    while (ch = stream.next()) {
+      if (ch == &quot;&#x27;&quot; &amp;&amp; maybeEnd) {
+        state.tokenize = jsTokenBase;
+        break;
+      }
+      maybeEnd = (ch == &quot;&#x27;&quot;);
+    }
+    return &quot;strong&quot;;
+  }
+
+  // tw code
+  function twTokenCode(stream, state) {
+    var sb = state.block;
+
+    if (sb &amp;&amp; stream.current()) {
+      return &quot;comment&quot;;
+    }
+
+    if (!sb &amp;&amp; stream.match(reUntilCodeStop)) {
+      state.tokenize = jsTokenBase;
+      return &quot;comment&quot;;
+    }
+
+    if (sb &amp;&amp; stream.sol() &amp;&amp; stream.match(reCodeBlockStop)) {
+      state.tokenize = jsTokenBase;
+      return &quot;comment&quot;;
+    }
+
+    stream.next();
+    return &quot;comment&quot;;
+  }
+
+  // tw em / italic
+  function twTokenEm(stream, state) {
+    var maybeEnd = false,
+    ch;
+    while (ch = stream.next()) {
+      if (ch == &quot;/&quot; &amp;&amp; maybeEnd) {
+        state.tokenize = jsTokenBase;
+        break;
+      }
+      maybeEnd = (ch == &quot;/&quot;);
+    }
+    return &quot;em&quot;;
+  }
+
+  // tw underlined text
+  function twTokenUnderline(stream, state) {
+    var maybeEnd = false,
+    ch;
+    while (ch = stream.next()) {
+      if (ch == &quot;_&quot; &amp;&amp; maybeEnd) {
+        state.tokenize = jsTokenBase;
+        break;
+      }
+      maybeEnd = (ch == &quot;_&quot;);
+    }
+    return &quot;underlined&quot;;
+  }
+
+  // tw strike through text looks ugly
+  // change CSS if needed
+  function twTokenStrike(stream, state) {
+    var maybeEnd = false, ch;
+
+    while (ch = stream.next()) {
+      if (ch == &quot;-&quot; &amp;&amp; maybeEnd) {
+        state.tokenize = jsTokenBase;
+        break;
+      }
+      maybeEnd = (ch == &quot;-&quot;);
+    }
+    return &quot;strikethrough&quot;;
+  }
+
+  // macro
+  function twTokenMacro(stream, state) {
+    var ch, word, known;
+
+    if (stream.current() == &#x27;&lt;&lt;&#x27;) {
+      return &#x27;macro&#x27;;
+    }
+
+    ch = stream.next();
+    if (!ch) {
+      state.tokenize = jsTokenBase;
+      return null;
+    }
+    if (ch == &quot;&gt;&quot;) {
+      if (stream.peek() == &#x27;&gt;&#x27;) {
+        stream.next();
+        state.tokenize = jsTokenBase;
+        return &quot;macro&quot;;
+      }
+    }
+
+    stream.eatWhile(/[\w\$_]/);
+    word = stream.current();
+    known = keywords.propertyIsEnumerable(word) &amp;&amp; keywords[word];
+
+    if (known) {
+      return known.style, word;
+    }
+    else {
+      return null, word;
+    }
+  }
+
+  // Interface
+  return {
+    startState: function () {
+      return {
+        tokenize: jsTokenBase,
+        indented: 0,
+        level: 0
+      };
+    },
+
+    token: function (stream, state) {
+      if (stream.eatSpace()) return null;
+      var style = state.tokenize(stream, state);
+      return style;
+    },
+
+    electricChars: &quot;&quot;
+  };
+});
+
+CodeMirror.defineMIME(&quot;text/x-tiddlywiki&quot;, &quot;tiddlywiki&quot;);
+});
+
+//}}}
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

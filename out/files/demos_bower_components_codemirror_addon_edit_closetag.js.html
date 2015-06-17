@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>demos\bower_components\codemirror\addon\edit\closetag.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/fabric.BaseBrush.html">fabric.BaseBrush</a></li>
+                                <li><a href="../classes/fabric.Canvas.html">fabric.Canvas</a></li>
+                                <li><a href="../classes/fabric.Circle.html">fabric.Circle</a></li>
+                                <li><a href="../classes/fabric.CircleBrush.html">fabric.CircleBrush</a></li>
+                                <li><a href="../classes/fabric.Color.html">fabric.Color</a></li>
+                                <li><a href="../classes/fabric.Element.html">fabric.Element</a></li>
+                                <li><a href="../classes/fabric.Ellipse.html">fabric.Ellipse</a></li>
+                                <li><a href="../classes/fabric.Gradient.html">fabric.Gradient</a></li>
+                                <li><a href="../classes/fabric.Group.html">fabric.Group</a></li>
+                                <li><a href="../classes/fabric.Image.filters.BaseFilter.html">fabric.Image.filters.BaseFilter</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Brightness.html">fabric.Image.filters.Brightness</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Convolute.html">fabric.Image.filters.Convolute</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Creates an instance of a PdfPrinter which turns document definition into a pdf.html">fabric.Image.filters.Creates an instance of a PdfPrinter which turns document definition into a pdf</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Image.html">fabric.Image.filters.fabric.Image</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Image.filter.Blend.html">fabric.Image.filters.fabric.Image.filter.Blend</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.IText.html">fabric.Image.filters.fabric.IText</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Text.html">fabric.Image.filters.fabric.Text</a></li>
+                                <li><a href="../classes/fabric.Image.filters.GradientTransparency.html">fabric.Image.filters.GradientTransparency</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Grayscale.html">fabric.Image.filters.Grayscale</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Invert.html">fabric.Image.filters.Invert</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Mask.html">fabric.Image.filters.Mask</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Multiply.html">fabric.Image.filters.Multiply</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Noise.html">fabric.Image.filters.Noise</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Pixelate.html">fabric.Image.filters.Pixelate</a></li>
+                                <li><a href="../classes/fabric.Image.filters.RemoveWhite.html">fabric.Image.filters.RemoveWhite</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Resize.html">fabric.Image.filters.Resize</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Sepia.html">fabric.Image.filters.Sepia</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Sepia2.html">fabric.Image.filters.Sepia2</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Tint.html">fabric.Image.filters.Tint</a></li>
+                                <li><a href="../classes/fabric.Intersection.html">fabric.Intersection</a></li>
+                                <li><a href="../classes/fabric.Line.html">fabric.Line</a></li>
+                                <li><a href="../classes/fabric.Object.html">fabric.Object</a></li>
+                                <li><a href="../classes/fabric.Path.html">fabric.Path</a></li>
+                                <li><a href="../classes/fabric.PathGroup.html">fabric.PathGroup</a></li>
+                                <li><a href="../classes/fabric.Pattern.html">fabric.Pattern</a></li>
+                                <li><a href="../classes/fabric.PatternBrush.html">fabric.PatternBrush</a></li>
+                                <li><a href="../classes/fabric.PencilBrush.html">fabric.PencilBrush</a></li>
+                                <li><a href="../classes/fabric.Point.html">fabric.Point</a></li>
+                                <li><a href="../classes/fabric.Polygon.html">fabric.Polygon</a></li>
+                                <li><a href="../classes/fabric.Polyline.html">fabric.Polyline</a></li>
+                                <li><a href="../classes/fabric.Rect.html">fabric.Rect</a></li>
+                                <li><a href="../classes/fabric.Shadow.html">fabric.Shadow</a></li>
+                                <li><a href="../classes/fabric.SprayBrush.html">fabric.SprayBrush</a></li>
+                                <li><a href="../classes/fabric.StaticCanvas.html">fabric.StaticCanvas</a></li>
+                                <li><a href="../classes/fabric.Triangle.html">fabric.Triangle</a></li>
+                                <li><a href="../classes/google/Area.html">google/Area</a></li>
+                                <li><a href="../classes/google/Bar.html">google/Bar</a></li>
+                                <li><a href="../classes/google/Common.html">google/Common</a></li>
+                                <li><a href="../classes/google/CommonND.html">google/CommonND</a></li>
+                                <li><a href="../classes/jsPDF.html">jsPDF</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/google_Area.html">google/Area</a></li>
+                                <li><a href="../modules/google_Bar.html">google/Bar</a></li>
+                                <li><a href="../modules/google_Common.html">google/Common</a></li>
+                                <li><a href="../modules/google_CommonND.html">google/CommonND</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: demos\bower_components\codemirror\addon\edit\closetag.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+// CodeMirror, copyright (c) by Marijn Haverbeke and others
+// Distributed under an MIT license: http://codemirror.net/LICENSE
+
+/**
+ * Tag-closer extension for CodeMirror.
+ *
+ * This extension adds an &quot;autoCloseTags&quot; option that can be set to
+ * either true to get the default behavior, or an object to further
+ * configure its behavior.
+ *
+ * These are supported options:
+ *
+ * &#x60;whenClosing&#x60; (default true)
+ *   Whether to autoclose when the &#x27;/&#x27; of a closing tag is typed.
+ * &#x60;whenOpening&#x60; (default true)
+ *   Whether to autoclose the tag when the final &#x27;&gt;&#x27; of an opening
+ *   tag is typed.
+ * &#x60;dontCloseTags&#x60; (default is empty tags for HTML, none for XML)
+ *   An array of tag names that should not be autoclosed.
+ * &#x60;indentTags&#x60; (default is block tags for HTML, none for XML)
+ *   An array of tag names that should, when opened, cause a
+ *   blank line to be added inside the tag, and the blank line and
+ *   closing line to be indented.
+ *
+ * See demos/closetag.html for a usage example.
+ */
+
+(function(mod) {
+  if (typeof exports == &quot;object&quot; &amp;&amp; typeof module == &quot;object&quot;) // CommonJS
+    mod(require(&quot;../../lib/codemirror&quot;), require(&quot;../fold/xml-fold&quot;));
+  else if (typeof define == &quot;function&quot; &amp;&amp; define.amd) // AMD
+    define([&quot;../../lib/codemirror&quot;, &quot;../fold/xml-fold&quot;], mod);
+  else // Plain browser env
+    mod(CodeMirror);
+})(function(CodeMirror) {
+  CodeMirror.defineOption(&quot;autoCloseTags&quot;, false, function(cm, val, old) {
+    if (old != CodeMirror.Init &amp;&amp; old)
+      cm.removeKeyMap(&quot;autoCloseTags&quot;);
+    if (!val) return;
+    var map = {name: &quot;autoCloseTags&quot;};
+    if (typeof val != &quot;object&quot; || val.whenClosing)
+      map[&quot;&#x27;/&#x27;&quot;] = function(cm) { return autoCloseSlash(cm); };
+    if (typeof val != &quot;object&quot; || val.whenOpening)
+      map[&quot;&#x27;&gt;&#x27;&quot;] = function(cm) { return autoCloseGT(cm); };
+    cm.addKeyMap(map);
+  });
+
+  var htmlDontClose = [&quot;area&quot;, &quot;base&quot;, &quot;br&quot;, &quot;col&quot;, &quot;command&quot;, &quot;embed&quot;, &quot;hr&quot;, &quot;img&quot;, &quot;input&quot;, &quot;keygen&quot;, &quot;link&quot;, &quot;meta&quot;, &quot;param&quot;,
+                       &quot;source&quot;, &quot;track&quot;, &quot;wbr&quot;];
+  var htmlIndent = [&quot;applet&quot;, &quot;blockquote&quot;, &quot;body&quot;, &quot;button&quot;, &quot;div&quot;, &quot;dl&quot;, &quot;fieldset&quot;, &quot;form&quot;, &quot;frameset&quot;, &quot;h1&quot;, &quot;h2&quot;, &quot;h3&quot;, &quot;h4&quot;,
+                    &quot;h5&quot;, &quot;h6&quot;, &quot;head&quot;, &quot;html&quot;, &quot;iframe&quot;, &quot;layer&quot;, &quot;legend&quot;, &quot;object&quot;, &quot;ol&quot;, &quot;p&quot;, &quot;select&quot;, &quot;table&quot;, &quot;ul&quot;];
+
+  function autoCloseGT(cm) {
+    if (cm.getOption(&quot;disableInput&quot;)) return CodeMirror.Pass;
+    var ranges = cm.listSelections(), replacements = [];
+    for (var i = 0; i &lt; ranges.length; i++) {
+      if (!ranges[i].empty()) return CodeMirror.Pass;
+      var pos = ranges[i].head, tok = cm.getTokenAt(pos);
+      var inner = CodeMirror.innerMode(cm.getMode(), tok.state), state = inner.state;
+      if (inner.mode.name != &quot;xml&quot; || !state.tagName) return CodeMirror.Pass;
+
+      var opt = cm.getOption(&quot;autoCloseTags&quot;), html = inner.mode.configuration == &quot;html&quot;;
+      var dontCloseTags = (typeof opt == &quot;object&quot; &amp;&amp; opt.dontCloseTags) || (html &amp;&amp; htmlDontClose);
+      var indentTags = (typeof opt == &quot;object&quot; &amp;&amp; opt.indentTags) || (html &amp;&amp; htmlIndent);
+
+      var tagName = state.tagName;
+      if (tok.end &gt; pos.ch) tagName = tagName.slice(0, tagName.length - tok.end + pos.ch);
+      var lowerTagName = tagName.toLowerCase();
+      // Don&#x27;t process the &#x27;&gt;&#x27; at the end of an end-tag or self-closing tag
+      if (!tagName ||
+          tok.type == &quot;string&quot; &amp;&amp; (tok.end != pos.ch || !/[\&quot;\&#x27;]/.test(tok.string.charAt(tok.string.length - 1)) || tok.string.length == 1) ||
+          tok.type == &quot;tag&quot; &amp;&amp; state.type == &quot;closeTag&quot; ||
+          tok.string.indexOf(&quot;/&quot;) == (tok.string.length - 1) || // match something like &lt;someTagName /&gt;
+          dontCloseTags &amp;&amp; indexOf(dontCloseTags, lowerTagName) &gt; -1 ||
+          closingTagExists(cm, tagName, pos, state, true))
+        return CodeMirror.Pass;
+
+      var indent = indentTags &amp;&amp; indexOf(indentTags, lowerTagName) &gt; -1;
+      replacements[i] = {indent: indent,
+                         text: &quot;&gt;&quot; + (indent ? &quot;\n\n&quot; : &quot;&quot;) + &quot;&lt;/&quot; + tagName + &quot;&gt;&quot;,
+                         newPos: indent ? CodeMirror.Pos(pos.line + 1, 0) : CodeMirror.Pos(pos.line, pos.ch + 1)};
+    }
+
+    for (var i = ranges.length - 1; i &gt;= 0; i--) {
+      var info = replacements[i];
+      cm.replaceRange(info.text, ranges[i].head, ranges[i].anchor, &quot;+insert&quot;);
+      var sel = cm.listSelections().slice(0);
+      sel[i] = {head: info.newPos, anchor: info.newPos};
+      cm.setSelections(sel);
+      if (info.indent) {
+        cm.indentLine(info.newPos.line, null, true);
+        cm.indentLine(info.newPos.line + 1, null, true);
+      }
+    }
+  }
+
+  function autoCloseCurrent(cm, typingSlash) {
+    var ranges = cm.listSelections(), replacements = [];
+    var head = typingSlash ? &quot;/&quot; : &quot;&lt;/&quot;;
+    for (var i = 0; i &lt; ranges.length; i++) {
+      if (!ranges[i].empty()) return CodeMirror.Pass;
+      var pos = ranges[i].head, tok = cm.getTokenAt(pos);
+      var inner = CodeMirror.innerMode(cm.getMode(), tok.state), state = inner.state;
+      if (typingSlash &amp;&amp; (tok.type == &quot;string&quot; || tok.string.charAt(0) != &quot;&lt;&quot; ||
+                          tok.start != pos.ch - 1))
+        return CodeMirror.Pass;
+      // Kludge to get around the fact that we are not in XML mode
+      // when completing in JS/CSS snippet in htmlmixed mode. Does not
+      // work for other XML embedded languages (there is no general
+      // way to go from a mixed mode to its current XML state).
+      if (inner.mode.name != &quot;xml&quot;) {
+        if (cm.getMode().name == &quot;htmlmixed&quot; &amp;&amp; inner.mode.name == &quot;javascript&quot;)
+          replacements[i] = head + &quot;script&gt;&quot;;
+        else if (cm.getMode().name == &quot;htmlmixed&quot; &amp;&amp; inner.mode.name == &quot;css&quot;)
+          replacements[i] = head + &quot;style&gt;&quot;;
+        else
+          return CodeMirror.Pass;
+      } else {
+        if (!state.context || !state.context.tagName ||
+            closingTagExists(cm, state.context.tagName, pos, state))
+          return CodeMirror.Pass;
+        replacements[i] = head + state.context.tagName + &quot;&gt;&quot;;
+      }
+    }
+    cm.replaceSelections(replacements);
+    ranges = cm.listSelections();
+    for (var i = 0; i &lt; ranges.length; i++)
+      if (i == ranges.length - 1 || ranges[i].head.line &lt; ranges[i + 1].head.line)
+        cm.indentLine(ranges[i].head.line);
+  }
+
+  function autoCloseSlash(cm) {
+    if (cm.getOption(&quot;disableInput&quot;)) return CodeMirror.Pass;
+    return autoCloseCurrent(cm, true);
+  }
+
+  CodeMirror.commands.closeTag = function(cm) { return autoCloseCurrent(cm); };
+
+  function indexOf(collection, elt) {
+    if (collection.indexOf) return collection.indexOf(elt);
+    for (var i = 0, e = collection.length; i &lt; e; ++i)
+      if (collection[i] == elt) return i;
+    return -1;
+  }
+
+  // If xml-fold is loaded, we use its functionality to try and verify
+  // whether a given tag is actually unclosed.
+  function closingTagExists(cm, tagName, pos, state, newTag) {
+    if (!CodeMirror.scanForClosingTag) return false;
+    var end = Math.min(cm.lastLine() + 1, pos.line + 500);
+    var nextClose = CodeMirror.scanForClosingTag(cm, pos, null, end);
+    if (!nextClose || nextClose.tag != tagName) return false;
+    var cx = state.context;
+    // If the immediate wrapping context contains onCx instances of
+    // the same tag, a closing tag only exists if there are at least
+    // that many closing tags of that type following.
+    for (var onCx = newTag ? 1 : 0; cx &amp;&amp; cx.tagName == tagName; cx = cx.prev) ++onCx;
+    pos = nextClose.to;
+    for (var i = 1; i &lt; onCx; i++) {
+      var next = CodeMirror.scanForClosingTag(cm, pos, null, end);
+      if (!next || next.tag != tagName) return false;
+      pos = next.to;
+    }
+    return true;
+  }
+});
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

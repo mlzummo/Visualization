@@ -7,9 +7,9 @@
     }
 }(this, function (d3, CommonND) {
     /**
-     * @class google/Area
+     * @class google_Area
      * @classdesc Google Area Class
-     * @extends google/CommonND
+     * @extends google_CommonND
      */
     function Area() {
         CommonND.call(this);
@@ -27,15 +27,17 @@
      * Stacks The Elements In A Series
      * @name isStacked
      * @method
-     * @param {boolean} value
-     * @memberof google/Area
+     * @param {boolean} value True/False
+     * @memberof google_Area
      */
     Area.prototype.publish("isStacked", false, "boolean", "Stacks The Elements In A Series",null,{tags:['Advanced','Shared']});
 
     /**
+     * Opacity of The Fill Color.
      * @name fillOpacity
      * @method
-     * @param {number} value - Opacity of The Fill Color.
+     * @param {number} value - decimal value
+     * @memberof google_Area
      */
     Area.prototype.publish("fillOpacity", null, "number", "Opacity of The Fill Color",null,{tags:['Intermediate','Shared']});
 

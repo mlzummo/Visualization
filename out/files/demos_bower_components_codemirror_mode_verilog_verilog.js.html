@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>demos\bower_components\codemirror\mode\verilog\verilog.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/fabric.BaseBrush.html">fabric.BaseBrush</a></li>
+                                <li><a href="../classes/fabric.Canvas.html">fabric.Canvas</a></li>
+                                <li><a href="../classes/fabric.Circle.html">fabric.Circle</a></li>
+                                <li><a href="../classes/fabric.CircleBrush.html">fabric.CircleBrush</a></li>
+                                <li><a href="../classes/fabric.Color.html">fabric.Color</a></li>
+                                <li><a href="../classes/fabric.Element.html">fabric.Element</a></li>
+                                <li><a href="../classes/fabric.Ellipse.html">fabric.Ellipse</a></li>
+                                <li><a href="../classes/fabric.Gradient.html">fabric.Gradient</a></li>
+                                <li><a href="../classes/fabric.Group.html">fabric.Group</a></li>
+                                <li><a href="../classes/fabric.Image.filters.BaseFilter.html">fabric.Image.filters.BaseFilter</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Brightness.html">fabric.Image.filters.Brightness</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Convolute.html">fabric.Image.filters.Convolute</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Creates an instance of a PdfPrinter which turns document definition into a pdf.html">fabric.Image.filters.Creates an instance of a PdfPrinter which turns document definition into a pdf</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Image.html">fabric.Image.filters.fabric.Image</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Image.filter.Blend.html">fabric.Image.filters.fabric.Image.filter.Blend</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.IText.html">fabric.Image.filters.fabric.IText</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Text.html">fabric.Image.filters.fabric.Text</a></li>
+                                <li><a href="../classes/fabric.Image.filters.GradientTransparency.html">fabric.Image.filters.GradientTransparency</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Grayscale.html">fabric.Image.filters.Grayscale</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Invert.html">fabric.Image.filters.Invert</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Mask.html">fabric.Image.filters.Mask</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Multiply.html">fabric.Image.filters.Multiply</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Noise.html">fabric.Image.filters.Noise</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Pixelate.html">fabric.Image.filters.Pixelate</a></li>
+                                <li><a href="../classes/fabric.Image.filters.RemoveWhite.html">fabric.Image.filters.RemoveWhite</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Resize.html">fabric.Image.filters.Resize</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Sepia.html">fabric.Image.filters.Sepia</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Sepia2.html">fabric.Image.filters.Sepia2</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Tint.html">fabric.Image.filters.Tint</a></li>
+                                <li><a href="../classes/fabric.Intersection.html">fabric.Intersection</a></li>
+                                <li><a href="../classes/fabric.Line.html">fabric.Line</a></li>
+                                <li><a href="../classes/fabric.Object.html">fabric.Object</a></li>
+                                <li><a href="../classes/fabric.Path.html">fabric.Path</a></li>
+                                <li><a href="../classes/fabric.PathGroup.html">fabric.PathGroup</a></li>
+                                <li><a href="../classes/fabric.Pattern.html">fabric.Pattern</a></li>
+                                <li><a href="../classes/fabric.PatternBrush.html">fabric.PatternBrush</a></li>
+                                <li><a href="../classes/fabric.PencilBrush.html">fabric.PencilBrush</a></li>
+                                <li><a href="../classes/fabric.Point.html">fabric.Point</a></li>
+                                <li><a href="../classes/fabric.Polygon.html">fabric.Polygon</a></li>
+                                <li><a href="../classes/fabric.Polyline.html">fabric.Polyline</a></li>
+                                <li><a href="../classes/fabric.Rect.html">fabric.Rect</a></li>
+                                <li><a href="../classes/fabric.Shadow.html">fabric.Shadow</a></li>
+                                <li><a href="../classes/fabric.SprayBrush.html">fabric.SprayBrush</a></li>
+                                <li><a href="../classes/fabric.StaticCanvas.html">fabric.StaticCanvas</a></li>
+                                <li><a href="../classes/fabric.Triangle.html">fabric.Triangle</a></li>
+                                <li><a href="../classes/google/Area.html">google/Area</a></li>
+                                <li><a href="../classes/google/Bar.html">google/Bar</a></li>
+                                <li><a href="../classes/google/Common.html">google/Common</a></li>
+                                <li><a href="../classes/google/CommonND.html">google/CommonND</a></li>
+                                <li><a href="../classes/jsPDF.html">jsPDF</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/google_Area.html">google/Area</a></li>
+                                <li><a href="../modules/google_Bar.html">google/Bar</a></li>
+                                <li><a href="../modules/google_Common.html">google/Common</a></li>
+                                <li><a href="../modules/google_CommonND.html">google/CommonND</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: demos\bower_components\codemirror\mode\verilog\verilog.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+// CodeMirror, copyright (c) by Marijn Haverbeke and others
+// Distributed under an MIT license: http://codemirror.net/LICENSE
+
+(function(mod) {
+  if (typeof exports == &quot;object&quot; &amp;&amp; typeof module == &quot;object&quot;) // CommonJS
+    mod(require(&quot;../../lib/codemirror&quot;));
+  else if (typeof define == &quot;function&quot; &amp;&amp; define.amd) // AMD
+    define([&quot;../../lib/codemirror&quot;], mod);
+  else // Plain browser env
+    mod(CodeMirror);
+})(function(CodeMirror) {
+&quot;use strict&quot;;
+
+CodeMirror.defineMode(&quot;verilog&quot;, function(config, parserConfig) {
+
+  var indentUnit = config.indentUnit,
+      statementIndentUnit = parserConfig.statementIndentUnit || indentUnit,
+      dontAlignCalls = parserConfig.dontAlignCalls,
+      noIndentKeywords = parserConfig.noIndentKeywords || [],
+      multiLineStrings = parserConfig.multiLineStrings,
+      hooks = parserConfig.hooks || {};
+
+  function words(str) {
+    var obj = {}, words = str.split(&quot; &quot;);
+    for (var i = 0; i &lt; words.length; ++i) obj[words[i]] = true;
+    return obj;
+  }
+
+  /**
+   * Keywords from IEEE 1800-2012
+   */
+  var keywords = words(
+    &quot;accept_on alias always always_comb always_ff always_latch and assert assign assume automatic before begin bind &quot; +
+    &quot;bins binsof bit break buf bufif0 bufif1 byte case casex casez cell chandle checker class clocking cmos config &quot; +
+    &quot;const constraint context continue cover covergroup coverpoint cross deassign default defparam design disable &quot; +
+    &quot;dist do edge else end endcase endchecker endclass endclocking endconfig endfunction endgenerate endgroup &quot; +
+    &quot;endinterface endmodule endpackage endprimitive endprogram endproperty endspecify endsequence endtable endtask &quot; +
+    &quot;enum event eventually expect export extends extern final first_match for force foreach forever fork forkjoin &quot; +
+    &quot;function generate genvar global highz0 highz1 if iff ifnone ignore_bins illegal_bins implements implies import &quot; +
+    &quot;incdir include initial inout input inside instance int integer interconnect interface intersect join join_any &quot; +
+    &quot;join_none large let liblist library local localparam logic longint macromodule matches medium modport module &quot; +
+    &quot;nand negedge nettype new nexttime nmos nor noshowcancelled not notif0 notif1 null or output package packed &quot; +
+    &quot;parameter pmos posedge primitive priority program property protected pull0 pull1 pulldown pullup &quot; +
+    &quot;pulsestyle_ondetect pulsestyle_onevent pure rand randc randcase randsequence rcmos real realtime ref reg &quot; +
+    &quot;reject_on release repeat restrict return rnmos rpmos rtran rtranif0 rtranif1 s_always s_eventually s_nexttime &quot; +
+    &quot;s_until s_until_with scalared sequence shortint shortreal showcancelled signed small soft solve specify &quot; +
+    &quot;specparam static string strong strong0 strong1 struct super supply0 supply1 sync_accept_on sync_reject_on &quot; +
+    &quot;table tagged task this throughout time timeprecision timeunit tran tranif0 tranif1 tri tri0 tri1 triand trior &quot; +
+    &quot;trireg type typedef union unique unique0 unsigned until until_with untyped use uwire var vectored virtual void &quot; +
+    &quot;wait wait_order wand weak weak0 weak1 while wildcard wire with within wor xnor xor&quot;);
+
+  /** Operators from IEEE 1800-2012
+     unary_operator ::=
+       + | - | ! | ~ | &amp; | ~&amp; | | | ~| | ^ | ~^ | ^~
+     binary_operator ::=
+       + | - | * | / | % | == | != | === | !== | ==? | !=? | &amp;&amp; | || | **
+       | &lt; | &lt;= | &gt; | &gt;= | &amp; | | | ^ | ^~ | ~^ | &gt;&gt; | &lt;&lt; | &gt;&gt;&gt; | &lt;&lt;&lt;
+       | -&gt; | &lt;-&gt;
+     inc_or_dec_operator ::= ++ | --
+     unary_module_path_operator ::=
+       ! | ~ | &amp; | ~&amp; | | | ~| | ^ | ~^ | ^~
+     binary_module_path_operator ::=
+       == | != | &amp;&amp; | || | &amp; | | | ^ | ^~ | ~^
+  */
+  var isOperatorChar = /[\+\-\*\/!~&amp;|^%=?:]/;
+  var isBracketChar = /[\[\]{}()]/;
+
+  var unsignedNumber = /\d[0-9_]*/;
+  var decimalLiteral = /\d*\s*&#x27;s?d\s*\d[0-9_]*/i;
+  var binaryLiteral = /\d*\s*&#x27;s?b\s*[xz01][xz01_]*/i;
+  var octLiteral = /\d*\s*&#x27;s?o\s*[xz0-7][xz0-7_]*/i;
+  var hexLiteral = /\d*\s*&#x27;s?h\s*[0-9a-fxz?][0-9a-fxz?_]*/i;
+  var realLiteral = /(\d[\d_]*(\.\d[\d_]*)?E-?[\d_]+)|(\d[\d_]*\.\d[\d_]*)/i;
+
+  var closingBracketOrWord = /^((\w+)|[)}\]])/;
+  var closingBracket = /[)}\]]/;
+
+  var curPunc;
+  var curKeyword;
+
+  // Block openings which are closed by a matching keyword in the form of (&quot;end&quot; + keyword)
+  // E.g. &quot;task&quot; =&gt; &quot;endtask&quot;
+  var blockKeywords = words(
+    &quot;case checker class clocking config function generate interface module package&quot; +
+    &quot;primitive program property specify sequence table task&quot;
+  );
+
+  // Opening/closing pairs
+  var openClose = {};
+  for (var keyword in blockKeywords) {
+    openClose[keyword] = &quot;end&quot; + keyword;
+  }
+  openClose[&quot;begin&quot;] = &quot;end&quot;;
+  openClose[&quot;casex&quot;] = &quot;endcase&quot;;
+  openClose[&quot;casez&quot;] = &quot;endcase&quot;;
+  openClose[&quot;do&quot;   ] = &quot;while&quot;;
+  openClose[&quot;fork&quot; ] = &quot;join;join_any;join_none&quot;;
+  openClose[&quot;covergroup&quot;] = &quot;endgroup&quot;;
+
+  for (var i in noIndentKeywords) {
+    var keyword = noIndentKeywords[i];
+    if (openClose[keyword]) {
+      openClose[keyword] = undefined;
+    }
+  }
+
+  // Keywords which open statements that are ended with a semi-colon
+  var statementKeywords = words(&quot;always always_comb always_ff always_latch assert assign assume else export for foreach forever if import initial repeat while&quot;);
+
+  function tokenBase(stream, state) {
+    var ch = stream.peek(), style;
+    if (hooks[ch] &amp;&amp; (style = hooks[ch](stream, state)) != false) return style;
+    if (hooks.tokenBase &amp;&amp; (style = hooks.tokenBase(stream, state)) != false)
+      return style;
+
+    if (/[,;:\.]/.test(ch)) {
+      curPunc = stream.next();
+      return null;
+    }
+    if (isBracketChar.test(ch)) {
+      curPunc = stream.next();
+      return &quot;bracket&quot;;
+    }
+    // Macros (tick-defines)
+    if (ch == &#x27;&#x60;&#x27;) {
+      stream.next();
+      if (stream.eatWhile(/[\w\$_]/)) {
+        return &quot;def&quot;;
+      } else {
+        return null;
+      }
+    }
+    // System calls
+    if (ch == &#x27;$&#x27;) {
+      stream.next();
+      if (stream.eatWhile(/[\w\$_]/)) {
+        return &quot;meta&quot;;
+      } else {
+        return null;
+      }
+    }
+    // Time literals
+    if (ch == &#x27;#&#x27;) {
+      stream.next();
+      stream.eatWhile(/[\d_.]/);
+      return &quot;def&quot;;
+    }
+    // Strings
+    if (ch == &#x27;&quot;&#x27;) {
+      stream.next();
+      state.tokenize = tokenString(ch);
+      return state.tokenize(stream, state);
+    }
+    // Comments
+    if (ch == &quot;/&quot;) {
+      stream.next();
+      if (stream.eat(&quot;*&quot;)) {
+        state.tokenize = tokenComment;
+        return tokenComment(stream, state);
+      }
+      if (stream.eat(&quot;/&quot;)) {
+        stream.skipToEnd();
+        return &quot;comment&quot;;
+      }
+      stream.backUp(1);
+    }
+
+    // Numeric literals
+    if (stream.match(realLiteral) ||
+        stream.match(decimalLiteral) ||
+        stream.match(binaryLiteral) ||
+        stream.match(octLiteral) ||
+        stream.match(hexLiteral) ||
+        stream.match(unsignedNumber) ||
+        stream.match(realLiteral)) {
+      return &quot;number&quot;;
+    }
+
+    // Operators
+    if (stream.eatWhile(isOperatorChar)) {
+      return &quot;meta&quot;;
+    }
+
+    // Keywords / plain variables
+    if (stream.eatWhile(/[\w\$_]/)) {
+      var cur = stream.current();
+      if (keywords[cur]) {
+        if (openClose[cur]) {
+          curPunc = &quot;newblock&quot;;
+        }
+        if (statementKeywords[cur]) {
+          curPunc = &quot;newstatement&quot;;
+        }
+        curKeyword = cur;
+        return &quot;keyword&quot;;
+      }
+      return &quot;variable&quot;;
+    }
+
+    stream.next();
+    return null;
+  }
+
+  function tokenString(quote) {
+    return function(stream, state) {
+      var escaped = false, next, end = false;
+      while ((next = stream.next()) != null) {
+        if (next == quote &amp;&amp; !escaped) {end = true; break;}
+        escaped = !escaped &amp;&amp; next == &quot;\\&quot;;
+      }
+      if (end || !(escaped || multiLineStrings))
+        state.tokenize = tokenBase;
+      return &quot;string&quot;;
+    };
+  }
+
+  function tokenComment(stream, state) {
+    var maybeEnd = false, ch;
+    while (ch = stream.next()) {
+      if (ch == &quot;/&quot; &amp;&amp; maybeEnd) {
+        state.tokenize = tokenBase;
+        break;
+      }
+      maybeEnd = (ch == &quot;*&quot;);
+    }
+    return &quot;comment&quot;;
+  }
+
+  function Context(indented, column, type, align, prev) {
+    this.indented = indented;
+    this.column = column;
+    this.type = type;
+    this.align = align;
+    this.prev = prev;
+  }
+  function pushContext(state, col, type) {
+    var indent = state.indented;
+    var c = new Context(indent, col, type, null, state.context);
+    return state.context = c;
+  }
+  function popContext(state) {
+    var t = state.context.type;
+    if (t == &quot;)&quot; || t == &quot;]&quot; || t == &quot;}&quot;) {
+      state.indented = state.context.indented;
+    }
+    return state.context = state.context.prev;
+  }
+
+  function isClosing(text, contextClosing) {
+    if (text == contextClosing) {
+      return true;
+    } else {
+      // contextClosing may be mulitple keywords separated by ;
+      var closingKeywords = contextClosing.split(&quot;;&quot;);
+      for (var i in closingKeywords) {
+        if (text == closingKeywords[i]) {
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+
+  function buildElectricInputRegEx() {
+    // Reindentation should occur on any bracket char: {}()[]
+    // or on a match of any of the block closing keywords, at
+    // the end of a line
+    var allClosings = [];
+    for (var i in openClose) {
+      if (openClose[i]) {
+        var closings = openClose[i].split(&quot;;&quot;);
+        for (var j in closings) {
+          allClosings.push(closings[j]);
+        }
+      }
+    }
+    var re = new RegExp(&quot;[{}()\\[\\]]|(&quot; + allClosings.join(&quot;|&quot;) + &quot;)$&quot;);
+    return re;
+  }
+
+  // Interface
+  return {
+
+    // Regex to force current line to reindent
+    electricInput: buildElectricInputRegEx(),
+
+    startState: function(basecolumn) {
+      var state = {
+        tokenize: null,
+        context: new Context((basecolumn || 0) - indentUnit, 0, &quot;top&quot;, false),
+        indented: 0,
+        startOfLine: true
+      };
+      if (hooks.startState) hooks.startState(state);
+      return state;
+    },
+
+    token: function(stream, state) {
+      var ctx = state.context;
+      if (stream.sol()) {
+        if (ctx.align == null) ctx.align = false;
+        state.indented = stream.indentation();
+        state.startOfLine = true;
+      }
+      if (hooks.token) hooks.token(stream, state);
+      if (stream.eatSpace()) return null;
+      curPunc = null;
+      curKeyword = null;
+      var style = (state.tokenize || tokenBase)(stream, state);
+      if (style == &quot;comment&quot; || style == &quot;meta&quot; || style == &quot;variable&quot;) return style;
+      if (ctx.align == null) ctx.align = true;
+
+      if (curPunc == ctx.type) {
+        popContext(state);
+      } else if ((curPunc == &quot;;&quot; &amp;&amp; ctx.type == &quot;statement&quot;) ||
+               (ctx.type &amp;&amp; isClosing(curKeyword, ctx.type))) {
+        ctx = popContext(state);
+        while (ctx &amp;&amp; ctx.type == &quot;statement&quot;) ctx = popContext(state);
+      } else if (curPunc == &quot;{&quot;) {
+        pushContext(state, stream.column(), &quot;}&quot;);
+      } else if (curPunc == &quot;[&quot;) {
+        pushContext(state, stream.column(), &quot;]&quot;);
+      } else if (curPunc == &quot;(&quot;) {
+        pushContext(state, stream.column(), &quot;)&quot;);
+      } else if (ctx &amp;&amp; ctx.type == &quot;endcase&quot; &amp;&amp; curPunc == &quot;:&quot;) {
+        pushContext(state, stream.column(), &quot;statement&quot;);
+      } else if (curPunc == &quot;newstatement&quot;) {
+        pushContext(state, stream.column(), &quot;statement&quot;);
+      } else if (curPunc == &quot;newblock&quot;) {
+        if (curKeyword == &quot;function&quot; &amp;&amp; ctx &amp;&amp; (ctx.type == &quot;statement&quot; || ctx.type == &quot;endgroup&quot;)) {
+          // The &#x27;function&#x27; keyword can appear in some other contexts where it actually does not
+          // indicate a function (import/export DPI and covergroup definitions).
+          // Do nothing in this case
+        } else if (curKeyword == &quot;task&quot; &amp;&amp; ctx &amp;&amp; ctx.type == &quot;statement&quot;) {
+          // Same thing for task
+        } else {
+          var close = openClose[curKeyword];
+          pushContext(state, stream.column(), close);
+        }
+      }
+
+      state.startOfLine = false;
+      return style;
+    },
+
+    indent: function(state, textAfter) {
+      if (state.tokenize != tokenBase &amp;&amp; state.tokenize != null) return CodeMirror.Pass;
+      if (hooks.indent) {
+        var fromHook = hooks.indent(state);
+        if (fromHook &gt;= 0) return fromHook;
+      }
+      var ctx = state.context, firstChar = textAfter &amp;&amp; textAfter.charAt(0);
+      if (ctx.type == &quot;statement&quot; &amp;&amp; firstChar == &quot;}&quot;) ctx = ctx.prev;
+      var closing = false;
+      var possibleClosing = textAfter.match(closingBracketOrWord);
+      if (possibleClosing)
+        closing = isClosing(possibleClosing[0], ctx.type);
+      if (ctx.type == &quot;statement&quot;) return ctx.indented + (firstChar == &quot;{&quot; ? 0 : statementIndentUnit);
+      else if (closingBracket.test(ctx.type) &amp;&amp; ctx.align &amp;&amp; !dontAlignCalls) return ctx.column + (closing ? 0 : 1);
+      else if (ctx.type == &quot;)&quot; &amp;&amp; !closing) return ctx.indented + statementIndentUnit;
+      else return ctx.indented + (closing ? 0 : indentUnit);
+    },
+
+    blockCommentStart: &quot;/*&quot;,
+    blockCommentEnd: &quot;*/&quot;,
+    lineComment: &quot;//&quot;
+  };
+});
+
+  CodeMirror.defineMIME(&quot;text/x-verilog&quot;, {
+    name: &quot;verilog&quot;
+  });
+
+  CodeMirror.defineMIME(&quot;text/x-systemverilog&quot;, {
+    name: &quot;verilog&quot;
+  });
+
+  // TLVVerilog mode
+
+  var tlvchScopePrefixes = {
+    &quot;&gt;&quot;: &quot;property&quot;, &quot;-&gt;&quot;: &quot;property&quot;, &quot;-&quot;: &quot;hr&quot;, &quot;|&quot;: &quot;link&quot;, &quot;?$&quot;: &quot;qualifier&quot;, &quot;?*&quot;: &quot;qualifier&quot;,
+    &quot;@-&quot;: &quot;variable-3&quot;, &quot;@&quot;: &quot;variable-3&quot;, &quot;?&quot;: &quot;qualifier&quot;
+  };
+
+  function tlvGenIndent(stream, state) {
+    var tlvindentUnit = 2;
+    var rtnIndent = -1, indentUnitRq = 0, curIndent = stream.indentation();
+    switch (state.tlvCurCtlFlowChar) {
+    case &quot;\\&quot;:
+      curIndent = 0;
+      break;
+    case &quot;|&quot;:
+      if (state.tlvPrevPrevCtlFlowChar == &quot;@&quot;) {
+        indentUnitRq = -2; //-2 new pipe rq after cur pipe
+        break;
+      }
+      if (tlvchScopePrefixes[state.tlvPrevCtlFlowChar])
+        indentUnitRq = 1; // +1 new scope
+      break;
+    case &quot;M&quot;:  // m4
+      if (state.tlvPrevPrevCtlFlowChar == &quot;@&quot;) {
+        indentUnitRq = -2; //-2 new inst rq after  pipe
+        break;
+      }
+      if (tlvchScopePrefixes[state.tlvPrevCtlFlowChar])
+        indentUnitRq = 1; // +1 new scope
+      break;
+    case &quot;@&quot;:
+      if (state.tlvPrevCtlFlowChar == &quot;S&quot;)
+        indentUnitRq = -1; // new pipe stage after stmts
+      if (state.tlvPrevCtlFlowChar == &quot;|&quot;)
+        indentUnitRq = 1; // 1st pipe stage
+      break;
+    case &quot;S&quot;:
+      if (state.tlvPrevCtlFlowChar == &quot;@&quot;)
+        indentUnitRq = 1; // flow in pipe stage
+      if (tlvchScopePrefixes[state.tlvPrevCtlFlowChar])
+        indentUnitRq = 1; // +1 new scope
+      break;
+    }
+    var statementIndentUnit = tlvindentUnit;
+    rtnIndent = curIndent + (indentUnitRq*statementIndentUnit);
+    return rtnIndent &gt;= 0 ? rtnIndent : curIndent;
+  }
+
+  CodeMirror.defineMIME(&quot;text/x-tlv&quot;, {
+    name: &quot;verilog&quot;,
+    hooks: {
+      &quot;\\&quot;: function(stream, state) {
+        var vxIndent = 0, style = false;
+        var curPunc  = stream.string;
+        if ((stream.sol()) &amp;&amp; ((/\\SV/.test(stream.string)) || (/\\TLV/.test(stream.string)))) {
+          curPunc = (/\\TLV_version/.test(stream.string))
+            ? &quot;\\TLV_version&quot; : stream.string;
+          stream.skipToEnd();
+          if (curPunc == &quot;\\SV&quot; &amp;&amp; state.vxCodeActive) {state.vxCodeActive = false;};
+          if ((/\\TLV/.test(curPunc) &amp;&amp; !state.vxCodeActive)
+            || (curPunc==&quot;\\TLV_version&quot; &amp;&amp; state.vxCodeActive)) {state.vxCodeActive = true;};
+          style = &quot;keyword&quot;;
+          state.tlvCurCtlFlowChar  = state.tlvPrevPrevCtlFlowChar
+            = state.tlvPrevCtlFlowChar = &quot;&quot;;
+          if (state.vxCodeActive == true) {
+            state.tlvCurCtlFlowChar  = &quot;\\&quot;;
+            vxIndent = tlvGenIndent(stream, state);
+          }
+          state.vxIndentRq = vxIndent;
+        }
+        return style;
+      },
+      tokenBase: function(stream, state) {
+        var vxIndent = 0, style = false;
+        var tlvisOperatorChar = /[\[\]=:]/;
+        var tlvkpScopePrefixs = {
+          &quot;**&quot;:&quot;variable-2&quot;, &quot;*&quot;:&quot;variable-2&quot;, &quot;$$&quot;:&quot;variable&quot;, &quot;$&quot;:&quot;variable&quot;,
+          &quot;^^&quot;:&quot;attribute&quot;, &quot;^&quot;:&quot;attribute&quot;};
+        var ch = stream.peek();
+        var vxCurCtlFlowCharValueAtStart = state.tlvCurCtlFlowChar;
+        if (state.vxCodeActive == true) {
+          if (/[\[\]{}\(\);\:]/.test(ch)) {
+            // bypass nesting and 1 char punc
+            style = &quot;meta&quot;;
+            stream.next();
+          } else if (ch == &quot;/&quot;) {
+            stream.next();
+            if (stream.eat(&quot;/&quot;)) {
+              stream.skipToEnd();
+              style = &quot;comment&quot;;
+              state.tlvCurCtlFlowChar = &quot;S&quot;;
+            } else {
+              stream.backUp(1);
+            }
+          } else if (ch == &quot;@&quot;) {
+            // pipeline stage
+            style = tlvchScopePrefixes[ch];
+            state.tlvCurCtlFlowChar = &quot;@&quot;;
+            stream.next();
+            stream.eatWhile(/[\w\$_]/);
+          } else if (stream.match(/\b[mM]4+/, true)) { // match: function(pattern, consume, caseInsensitive)
+            // m4 pre proc
+            stream.skipTo(&quot;(&quot;);
+            style = &quot;def&quot;;
+            state.tlvCurCtlFlowChar = &quot;M&quot;;
+          } else if (ch == &quot;!&quot; &amp;&amp; stream.sol()) {
+            // v stmt in tlv region
+            // state.tlvCurCtlFlowChar  = &quot;S&quot;;
+            style = &quot;comment&quot;;
+            stream.next();
+          } else if (tlvisOperatorChar.test(ch)) {
+            // operators
+            stream.eatWhile(tlvisOperatorChar);
+            style = &quot;operator&quot;;
+          } else if (ch == &quot;#&quot;) {
+            // phy hier
+            state.tlvCurCtlFlowChar  = (state.tlvCurCtlFlowChar == &quot;&quot;)
+              ? ch : state.tlvCurCtlFlowChar;
+            stream.next();
+            stream.eatWhile(/[+-]\d/);
+            style = &quot;tag&quot;;
+          } else if (tlvkpScopePrefixs.propertyIsEnumerable(ch)) {
+            // special TLV operators
+            style = tlvkpScopePrefixs[ch];
+            state.tlvCurCtlFlowChar = state.tlvCurCtlFlowChar == &quot;&quot; ? &quot;S&quot; : state.tlvCurCtlFlowChar;  // stmt
+            stream.next();
+            stream.match(/[a-zA-Z_0-9]+/);
+          } else if (style = tlvchScopePrefixes[ch] || false) {
+            // special TLV operators
+            state.tlvCurCtlFlowChar = state.tlvCurCtlFlowChar == &quot;&quot; ? ch : state.tlvCurCtlFlowChar;
+            stream.next();
+            stream.match(/[a-zA-Z_0-9]+/);
+          }
+          if (state.tlvCurCtlFlowChar != vxCurCtlFlowCharValueAtStart) { // flow change
+            vxIndent = tlvGenIndent(stream, state);
+            state.vxIndentRq = vxIndent;
+          }
+        }
+        return style;
+      },
+      token: function(stream, state) {
+        if (state.vxCodeActive == true &amp;&amp; stream.sol() &amp;&amp; state.tlvCurCtlFlowChar != &quot;&quot;) {
+          state.tlvPrevPrevCtlFlowChar = state.tlvPrevCtlFlowChar;
+          state.tlvPrevCtlFlowChar = state.tlvCurCtlFlowChar;
+          state.tlvCurCtlFlowChar = &quot;&quot;;
+        }
+      },
+      indent: function(state) {
+        return (state.vxCodeActive == true) ? state.vxIndentRq : -1;
+      },
+      startState: function(state) {
+        state.tlvCurCtlFlowChar = &quot;&quot;;
+        state.tlvPrevCtlFlowChar = &quot;&quot;;
+        state.tlvPrevPrevCtlFlowChar = &quot;&quot;;
+        state.vxCodeActive = true;
+        state.vxIndentRq = 0;
+      }
+    }
+  });
+});
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

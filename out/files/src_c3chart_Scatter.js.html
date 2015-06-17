@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\c3chart\Scatter.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/fabric.BaseBrush.html">fabric.BaseBrush</a></li>
+                                <li><a href="../classes/fabric.Canvas.html">fabric.Canvas</a></li>
+                                <li><a href="../classes/fabric.Circle.html">fabric.Circle</a></li>
+                                <li><a href="../classes/fabric.CircleBrush.html">fabric.CircleBrush</a></li>
+                                <li><a href="../classes/fabric.Color.html">fabric.Color</a></li>
+                                <li><a href="../classes/fabric.Element.html">fabric.Element</a></li>
+                                <li><a href="../classes/fabric.Ellipse.html">fabric.Ellipse</a></li>
+                                <li><a href="../classes/fabric.Gradient.html">fabric.Gradient</a></li>
+                                <li><a href="../classes/fabric.Group.html">fabric.Group</a></li>
+                                <li><a href="../classes/fabric.Image.filters.BaseFilter.html">fabric.Image.filters.BaseFilter</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Brightness.html">fabric.Image.filters.Brightness</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Convolute.html">fabric.Image.filters.Convolute</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Creates an instance of a PdfPrinter which turns document definition into a pdf.html">fabric.Image.filters.Creates an instance of a PdfPrinter which turns document definition into a pdf</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Image.html">fabric.Image.filters.fabric.Image</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Image.filter.Blend.html">fabric.Image.filters.fabric.Image.filter.Blend</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.IText.html">fabric.Image.filters.fabric.IText</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Text.html">fabric.Image.filters.fabric.Text</a></li>
+                                <li><a href="../classes/fabric.Image.filters.GradientTransparency.html">fabric.Image.filters.GradientTransparency</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Grayscale.html">fabric.Image.filters.Grayscale</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Invert.html">fabric.Image.filters.Invert</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Mask.html">fabric.Image.filters.Mask</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Multiply.html">fabric.Image.filters.Multiply</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Noise.html">fabric.Image.filters.Noise</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Pixelate.html">fabric.Image.filters.Pixelate</a></li>
+                                <li><a href="../classes/fabric.Image.filters.RemoveWhite.html">fabric.Image.filters.RemoveWhite</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Resize.html">fabric.Image.filters.Resize</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Sepia.html">fabric.Image.filters.Sepia</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Sepia2.html">fabric.Image.filters.Sepia2</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Tint.html">fabric.Image.filters.Tint</a></li>
+                                <li><a href="../classes/fabric.Intersection.html">fabric.Intersection</a></li>
+                                <li><a href="../classes/fabric.Line.html">fabric.Line</a></li>
+                                <li><a href="../classes/fabric.Object.html">fabric.Object</a></li>
+                                <li><a href="../classes/fabric.Path.html">fabric.Path</a></li>
+                                <li><a href="../classes/fabric.PathGroup.html">fabric.PathGroup</a></li>
+                                <li><a href="../classes/fabric.Pattern.html">fabric.Pattern</a></li>
+                                <li><a href="../classes/fabric.PatternBrush.html">fabric.PatternBrush</a></li>
+                                <li><a href="../classes/fabric.PencilBrush.html">fabric.PencilBrush</a></li>
+                                <li><a href="../classes/fabric.Point.html">fabric.Point</a></li>
+                                <li><a href="../classes/fabric.Polygon.html">fabric.Polygon</a></li>
+                                <li><a href="../classes/fabric.Polyline.html">fabric.Polyline</a></li>
+                                <li><a href="../classes/fabric.Rect.html">fabric.Rect</a></li>
+                                <li><a href="../classes/fabric.Shadow.html">fabric.Shadow</a></li>
+                                <li><a href="../classes/fabric.SprayBrush.html">fabric.SprayBrush</a></li>
+                                <li><a href="../classes/fabric.StaticCanvas.html">fabric.StaticCanvas</a></li>
+                                <li><a href="../classes/fabric.Triangle.html">fabric.Triangle</a></li>
+                                <li><a href="../classes/google/Area.html">google/Area</a></li>
+                                <li><a href="../classes/google/Bar.html">google/Bar</a></li>
+                                <li><a href="../classes/google/Common.html">google/Common</a></li>
+                                <li><a href="../classes/google/CommonND.html">google/CommonND</a></li>
+                                <li><a href="../classes/jsPDF.html">jsPDF</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/google_Area.html">google/Area</a></li>
+                                <li><a href="../modules/google_Bar.html">google/Bar</a></li>
+                                <li><a href="../modules/google_Common.html">google/Common</a></li>
+                                <li><a href="../modules/google_CommonND.html">google/CommonND</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: src\c3chart\Scatter.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&quot;use strict&quot;;
+(function (root, factory) {
+    if (typeof define === &quot;function&quot; &amp;&amp; define.amd) {
+        define([&quot;./CommonND&quot;], factory);
+    } else {
+        root.c3chart_Scatter = factory(root.c3chart_CommonND);
+    }
+}(this, function (CommonND) {
+    function Scatter(target) {
+        CommonND.call(this);
+
+        this._type = &quot;scatter&quot;;
+    }
+    
+    /**
+     * Publish Params Common To Other Libraries
+     */
+
+    /**
+     * Publish Params Unique To This Widget
+     */   
+
+    Scatter.prototype = Object.create(CommonND.prototype);
+    Scatter.prototype._class += &quot; c3chart_Scatter&quot;;
+
+    return Scatter;
+}));
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

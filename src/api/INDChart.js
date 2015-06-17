@@ -7,13 +7,19 @@
     }
 }(this, function (Palette) {
     /**
-     * @interface api/INDChart
+     * @interface api_INDChart
      */
     function INDChart() {
     }
     INDChart.prototype._palette = Palette.ordinal("default");
 
-    //  Data ---
+    /**
+     * Sets for the default test data for ND based charts.
+     * @name testData
+     * @memberof api_INDChart
+     * @method
+     * @instance
+     */
     INDChart.prototype.testData = function () {
         switch (this._chartType) {
             case 'ScatterChart':
@@ -40,7 +46,12 @@
         return this;
     };
 
-    //  Events  ---
+    /**
+     * Throw a snowball.
+     * event test
+     * fires Hurl#snowball
+     * @listens click
+     */
     INDChart.prototype.click = function (row, column) {
         console.log("Click:  " + JSON.stringify(row) + ", " + column);
     };

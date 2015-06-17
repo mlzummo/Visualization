@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\amchart\CommonRadar.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/fabric.BaseBrush.html">fabric.BaseBrush</a></li>
+                                <li><a href="../classes/fabric.Canvas.html">fabric.Canvas</a></li>
+                                <li><a href="../classes/fabric.Circle.html">fabric.Circle</a></li>
+                                <li><a href="../classes/fabric.CircleBrush.html">fabric.CircleBrush</a></li>
+                                <li><a href="../classes/fabric.Color.html">fabric.Color</a></li>
+                                <li><a href="../classes/fabric.Element.html">fabric.Element</a></li>
+                                <li><a href="../classes/fabric.Ellipse.html">fabric.Ellipse</a></li>
+                                <li><a href="../classes/fabric.Gradient.html">fabric.Gradient</a></li>
+                                <li><a href="../classes/fabric.Group.html">fabric.Group</a></li>
+                                <li><a href="../classes/fabric.Image.filters.BaseFilter.html">fabric.Image.filters.BaseFilter</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Brightness.html">fabric.Image.filters.Brightness</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Convolute.html">fabric.Image.filters.Convolute</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Creates an instance of a PdfPrinter which turns document definition into a pdf.html">fabric.Image.filters.Creates an instance of a PdfPrinter which turns document definition into a pdf</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Image.html">fabric.Image.filters.fabric.Image</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Image.filter.Blend.html">fabric.Image.filters.fabric.Image.filter.Blend</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.IText.html">fabric.Image.filters.fabric.IText</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Text.html">fabric.Image.filters.fabric.Text</a></li>
+                                <li><a href="../classes/fabric.Image.filters.GradientTransparency.html">fabric.Image.filters.GradientTransparency</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Grayscale.html">fabric.Image.filters.Grayscale</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Invert.html">fabric.Image.filters.Invert</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Mask.html">fabric.Image.filters.Mask</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Multiply.html">fabric.Image.filters.Multiply</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Noise.html">fabric.Image.filters.Noise</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Pixelate.html">fabric.Image.filters.Pixelate</a></li>
+                                <li><a href="../classes/fabric.Image.filters.RemoveWhite.html">fabric.Image.filters.RemoveWhite</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Resize.html">fabric.Image.filters.Resize</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Sepia.html">fabric.Image.filters.Sepia</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Sepia2.html">fabric.Image.filters.Sepia2</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Tint.html">fabric.Image.filters.Tint</a></li>
+                                <li><a href="../classes/fabric.Intersection.html">fabric.Intersection</a></li>
+                                <li><a href="../classes/fabric.Line.html">fabric.Line</a></li>
+                                <li><a href="../classes/fabric.Object.html">fabric.Object</a></li>
+                                <li><a href="../classes/fabric.Path.html">fabric.Path</a></li>
+                                <li><a href="../classes/fabric.PathGroup.html">fabric.PathGroup</a></li>
+                                <li><a href="../classes/fabric.Pattern.html">fabric.Pattern</a></li>
+                                <li><a href="../classes/fabric.PatternBrush.html">fabric.PatternBrush</a></li>
+                                <li><a href="../classes/fabric.PencilBrush.html">fabric.PencilBrush</a></li>
+                                <li><a href="../classes/fabric.Point.html">fabric.Point</a></li>
+                                <li><a href="../classes/fabric.Polygon.html">fabric.Polygon</a></li>
+                                <li><a href="../classes/fabric.Polyline.html">fabric.Polyline</a></li>
+                                <li><a href="../classes/fabric.Rect.html">fabric.Rect</a></li>
+                                <li><a href="../classes/fabric.Shadow.html">fabric.Shadow</a></li>
+                                <li><a href="../classes/fabric.SprayBrush.html">fabric.SprayBrush</a></li>
+                                <li><a href="../classes/fabric.StaticCanvas.html">fabric.StaticCanvas</a></li>
+                                <li><a href="../classes/fabric.Triangle.html">fabric.Triangle</a></li>
+                                <li><a href="../classes/google/Area.html">google/Area</a></li>
+                                <li><a href="../classes/google/Bar.html">google/Bar</a></li>
+                                <li><a href="../classes/google/Common.html">google/Common</a></li>
+                                <li><a href="../classes/google/CommonND.html">google/CommonND</a></li>
+                                <li><a href="../classes/jsPDF.html">jsPDF</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/google_Area.html">google/Area</a></li>
+                                <li><a href="../modules/google_Bar.html">google/Bar</a></li>
+                                <li><a href="../modules/google_Common.html">google/Common</a></li>
+                                <li><a href="../modules/google_CommonND.html">google/CommonND</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: src\amchart\CommonRadar.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&quot;use strict&quot;;
+(function(root, factory) {
+    if (typeof define === &quot;function&quot; &amp;&amp; define.amd) {
+        define([&quot;d3&quot;, &quot;../common/HTMLWidget&quot;, &quot;amcharts.radar&quot;], factory);
+    } else {
+        root.amchart_CommonRadar = factory(root.d3, root.common_HTMLWidget, root.AmCharts);
+    }
+
+}(this, function(d3, HTMLWidget, AmCharts) {
+    function CommonRadar() {
+        HTMLWidget.call(this);
+        this._tag = &quot;div&quot;;
+
+        this._chart = {};
+    }
+
+    CommonRadar.prototype = Object.create(HTMLWidget.prototype);
+
+    // NO X-Axis  !!!
+
+    /**
+     * Publish Params Common To Other Libraries
+     */
+    CommonRadar.prototype.publish(&quot;fontSize&quot;, null, &quot;number&quot;, &quot;Font Size&quot;,null,{tags:[&#x27;Basic&#x27;,&#x27;Shared&#x27;]});
+    CommonRadar.prototype.publish(&quot;fontFamily&quot;, null, &quot;string&quot;, &quot;Font Name&quot;,null,{tags:[&#x27;Basic&#x27;,&#x27;Shared&#x27;]});
+    CommonRadar.prototype.publish(&quot;fontColor&quot;, null, &quot;html-color&quot;, &quot;Font Color&quot;,null,{tags:[&#x27;Basic&#x27;,&#x27;Shared&#x27;]});
+
+    CommonRadar.prototype.publish(&quot;lineWidth&quot;, 2, &quot;number&quot;, &quot;Line Thickness&quot;, null, {min:0,max:10,step:1,inputType:&#x27;range&#x27;,tags:[&#x27;Basic&#x27;,&#x27;Shared&#x27;]});
+    CommonRadar.prototype.publish(&quot;lineOpacity&quot;, 1, &quot;number&quot;, &quot;Line Opacity&quot;, null, {min:0,max:1,step:0.001,inputType:&#x27;range&#x27;,tags:[&#x27;Basic&#x27;,&#x27;Shared&#x27;]});
+    CommonRadar.prototype.publish(&quot;dashedLineStyle&quot;, 0, &quot;number&quot;, &quot;&quot;,null,{tags:[&#x27;Advanced&#x27;,&#x27;Shared&#x27;]});
+
+    CommonRadar.prototype.publish(&quot;yAxisBaselineColor&quot;, null, &quot;html-color&quot;, &quot;Axis color&quot;,null,{tags:[&#x27;Intermediate&#x27;,&#x27;Shared&#x27;]});
+
+    CommonRadar.prototype.publish(&quot;axisFontSize&quot;, null, &quot;number&quot;, &quot;Size of value labels text. Will use chart&#x27;s fontSize if not set.&quot;,null,{tags:[&#x27;Basic&#x27;,&#x27;Shared&#x27;]});
+    CommonRadar.prototype.publish(&quot;yAxisFontColor&quot;, null, &quot;string&quot;, &quot;Font Name&quot;,null,{tags:[&#x27;Basic&#x27;,&#x27;Shared&#x27;]});
+
+    CommonRadar.prototype.publish(&quot;yAxisTitle&quot;, &quot;&quot;, &quot;string&quot;, &quot;Y-Axis Title&quot;,null,{tags:[&#x27;Basic&#x27;,&#x27;Shared&#x27;]});
+    CommonRadar.prototype.publish(&quot;yAxisTitleFontColor&quot;, null, &quot;html-color&quot;, &quot;Color of axis value labels. Will use chart&#x27;s color if not set.&quot;,null,{tags:[&#x27;Basic&#x27;,&#x27;Shared&#x27;]});
+    CommonRadar.prototype.publish(&quot;yAxisTitleFontSize&quot;, null, &quot;html-color&quot;, &quot;Font Size of axis value labels. Will use chart&#x27;s color if not set.&quot;,null,{tags:[&#x27;Basic&#x27;,&#x27;Shared&#x27;]});
+
+    CommonRadar.prototype.publish(&quot;axisLineWidth&quot;, 1, &quot;number&quot;, &quot;Thickness of axis&quot;,null,{tags:[&#x27;Basic&#x27;,&#x27;Shared&#x27;]});
+
+    /**
+     * Publish Params Unique To This Widget
+     */
+    CommonRadar.prototype.publish(&quot;marginLeft&quot;, null, &quot;number&quot;, &quot;Margin (Left)&quot;,null,{tags:[&#x27;Intermediate&#x27;]});
+    CommonRadar.prototype.publish(&quot;marginRight&quot;, null, &quot;number&quot;, &quot;Margin (Right)&quot;,null,{tags:[&#x27;Intermediate&#x27;]});
+    CommonRadar.prototype.publish(&quot;marginTop&quot;, null, &quot;number&quot;, &quot;Margin (Top)&quot;,null,{tags:[&#x27;Intermediate&#x27;]});
+    CommonRadar.prototype.publish(&quot;marginBottom&quot;, null, &quot;number&quot;, &quot;Margin (Bottom)&quot;,null,{tags:[&#x27;Intermediate&#x27;]});
+
+    CommonRadar.prototype.publish(&quot;showScrollbar&quot;, false, &quot;boolean&quot;, &quot;Chart Scrollbar&quot;,null,{tags:[&#x27;Intermediate&#x27;]});
+
+    CommonRadar.prototype.publish(&quot;startDuration&quot;, 0.3, &quot;number&quot;, &quot;Start Duration (sec)&quot;,null,{tags:[&#x27;Private&#x27;]});
+
+    CommonRadar.prototype.publish(&quot;dataDateFormat&quot;, null, &quot;string&quot;, &quot;Date Format String&quot;,null,{tags:[&#x27;Private&#x27;]});
+
+    CommonRadar.prototype.publish(&quot;yAxisAutoGridCount&quot;, true, &quot;boolean&quot;, &quot;Specifies whether number of gridCount is specified automatically, acoarding to the axis size&quot;,null,{tags:[&#x27;Advanced&#x27;]});
+    CommonRadar.prototype.publish(&quot;yAxisGridPosition&quot;, &quot;start&quot;, &quot;set&quot;, &quot;Specifies if a grid line is placed on the center of a cell or on the beginning of a cell&quot;, [&quot;start&quot;,&quot;middle&quot;],{tags:[&#x27;Advanced&#x27;]});
+
+    //CommonRadar.prototype.publish(&quot;yAxisBoldPeriodBeginning&quot;, true, &quot;boolean&quot;, &quot;When parse dates is on for the category axis, the chart will try to highlight the beginning of the periods, like month, in bold.&quot;,null,{tags:[&#x27;Advanced&#x27;]});
+    //CommonRadar.prototype.publish(&quot;yAxisFillAlpha&quot;, 0, &quot;number&quot;, &quot;Fill opacity. Every second space between grid lines can be filled with color. Set fillAlpha to a value greater than 0 to see the fills.&quot;,null,{tags:[&#x27;Intermediate&#x27;]});
+    //CommonRadar.prototype.publish(&quot;yAxisFillColor&quot;, &quot;#FFFFFF&quot;, &quot;html-color&quot;, &quot;Fill color. Every second space between grid lines can be filled with color. Set fillAlpha to a value greater than 0 to see the fills.&quot;,null,{tags:[&#x27;Intermediate&#x27;]});
+    //CommonRadar.prototype.publish(&quot;yAxisGridAlpha&quot;, 0.2, &quot;number&quot;, &quot;Grid alpha.&quot;,null,{tags:[&#x27;Intermediate&#x27;]});
+
+    CommonRadar.prototype.publish(&quot;yAxisMinimum&quot;, [], &quot;array&quot;, &quot;&quot;,null,{tags:[&#x27;Advanced&#x27;]});
+    CommonRadar.prototype.publish(&quot;yAxisTitleOffset&quot;, [], &quot;array&quot;, &quot;&quot;,null,{tags:[&#x27;Advanced&#x27;]});
+    CommonRadar.prototype.publish(&quot;yAxisDashLength&quot;, [], &quot;array&quot;, &quot;Length of a dash. 0 means line is not dashed.&quot;,null,{tags:[&#x27;Advanced&#x27;]});
+    CommonRadar.prototype.publish(&quot;axisAlpha&quot;, 1, &quot;number&quot;, &quot;Axis opacity&quot;,null,{tags:[&#x27;Intermediate&#x27;]});
+
+    CommonRadar.prototype.publish(&quot;circularGrid&quot;, false, &quot;boolean&quot;, &quot;Circular Grid&quot;,null,{tags:[&#x27;Intermediate&#x27;]}); // not dynamic
+
+    CommonRadar.prototype.publish(&quot;bulletSize&quot;, 9, &quot;number&quot;, &quot;Bullet Size&quot;,null,{tags:[&#x27;Intermediate&#x27;]});
+    CommonRadar.prototype.publish(&quot;bulletType&quot;, &quot;round&quot;, &quot;set&quot;, &quot;Bullet Type&quot;, [&quot;none&quot;, &quot;round&quot;, &quot;square&quot;, &quot;triangleUp&quot;, &quot;triangleDown&quot;, &quot;triangleLeft&quot;, &quot;triangleRight&quot;, &quot;bubble&quot;, &quot;diamond&quot;],{tags:[&#x27;Intermediate&#x27;]});
+
+    CommonRadar.prototype.publish(&quot;fillOpacity&quot;, 0.3, &quot;number&quot;, &quot;Shape Opacity&quot;, null, {min:0,max:1,step:0.001,inputType:&#x27;range&#x27;,tags:[&#x27;Intermediate&#x27;]});
+
+    CommonRadar.prototype.updateChartOptions = function() {
+        var context = this;
+
+        if (this.dataDateFormat()) { this._chart.dataDateFormat = this.dataDateFormat(); }
+        this._chart.theme = &quot;none&quot;;
+        this._chart.type = &quot;radar&quot;;
+        this._chart.startDuration = this.startDuration();
+        this._chart.categoryField = this._categoryField;
+
+        this._chart.color = this.fontColor();
+        this._chart.fontSize = this.fontSize();
+        this._chart.fontFamily = this.fontFamily();
+
+        if (this.marginLeft()) { this._chart.marginLeft = this.marginLeft(); }
+        if (this.marginRight()) { this._chart.marginRight = this.marginRight(); }
+        if (this.marginTop()) { this._chart.marginTop = this.marginTop(); }
+        if (this.marginBottom()) { this._chart.marginBottom = this.marginBottom(); }
+
+        this.titles = [];
+
+        // DataProvider
+        this._chart.dataProvider = this.formatData(this._data);
+
+        // ValueAxis
+        this._chart.valueAxes[0].title = this.yAxisTitle();
+        this._chart.valueAxes[0].axisTitleOffset = this.yAxisTitleOffset();
+        this._chart.valueAxes[0].minimum = this.yAxisMinimum();
+        this._chart.valueAxes[0].axisAlpha = this.axisAlpha();
+        this._chart.valueAxes[0].dashLength = this.yAxisDashLength() || this.dashedLineStyle();
+        this._chart.valueAxes[0].axisColor = this.yAxisBaselineColor();
+        this._chart.valueAxes[0].axisThickness = this.axisLineWidth();
+        this._chart.valueAxes[0].titleColor = this.yAxisTitleFontColor();
+        this._chart.valueAxes[0].titleFontSize = this.yAxisTitleFontSize();
+        this._chart.valueAxes[0].fontSize = this.axisFontSize();
+        this._chart.valueAxes[0].color = this.yAxisFontColor();
+
+        this._chart.valueAxes[0].autoGridCount = this.yAxisAutoGridCount();
+        this._chart.valueAxes[0].gridPosition = this.yAxisGridPosition();
+
+        // Color Palette
+        this._chart.colors = this._columns.filter(function (d, i) { return i &gt; 0; }).map(function (row) {
+            return this._palette(row);
+        }, this);
+
+        if(this.circularGrid()){ // not dynamic
+            this._chart.valueAxes.forEach(function(va,i){
+                context._chart.valueAxes[i].gridType = &quot;circles&quot;;
+            });
+        }
+
+        if (this.showScrollbar()) {
+            this._chart.chartScrollbar.enabled = true;
+        } else {
+            this._chart.chartScrollbar.enabled = false;
+        }
+
+        return this._chart;
+    };
+
+    CommonRadar.prototype.buildGraphObj = function(gType,i) {
+        var context = this;
+        var gObj = {};
+
+        gObj.balloonText = context.tooltipTemplate();
+        gObj.fillAlphas = context.fillOpacity();
+        gObj.lineAlpha = context.lineOpacity();
+        gObj.lineThickness = context.lineWidth();
+        gObj.bullet = context.bulletType();
+        gObj.bulletSize = context.bulletSize();
+        gObj.dashLength = context.dashedLineStyle(); // TODO: convert to css Array Prop
+
+        gObj.type = gType;
+
+        gObj.title = &#x27;&#x27;;
+
+        return gObj;
+    };
+
+    CommonRadar.prototype.formatData = function(dataArr){
+        var dataObjArr = [];
+        var context = this;
+        dataArr.forEach(function(dataRow){
+            var dataObj = {};
+            context._columns.forEach(function(colName,cIdx){
+                dataObj[colName] = dataRow[cIdx];
+            });
+            dataObjArr.push(dataObj);
+        });
+        return dataObjArr;
+    };
+
+    CommonRadar.prototype.columns = function(colArr) {
+        if (!arguments.length) return this._columns;
+        var context = this;
+        var retVal = HTMLWidget.prototype.columns.apply(this, arguments);
+        if (arguments.length) {
+            this._categoryField = colArr[0];
+            this._valueField = [];
+            colArr.slice(1,colArr.length).forEach(function(col){
+                context._valueField.push(col);
+            });
+            this._columns = colArr;
+            return this;
+        }
+        return retVal;
+    };
+
+    CommonRadar.prototype.enter = function(domNode, element) {
+        HTMLWidget.prototype.enter.apply(this, arguments);
+        var initObj = {
+            theme: &quot;none&quot;,
+            type: &quot;radar&quot;,
+            chartScrollbar: {}
+        };
+        this._chart = AmCharts.makeChart(domNode, initObj);
+    };
+
+    CommonRadar.prototype.update = function(domNode, element) {
+        HTMLWidget.prototype.update.apply(this, arguments);
+
+        domNode.style.width = this.size().width + &#x27;px&#x27;;
+        domNode.style.height = this.size().height + &#x27;px&#x27;;
+
+        this._palette = this._palette.switch(this.paletteID());
+    };
+
+    return CommonRadar;
+}));
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

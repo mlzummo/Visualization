@@ -7,11 +7,10 @@
     }
 }(this, function (d3, Common, INDChart) {
     /**
-     * @class google/CommonND
-     * @extends google/Common
-     * @implements api/INDChart
-     * @classdesc Base CommonND Class for ND Data Charts
-     * @inheritdoc
+     * @constructs google_CommonND
+     * @extends google_Common
+     * @implements api_INDChart
+     * @classdesc Base CommonND Class for Google ND Data Charts
      */
     function CommonND() {
         Common.call(this);
@@ -31,6 +30,7 @@
      * @name paletteID
      * @method
      * @param {string} value - The name of the palette to set for the widget.
+     * @memberof google_CommonND
      */
     CommonND.prototype.publish("paletteID", "default", "set", "Palette ID", CommonND.prototype._palette.switch(),{tags:['Basic','Shared']});
 

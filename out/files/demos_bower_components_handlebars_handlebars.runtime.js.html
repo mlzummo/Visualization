@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>demos\bower_components\handlebars\handlebars.runtime.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/fabric.BaseBrush.html">fabric.BaseBrush</a></li>
+                                <li><a href="../classes/fabric.Canvas.html">fabric.Canvas</a></li>
+                                <li><a href="../classes/fabric.Circle.html">fabric.Circle</a></li>
+                                <li><a href="../classes/fabric.CircleBrush.html">fabric.CircleBrush</a></li>
+                                <li><a href="../classes/fabric.Color.html">fabric.Color</a></li>
+                                <li><a href="../classes/fabric.Element.html">fabric.Element</a></li>
+                                <li><a href="../classes/fabric.Ellipse.html">fabric.Ellipse</a></li>
+                                <li><a href="../classes/fabric.Gradient.html">fabric.Gradient</a></li>
+                                <li><a href="../classes/fabric.Group.html">fabric.Group</a></li>
+                                <li><a href="../classes/fabric.Image.filters.BaseFilter.html">fabric.Image.filters.BaseFilter</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Brightness.html">fabric.Image.filters.Brightness</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Convolute.html">fabric.Image.filters.Convolute</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Creates an instance of a PdfPrinter which turns document definition into a pdf.html">fabric.Image.filters.Creates an instance of a PdfPrinter which turns document definition into a pdf</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Image.html">fabric.Image.filters.fabric.Image</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Image.filter.Blend.html">fabric.Image.filters.fabric.Image.filter.Blend</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.IText.html">fabric.Image.filters.fabric.IText</a></li>
+                                <li><a href="../classes/fabric.Image.filters.fabric.Text.html">fabric.Image.filters.fabric.Text</a></li>
+                                <li><a href="../classes/fabric.Image.filters.GradientTransparency.html">fabric.Image.filters.GradientTransparency</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Grayscale.html">fabric.Image.filters.Grayscale</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Invert.html">fabric.Image.filters.Invert</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Mask.html">fabric.Image.filters.Mask</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Multiply.html">fabric.Image.filters.Multiply</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Noise.html">fabric.Image.filters.Noise</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Pixelate.html">fabric.Image.filters.Pixelate</a></li>
+                                <li><a href="../classes/fabric.Image.filters.RemoveWhite.html">fabric.Image.filters.RemoveWhite</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Resize.html">fabric.Image.filters.Resize</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Sepia.html">fabric.Image.filters.Sepia</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Sepia2.html">fabric.Image.filters.Sepia2</a></li>
+                                <li><a href="../classes/fabric.Image.filters.Tint.html">fabric.Image.filters.Tint</a></li>
+                                <li><a href="../classes/fabric.Intersection.html">fabric.Intersection</a></li>
+                                <li><a href="../classes/fabric.Line.html">fabric.Line</a></li>
+                                <li><a href="../classes/fabric.Object.html">fabric.Object</a></li>
+                                <li><a href="../classes/fabric.Path.html">fabric.Path</a></li>
+                                <li><a href="../classes/fabric.PathGroup.html">fabric.PathGroup</a></li>
+                                <li><a href="../classes/fabric.Pattern.html">fabric.Pattern</a></li>
+                                <li><a href="../classes/fabric.PatternBrush.html">fabric.PatternBrush</a></li>
+                                <li><a href="../classes/fabric.PencilBrush.html">fabric.PencilBrush</a></li>
+                                <li><a href="../classes/fabric.Point.html">fabric.Point</a></li>
+                                <li><a href="../classes/fabric.Polygon.html">fabric.Polygon</a></li>
+                                <li><a href="../classes/fabric.Polyline.html">fabric.Polyline</a></li>
+                                <li><a href="../classes/fabric.Rect.html">fabric.Rect</a></li>
+                                <li><a href="../classes/fabric.Shadow.html">fabric.Shadow</a></li>
+                                <li><a href="../classes/fabric.SprayBrush.html">fabric.SprayBrush</a></li>
+                                <li><a href="../classes/fabric.StaticCanvas.html">fabric.StaticCanvas</a></li>
+                                <li><a href="../classes/fabric.Triangle.html">fabric.Triangle</a></li>
+                                <li><a href="../classes/google/Area.html">google/Area</a></li>
+                                <li><a href="../classes/google/Bar.html">google/Bar</a></li>
+                                <li><a href="../classes/google/Common.html">google/Common</a></li>
+                                <li><a href="../classes/google/CommonND.html">google/CommonND</a></li>
+                                <li><a href="../classes/jsPDF.html">jsPDF</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/google_Area.html">google/Area</a></li>
+                                <li><a href="../modules/google_Bar.html">google/Bar</a></li>
+                                <li><a href="../modules/google_Common.html">google/Common</a></li>
+                                <li><a href="../modules/google_CommonND.html">google/CommonND</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: demos\bower_components\handlebars\handlebars.runtime.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*!
+
+ handlebars v3.0.3
+
+Copyright (C) 2011-2014 by Yehuda Katz
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+@license
+*/
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === &#x27;object&#x27; &amp;&amp; typeof module === &#x27;object&#x27;)
+		module.exports = factory();
+	else if(typeof define === &#x27;function&#x27; &amp;&amp; define.amd)
+		define(factory);
+	else if(typeof exports === &#x27;object&#x27;)
+		exports[&quot;Handlebars&quot;] = factory();
+	else
+		root[&quot;Handlebars&quot;] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = &quot;&quot;;
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	&#x27;use strict&#x27;;
+
+	var _interopRequireWildcard = __webpack_require__(7)[&#x27;default&#x27;];
+
+	exports.__esModule = true;
+
+	var _import = __webpack_require__(1);
+
+	var base = _interopRequireWildcard(_import);
+
+	// Each of these augment the Handlebars object. No need to setup here.
+	// (This is done to easily share code between commonjs and browse envs)
+
+	var _SafeString = __webpack_require__(2);
+
+	var _SafeString2 = _interopRequireWildcard(_SafeString);
+
+	var _Exception = __webpack_require__(3);
+
+	var _Exception2 = _interopRequireWildcard(_Exception);
+
+	var _import2 = __webpack_require__(4);
+
+	var Utils = _interopRequireWildcard(_import2);
+
+	var _import3 = __webpack_require__(5);
+
+	var runtime = _interopRequireWildcard(_import3);
+
+	var _noConflict = __webpack_require__(6);
+
+	var _noConflict2 = _interopRequireWildcard(_noConflict);
+
+	// For compatibility and usage outside of module systems, make the Handlebars object a namespace
+	function create() {
+	  var hb = new base.HandlebarsEnvironment();
+
+	  Utils.extend(hb, base);
+	  hb.SafeString = _SafeString2[&#x27;default&#x27;];
+	  hb.Exception = _Exception2[&#x27;default&#x27;];
+	  hb.Utils = Utils;
+	  hb.escapeExpression = Utils.escapeExpression;
+
+	  hb.VM = runtime;
+	  hb.template = function (spec) {
+	    return runtime.template(spec, hb);
+	  };
+
+	  return hb;
+	}
+
+	var inst = create();
+	inst.create = create;
+
+	_noConflict2[&#x27;default&#x27;](inst);
+
+	inst[&#x27;default&#x27;] = inst;
+
+	exports[&#x27;default&#x27;] = inst;
+	module.exports = exports[&#x27;default&#x27;];
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	&#x27;use strict&#x27;;
+
+	var _interopRequireWildcard = __webpack_require__(7)[&#x27;default&#x27;];
+
+	exports.__esModule = true;
+	exports.HandlebarsEnvironment = HandlebarsEnvironment;
+	exports.createFrame = createFrame;
+
+	var _import = __webpack_require__(4);
+
+	var Utils = _interopRequireWildcard(_import);
+
+	var _Exception = __webpack_require__(3);
+
+	var _Exception2 = _interopRequireWildcard(_Exception);
+
+	var VERSION = &#x27;3.0.1&#x27;;
+	exports.VERSION = VERSION;
+	var COMPILER_REVISION = 6;
+
+	exports.COMPILER_REVISION = COMPILER_REVISION;
+	var REVISION_CHANGES = {
+	  1: &#x27;&lt;= 1.0.rc.2&#x27;, // 1.0.rc.2 is actually rev2 but doesn&#x27;t report it
+	  2: &#x27;== 1.0.0-rc.3&#x27;,
+	  3: &#x27;== 1.0.0-rc.4&#x27;,
+	  4: &#x27;== 1.x.x&#x27;,
+	  5: &#x27;== 2.0.0-alpha.x&#x27;,
+	  6: &#x27;&gt;= 2.0.0-beta.1&#x27;
+	};
+
+	exports.REVISION_CHANGES = REVISION_CHANGES;
+	var isArray = Utils.isArray,
+	    isFunction = Utils.isFunction,
+	    toString = Utils.toString,
+	    objectType = &#x27;[object Object]&#x27;;
+
+	function HandlebarsEnvironment(helpers, partials) {
+	  this.helpers = helpers || {};
+	  this.partials = partials || {};
+
+	  registerDefaultHelpers(this);
+	}
+
+	HandlebarsEnvironment.prototype = {
+	  constructor: HandlebarsEnvironment,
+
+	  logger: logger,
+	  log: log,
+
+	  registerHelper: function registerHelper(name, fn) {
+	    if (toString.call(name) === objectType) {
+	      if (fn) {
+	        throw new _Exception2[&#x27;default&#x27;](&#x27;Arg not supported with multiple helpers&#x27;);
+	      }
+	      Utils.extend(this.helpers, name);
+	    } else {
+	      this.helpers[name] = fn;
+	    }
+	  },
+	  unregisterHelper: function unregisterHelper(name) {
+	    delete this.helpers[name];
+	  },
+
+	  registerPartial: function registerPartial(name, partial) {
+	    if (toString.call(name) === objectType) {
+	      Utils.extend(this.partials, name);
+	    } else {
+	      if (typeof partial === &#x27;undefined&#x27;) {
+	        throw new _Exception2[&#x27;default&#x27;](&#x27;Attempting to register a partial as undefined&#x27;);
+	      }
+	      this.partials[name] = partial;
+	    }
+	  },
+	  unregisterPartial: function unregisterPartial(name) {
+	    delete this.partials[name];
+	  }
+	};
+
+	function registerDefaultHelpers(instance) {
+	  instance.registerHelper(&#x27;helperMissing&#x27;, function () {
+	    if (arguments.length === 1) {
+	      // A missing field in a {{foo}} constuct.
+	      return undefined;
+	    } else {
+	      // Someone is actually trying to call something, blow up.
+	      throw new _Exception2[&#x27;default&#x27;](&#x27;Missing helper: &quot;&#x27; + arguments[arguments.length - 1].name + &#x27;&quot;&#x27;);
+	    }
+	  });
+
+	  instance.registerHelper(&#x27;blockHelperMissing&#x27;, function (context, options) {
+	    var inverse = options.inverse,
+	        fn = options.fn;
+
+	    if (context === true) {
+	      return fn(this);
+	    } else if (context === false || context == null) {
+	      return inverse(this);
+	    } else if (isArray(context)) {
+	      if (context.length &gt; 0) {
+	        if (options.ids) {
+	          options.ids = [options.name];
+	        }
+
+	        return instance.helpers.each(context, options);
+	      } else {
+	        return inverse(this);
+	      }
+	    } else {
+	      if (options.data &amp;&amp; options.ids) {
+	        var data = createFrame(options.data);
+	        data.contextPath = Utils.appendContextPath(options.data.contextPath, options.name);
+	        options = { data: data };
+	      }
+
+	      return fn(context, options);
+	    }
+	  });
+
+	  instance.registerHelper(&#x27;each&#x27;, function (context, options) {
+	    if (!options) {
+	      throw new _Exception2[&#x27;default&#x27;](&#x27;Must pass iterator to #each&#x27;);
+	    }
+
+	    var fn = options.fn,
+	        inverse = options.inverse,
+	        i = 0,
+	        ret = &#x27;&#x27;,
+	        data = undefined,
+	        contextPath = undefined;
+
+	    if (options.data &amp;&amp; options.ids) {
+	      contextPath = Utils.appendContextPath(options.data.contextPath, options.ids[0]) + &#x27;.&#x27;;
+	    }
+
+	    if (isFunction(context)) {
+	      context = context.call(this);
+	    }
+
+	    if (options.data) {
+	      data = createFrame(options.data);
+	    }
+
+	    function execIteration(field, index, last) {
+	      if (data) {
+	        data.key = field;
+	        data.index = index;
+	        data.first = index === 0;
+	        data.last = !!last;
+
+	        if (contextPath) {
+	          data.contextPath = contextPath + field;
+	        }
+	      }
+
+	      ret = ret + fn(context[field], {
+	        data: data,
+	        blockParams: Utils.blockParams([context[field], field], [contextPath + field, null])
+	      });
+	    }
+
+	    if (context &amp;&amp; typeof context === &#x27;object&#x27;) {
+	      if (isArray(context)) {
+	        for (var j = context.length; i &lt; j; i++) {
+	          execIteration(i, i, i === context.length - 1);
+	        }
+	      } else {
+	        var priorKey = undefined;
+
+	        for (var key in context) {
+	          if (context.hasOwnProperty(key)) {
+	            // We&#x27;re running the iterations one step out of sync so we can detect
+	            // the last iteration without have to scan the object twice and create
+	            // an itermediate keys array.
+	            if (priorKey) {
+	              execIteration(priorKey, i - 1);
+	            }
+	            priorKey = key;
+	            i++;
+	          }
+	        }
+	        if (priorKey) {
+	          execIteration(priorKey, i - 1, true);
+	        }
+	      }
+	    }
+
+	    if (i === 0) {
+	      ret = inverse(this);
+	    }
+
+	    return ret;
+	  });
+
+	  instance.registerHelper(&#x27;if&#x27;, function (conditional, options) {
+	    if (isFunction(conditional)) {
+	      conditional = conditional.call(this);
+	    }
+
+	    // Default behavior is to render the positive path if the value is truthy and not empty.
+	    // The &#x60;includeZero&#x60; option may be set to treat the condtional as purely not empty based on the
+	    // behavior of isEmpty. Effectively this determines if 0 is handled by the positive path or negative.
+	    if (!options.hash.includeZero &amp;&amp; !conditional || Utils.isEmpty(conditional)) {
+	      return options.inverse(this);
+	    } else {
+	      return options.fn(this);
+	    }
+	  });
+
+	  instance.registerHelper(&#x27;unless&#x27;, function (conditional, options) {
+	    return instance.helpers[&#x27;if&#x27;].call(this, conditional, { fn: options.inverse, inverse: options.fn, hash: options.hash });
+	  });
+
+	  instance.registerHelper(&#x27;with&#x27;, function (context, options) {
+	    if (isFunction(context)) {
+	      context = context.call(this);
+	    }
+
+	    var fn = options.fn;
+
+	    if (!Utils.isEmpty(context)) {
+	      if (options.data &amp;&amp; options.ids) {
+	        var data = createFrame(options.data);
+	        data.contextPath = Utils.appendContextPath(options.data.contextPath, options.ids[0]);
+	        options = { data: data };
+	      }
+
+	      return fn(context, options);
+	    } else {
+	      return options.inverse(this);
+	    }
+	  });
+
+	  instance.registerHelper(&#x27;log&#x27;, function (message, options) {
+	    var level = options.data &amp;&amp; options.data.level != null ? parseInt(options.data.level, 10) : 1;
+	    instance.log(level, message);
+	  });
+
+	  instance.registerHelper(&#x27;lookup&#x27;, function (obj, field) {
+	    return obj &amp;&amp; obj[field];
+	  });
+	}
+
+	var logger = {
+	  methodMap: { 0: &#x27;debug&#x27;, 1: &#x27;info&#x27;, 2: &#x27;warn&#x27;, 3: &#x27;error&#x27; },
+
+	  // State enum
+	  DEBUG: 0,
+	  INFO: 1,
+	  WARN: 2,
+	  ERROR: 3,
+	  level: 1,
+
+	  // Can be overridden in the host environment
+	  log: function log(level, message) {
+	    if (typeof console !== &#x27;undefined&#x27; &amp;&amp; logger.level &lt;= level) {
+	      var method = logger.methodMap[level];
+	      (console[method] || console.log).call(console, message); // eslint-disable-line no-console
+	    }
+	  }
+	};
+
+	exports.logger = logger;
+	var log = logger.log;
+
+	exports.log = log;
+
+	function createFrame(object) {
+	  var frame = Utils.extend({}, object);
+	  frame._parent = object;
+	  return frame;
+	}
+
+	/* [args, ]options */
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	&#x27;use strict&#x27;;
+
+	exports.__esModule = true;
+	// Build out our basic SafeString type
+	function SafeString(string) {
+	  this.string = string;
+	}
+
+	SafeString.prototype.toString = SafeString.prototype.toHTML = function () {
+	  return &#x27;&#x27; + this.string;
+	};
+
+	exports[&#x27;default&#x27;] = SafeString;
+	module.exports = exports[&#x27;default&#x27;];
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	&#x27;use strict&#x27;;
+
+	exports.__esModule = true;
+
+	var errorProps = [&#x27;description&#x27;, &#x27;fileName&#x27;, &#x27;lineNumber&#x27;, &#x27;message&#x27;, &#x27;name&#x27;, &#x27;number&#x27;, &#x27;stack&#x27;];
+
+	function Exception(message, node) {
+	  var loc = node &amp;&amp; node.loc,
+	      line = undefined,
+	      column = undefined;
+	  if (loc) {
+	    line = loc.start.line;
+	    column = loc.start.column;
+
+	    message += &#x27; - &#x27; + line + &#x27;:&#x27; + column;
+	  }
+
+	  var tmp = Error.prototype.constructor.call(this, message);
+
+	  // Unfortunately errors are not enumerable in Chrome (at least), so &#x60;for prop in tmp&#x60; doesn&#x27;t work.
+	  for (var idx = 0; idx &lt; errorProps.length; idx++) {
+	    this[errorProps[idx]] = tmp[errorProps[idx]];
+	  }
+
+	  if (Error.captureStackTrace) {
+	    Error.captureStackTrace(this, Exception);
+	  }
+
+	  if (loc) {
+	    this.lineNumber = line;
+	    this.column = column;
+	  }
+	}
+
+	Exception.prototype = new Error();
+
+	exports[&#x27;default&#x27;] = Exception;
+	module.exports = exports[&#x27;default&#x27;];
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	&#x27;use strict&#x27;;
+
+	exports.__esModule = true;
+	exports.extend = extend;
+
+	// Older IE versions do not directly support indexOf so we must implement our own, sadly.
+	exports.indexOf = indexOf;
+	exports.escapeExpression = escapeExpression;
+	exports.isEmpty = isEmpty;
+	exports.blockParams = blockParams;
+	exports.appendContextPath = appendContextPath;
+	var escape = {
+	  &#x27;&amp;&#x27;: &#x27;&amp;amp;&#x27;,
+	  &#x27;&lt;&#x27;: &#x27;&amp;lt;&#x27;,
+	  &#x27;&gt;&#x27;: &#x27;&amp;gt;&#x27;,
+	  &#x27;&quot;&#x27;: &#x27;&amp;quot;&#x27;,
+	  &#x27;\&#x27;&#x27;: &#x27;&amp;#x27;&#x27;,
+	  &#x27;&#x60;&#x27;: &#x27;&amp;#x60;&#x27;
+	};
+
+	var badChars = /[&amp;&lt;&gt;&quot;&#x27;&#x60;]/g,
+	    possible = /[&amp;&lt;&gt;&quot;&#x27;&#x60;]/;
+
+	function escapeChar(chr) {
+	  return escape[chr];
+	}
+
+	function extend(obj /* , ...source */) {
+	  for (var i = 1; i &lt; arguments.length; i++) {
+	    for (var key in arguments[i]) {
+	      if (Object.prototype.hasOwnProperty.call(arguments[i], key)) {
+	        obj[key] = arguments[i][key];
+	      }
+	    }
+	  }
+
+	  return obj;
+	}
+
+	var toString = Object.prototype.toString;
+
+	exports.toString = toString;
+	// Sourced from lodash
+	// https://github.com/bestiejs/lodash/blob/master/LICENSE.txt
+	/*eslint-disable func-style, no-var */
+	var isFunction = function isFunction(value) {
+	  return typeof value === &#x27;function&#x27;;
+	};
+	// fallback for older versions of Chrome and Safari
+	/* istanbul ignore next */
+	if (isFunction(/x/)) {
+	  exports.isFunction = isFunction = function (value) {
+	    return typeof value === &#x27;function&#x27; &amp;&amp; toString.call(value) === &#x27;[object Function]&#x27;;
+	  };
+	}
+	var isFunction;
+	exports.isFunction = isFunction;
+	/*eslint-enable func-style, no-var */
+
+	/* istanbul ignore next */
+	var isArray = Array.isArray || function (value) {
+	  return value &amp;&amp; typeof value === &#x27;object&#x27; ? toString.call(value) === &#x27;[object Array]&#x27; : false;
+	};exports.isArray = isArray;
+
+	function indexOf(array, value) {
+	  for (var i = 0, len = array.length; i &lt; len; i++) {
+	    if (array[i] === value) {
+	      return i;
+	    }
+	  }
+	  return -1;
+	}
+
+	function escapeExpression(string) {
+	  if (typeof string !== &#x27;string&#x27;) {
+	    // don&#x27;t escape SafeStrings, since they&#x27;re already safe
+	    if (string &amp;&amp; string.toHTML) {
+	      return string.toHTML();
+	    } else if (string == null) {
+	      return &#x27;&#x27;;
+	    } else if (!string) {
+	      return string + &#x27;&#x27;;
+	    }
+
+	    // Force a string conversion as this will be done by the append regardless and
+	    // the regex test will do this transparently behind the scenes, causing issues if
+	    // an object&#x27;s to string has escaped characters in it.
+	    string = &#x27;&#x27; + string;
+	  }
+
+	  if (!possible.test(string)) {
+	    return string;
+	  }
+	  return string.replace(badChars, escapeChar);
+	}
+
+	function isEmpty(value) {
+	  if (!value &amp;&amp; value !== 0) {
+	    return true;
+	  } else if (isArray(value) &amp;&amp; value.length === 0) {
+	    return true;
+	  } else {
+	    return false;
+	  }
+	}
+
+	function blockParams(params, ids) {
+	  params.path = ids;
+	  return params;
+	}
+
+	function appendContextPath(contextPath, id) {
+	  return (contextPath ? contextPath + &#x27;.&#x27; : &#x27;&#x27;) + id;
+	}
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	&#x27;use strict&#x27;;
+
+	var _interopRequireWildcard = __webpack_require__(7)[&#x27;default&#x27;];
+
+	exports.__esModule = true;
+	exports.checkRevision = checkRevision;
+
+	// TODO: Remove this line and break up compilePartial
+
+	exports.template = template;
+	exports.wrapProgram = wrapProgram;
+	exports.resolvePartial = resolvePartial;
+	exports.invokePartial = invokePartial;
+	exports.noop = noop;
+
+	var _import = __webpack_require__(4);
+
+	var Utils = _interopRequireWildcard(_import);
+
+	var _Exception = __webpack_require__(3);
+
+	var _Exception2 = _interopRequireWildcard(_Exception);
+
+	var _COMPILER_REVISION$REVISION_CHANGES$createFrame = __webpack_require__(1);
+
+	function checkRevision(compilerInfo) {
+	  var compilerRevision = compilerInfo &amp;&amp; compilerInfo[0] || 1,
+	      currentRevision = _COMPILER_REVISION$REVISION_CHANGES$createFrame.COMPILER_REVISION;
+
+	  if (compilerRevision !== currentRevision) {
+	    if (compilerRevision &lt; currentRevision) {
+	      var runtimeVersions = _COMPILER_REVISION$REVISION_CHANGES$createFrame.REVISION_CHANGES[currentRevision],
+	          compilerVersions = _COMPILER_REVISION$REVISION_CHANGES$createFrame.REVISION_CHANGES[compilerRevision];
+	      throw new _Exception2[&#x27;default&#x27;](&#x27;Template was precompiled with an older version of Handlebars than the current runtime. &#x27; + &#x27;Please update your precompiler to a newer version (&#x27; + runtimeVersions + &#x27;) or downgrade your runtime to an older version (&#x27; + compilerVersions + &#x27;).&#x27;);
+	    } else {
+	      // Use the embedded version info since the runtime doesn&#x27;t know about this revision yet
+	      throw new _Exception2[&#x27;default&#x27;](&#x27;Template was precompiled with a newer version of Handlebars than the current runtime. &#x27; + &#x27;Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;).&#x27;);
+	    }
+	  }
+	}
+
+	function template(templateSpec, env) {
+	  /* istanbul ignore next */
+	  if (!env) {
+	    throw new _Exception2[&#x27;default&#x27;](&#x27;No environment passed to template&#x27;);
+	  }
+	  if (!templateSpec || !templateSpec.main) {
+	    throw new _Exception2[&#x27;default&#x27;](&#x27;Unknown template object: &#x27; + typeof templateSpec);
+	  }
+
+	  // Note: Using env.VM references rather than local var references throughout this section to allow
+	  // for external users to override these as psuedo-supported APIs.
+	  env.VM.checkRevision(templateSpec.compiler);
+
+	  function invokePartialWrapper(partial, context, options) {
+	    if (options.hash) {
+	      context = Utils.extend({}, context, options.hash);
+	    }
+
+	    partial = env.VM.resolvePartial.call(this, partial, context, options);
+	    var result = env.VM.invokePartial.call(this, partial, context, options);
+
+	    if (result == null &amp;&amp; env.compile) {
+	      options.partials[options.name] = env.compile(partial, templateSpec.compilerOptions, env);
+	      result = options.partials[options.name](context, options);
+	    }
+	    if (result != null) {
+	      if (options.indent) {
+	        var lines = result.split(&#x27;\n&#x27;);
+	        for (var i = 0, l = lines.length; i &lt; l; i++) {
+	          if (!lines[i] &amp;&amp; i + 1 === l) {
+	            break;
+	          }
+
+	          lines[i] = options.indent + lines[i];
+	        }
+	        result = lines.join(&#x27;\n&#x27;);
+	      }
+	      return result;
+	    } else {
+	      throw new _Exception2[&#x27;default&#x27;](&#x27;The partial &#x27; + options.name + &#x27; could not be compiled when running in runtime-only mode&#x27;);
+	    }
+	  }
+
+	  // Just add water
+	  var container = {
+	    strict: function strict(obj, name) {
+	      if (!(name in obj)) {
+	        throw new _Exception2[&#x27;default&#x27;](&#x27;&quot;&#x27; + name + &#x27;&quot; not defined in &#x27; + obj);
+	      }
+	      return obj[name];
+	    },
+	    lookup: function lookup(depths, name) {
+	      var len = depths.length;
+	      for (var i = 0; i &lt; len; i++) {
+	        if (depths[i] &amp;&amp; depths[i][name] != null) {
+	          return depths[i][name];
+	        }
+	      }
+	    },
+	    lambda: function lambda(current, context) {
+	      return typeof current === &#x27;function&#x27; ? current.call(context) : current;
+	    },
+
+	    escapeExpression: Utils.escapeExpression,
+	    invokePartial: invokePartialWrapper,
+
+	    fn: function fn(i) {
+	      return templateSpec[i];
+	    },
+
+	    programs: [],
+	    program: function program(i, data, declaredBlockParams, blockParams, depths) {
+	      var programWrapper = this.programs[i],
+	          fn = this.fn(i);
+	      if (data || depths || blockParams || declaredBlockParams) {
+	        programWrapper = wrapProgram(this, i, fn, data, declaredBlockParams, blockParams, depths);
+	      } else if (!programWrapper) {
+	        programWrapper = this.programs[i] = wrapProgram(this, i, fn);
+	      }
+	      return programWrapper;
+	    },
+
+	    data: function data(value, depth) {
+	      while (value &amp;&amp; depth--) {
+	        value = value._parent;
+	      }
+	      return value;
+	    },
+	    merge: function merge(param, common) {
+	      var obj = param || common;
+
+	      if (param &amp;&amp; common &amp;&amp; param !== common) {
+	        obj = Utils.extend({}, common, param);
+	      }
+
+	      return obj;
+	    },
+
+	    noop: env.VM.noop,
+	    compilerInfo: templateSpec.compiler
+	  };
+
+	  function ret(context) {
+	    var options = arguments[1] === undefined ? {} : arguments[1];
+
+	    var data = options.data;
+
+	    ret._setup(options);
+	    if (!options.partial &amp;&amp; templateSpec.useData) {
+	      data = initData(context, data);
+	    }
+	    var depths = undefined,
+	        blockParams = templateSpec.useBlockParams ? [] : undefined;
+	    if (templateSpec.useDepths) {
+	      depths = options.depths ? [context].concat(options.depths) : [context];
+	    }
+
+	    return templateSpec.main.call(container, context, container.helpers, container.partials, data, blockParams, depths);
+	  }
+	  ret.isTop = true;
+
+	  ret._setup = function (options) {
+	    if (!options.partial) {
+	      container.helpers = container.merge(options.helpers, env.helpers);
+
+	      if (templateSpec.usePartial) {
+	        container.partials = container.merge(options.partials, env.partials);
+	      }
+	    } else {
+	      container.helpers = options.helpers;
+	      container.partials = options.partials;
+	    }
+	  };
+
+	  ret._child = function (i, data, blockParams, depths) {
+	    if (templateSpec.useBlockParams &amp;&amp; !blockParams) {
+	      throw new _Exception2[&#x27;default&#x27;](&#x27;must pass block params&#x27;);
+	    }
+	    if (templateSpec.useDepths &amp;&amp; !depths) {
+	      throw new _Exception2[&#x27;default&#x27;](&#x27;must pass parent depths&#x27;);
+	    }
+
+	    return wrapProgram(container, i, templateSpec[i], data, 0, blockParams, depths);
+	  };
+	  return ret;
+	}
+
+	function wrapProgram(container, i, fn, data, declaredBlockParams, blockParams, depths) {
+	  function prog(context) {
+	    var options = arguments[1] === undefined ? {} : arguments[1];
+
+	    return fn.call(container, context, container.helpers, container.partials, options.data || data, blockParams &amp;&amp; [options.blockParams].concat(blockParams), depths &amp;&amp; [context].concat(depths));
+	  }
+	  prog.program = i;
+	  prog.depth = depths ? depths.length : 0;
+	  prog.blockParams = declaredBlockParams || 0;
+	  return prog;
+	}
+
+	function resolvePartial(partial, context, options) {
+	  if (!partial) {
+	    partial = options.partials[options.name];
+	  } else if (!partial.call &amp;&amp; !options.name) {
+	    // This is a dynamic partial that returned a string
+	    options.name = partial;
+	    partial = options.partials[partial];
+	  }
+	  return partial;
+	}
+
+	function invokePartial(partial, context, options) {
+	  options.partial = true;
+
+	  if (partial === undefined) {
+	    throw new _Exception2[&#x27;default&#x27;](&#x27;The partial &#x27; + options.name + &#x27; could not be found&#x27;);
+	  } else if (partial instanceof Function) {
+	    return partial(context, options);
+	  }
+	}
+
+	function noop() {
+	  return &#x27;&#x27;;
+	}
+
+	function initData(context, data) {
+	  if (!data || !(&#x27;root&#x27; in data)) {
+	    data = data ? _COMPILER_REVISION$REVISION_CHANGES$createFrame.createFrame(data) : {};
+	    data.root = context;
+	  }
+	  return data;
+	}
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {&#x27;use strict&#x27;;
+
+	exports.__esModule = true;
+	/*global window */
+
+	exports[&#x27;default&#x27;] = function (Handlebars) {
+	  /* istanbul ignore next */
+	  var root = typeof global !== &#x27;undefined&#x27; ? global : window,
+	      $Handlebars = root.Handlebars;
+	  /* istanbul ignore next */
+	  Handlebars.noConflict = function () {
+	    if (root.Handlebars === Handlebars) {
+	      root.Handlebars = $Handlebars;
+	    }
+	  };
+	};
+
+	module.exports = exports[&#x27;default&#x27;];
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	&quot;use strict&quot;;
+
+	exports[&quot;default&quot;] = function (obj) {
+	  return obj &amp;&amp; obj.__esModule ? obj : {
+	    &quot;default&quot;: obj
+	  };
+	};
+
+	exports.__esModule = true;
+
+/***/ }
+/******/ ])
+});
+;
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -7,7 +7,7 @@
     }
 }(this, function (d3, HTMLWidget) {
     /**
-     * @class google/Common
+     * @constructs google_Common
      * @classdesc Base Common Class for Google Charts
      */
     function Common(tget) {
@@ -30,16 +30,46 @@
 
     /**
      * @name fontSize
-     * @method
-     * @property {number} value - The name of the palette to set for the widget.
-     * @memberof google/Common
+     * @param {number} value - Size in pixels of font.
+     * @memberof google_Common
      * @public
      * @instance
+     * @method
      */
     Common.prototype.publish("fontSize", null, "number", "Font Size",null,{tags:['Basic','Shared']});
+
+    /**
+     * Font Name
+     * @name fontFamily
+     * @param {string} value Font-Family name.
+     * @memberof google_Common
+     * @public
+     * @instance
+     * @method
+     */
     Common.prototype.publish("fontFamily", null, "string", "Font Name",null,{tags:['Basic','Shared']});
+
+    /**
+     * Font Color
+     * @name fontColor
+     * @param {string} value Hex color string.
+     * @memberof google_Common
+     * @public
+     * @instance
+     * @method
+     */
     Common.prototype.publish("fontColor", null, "html-color", "Font Color",null,{tags:['Basic','Shared']});
 
+    /**
+     * Show Legend
+     * @name showLegend
+     * @param {string} value True/False
+     * @memberof google_Common
+     * @public
+     * @instance
+     * @method
+     * @default false
+     */
     Common.prototype.publish("showLegend", false, "boolean", "Show Legend",null,{tags:['Basic','Shared']});
 
     // below ones are TODO ... BOLD/ITALTIC needs to be 1 param maybe?
