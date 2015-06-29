@@ -45,11 +45,11 @@
     // Publish Params Unique To This Library
 
     /**
-     * The function that is executed on first render.
+     * The function that is called when this widget "enters" the web page.
      * @method enter
      * @memberof c3chart_Area
      * @instance
-     * @private
+     * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
      * @returns {undefined}
@@ -61,11 +61,11 @@
     };
 
     /**
-     * The function that is executed on first render, after enter() and everytime the widget is updated with subsequent render calls.
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
      * @method update
      * @memberof c3chart_Area
      * @instance
-     * @private
+     * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
      * @returns {undefined}

@@ -802,10 +802,11 @@
     };
 
     /**
-     * The function that is executed on first render.
+     * The function that is called when this widget "enters" the web page.
      * @method enter
      * @memberof common_Widget
      * @instance
+     * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
      * @returns {Widget}
@@ -813,10 +814,11 @@
     Widget.prototype.enter = function (domeNode, element) { };
 
     /**
-     * The function that is executed on first render, after enter() and everytime the widget is updated with subsequent render calls.
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
      * @method update
      * @memberof common_Widget
      * @instance
+     * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
      * @returns {Widget}
@@ -828,6 +830,7 @@
      * @method exit
      * @memberof common_Widget
      * @instance
+     * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
      * @returns {Widget}
@@ -838,7 +841,6 @@
      * An optional callback function as parameter. The current widget object being operated on is passed to the function. The function will execute ater the widget has completed rendering.
      * @name Widget~DebounceCb
      * @function
-     * @return undefined
      */
 
     /**

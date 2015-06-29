@@ -14,7 +14,6 @@
     /**
      * @class amchart_Area
      * @extends amchart_CommonSerial
-     * @extends api_INDChart
      * @implements api_INDChart
      */
     function Area() {
@@ -45,23 +44,19 @@
     Area.prototype = Object.create(CommonSerial.prototype);
     Area.prototype.implements(INDChart.prototype);
 
-    // Publish Params Common To Other Libraries
-
     Area.prototype.publish("paletteID", "default", "set", "Palette ID", Area.prototype._palette.switch(),{tags:['Basic','Shared']});
     Area.prototype.publish("isStacked", false, "boolean", "Stack Chart",null,{tags:['Basic','Shared']});
     Area.prototype.publish("fillOpacity", 0.7, "number", "Opacity of The Fill Color", null, {min:0,max:1,step:0.001,inputType:'range',tags:['Intermediate','Shared']});
-
-    // Publish Params Unique To This Widget
 
     Area.prototype.publish("tooltipTemplate","[[category]]: [[value]]", "string", "Tooltip Text",null,{tags:['Intermediate']});
     Area.prototype.publish("stackType", "regular", "set", "Stack Type",["none","regular","100%"],{tags:['Basic']});
 
     /**
-     * The function that is executed on first render.
+     * The function that is called when this widget "enters" the web page.
      * @method enter
      * @memberof amchart_Area
      * @instance
-     * @private
+     * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
      * @returns {undefined}
@@ -134,11 +129,11 @@
     };
 
     /**
-     * The function that is executed on first render, after enter() and everytime the widget is updated with subsequent render calls.
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
      * @method update
      * @memberof amchart_Area
      * @instance
-     * @private
+     * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
      * @returns {undefined}
