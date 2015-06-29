@@ -41,7 +41,6 @@
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Line.prototype.enter = function (domNode, element) {
         CommonND.prototype.enter.apply(this, arguments);
@@ -55,7 +54,6 @@
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Line.prototype.update = function (domNode, element) {
         CommonND.prototype.update.apply(this, arguments);

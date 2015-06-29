@@ -33,7 +33,6 @@
      * @memberof common_IMenu
      * @param {type} row
      * @param {type} column
-     * @returns {undefined}
      */
     IMenu.prototype.click = function (d) {
         console.log("Click:  " + d);

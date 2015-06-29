@@ -159,7 +159,6 @@
      * @instance
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Gauge.prototype.update = function(domNode, element) {
         this._palette = this._palette.switch(this.paletteID());
@@ -183,7 +182,6 @@
      * @memberof amchart_Gauge
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Gauge.prototype.enter = function(domNode, element) {
         domNode.style.width = this.size().width + 'px';

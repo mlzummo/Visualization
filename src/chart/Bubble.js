@@ -75,7 +75,6 @@
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Bubble.prototype.update = function (domNode, element) {
         var context = this;

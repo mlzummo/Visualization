@@ -24,7 +24,6 @@
      * @memberof api_I1DChart
      * @param {type} row
      * @param {type} column
-     * @returns {undefined}
      */
     IGraph.prototype.vertex_click = function (d) {
         console.log("Vertex Click: " + d.id());
@@ -35,7 +34,6 @@
      * @memberof api_I1DChart
      * @param {type} row
      * @param {type} column
-     * @returns {undefined}
      */
     IGraph.prototype.edge_click = function (d) {
         console.log("Edge Click: " + d.id());

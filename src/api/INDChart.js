@@ -64,7 +64,6 @@
      * @memberof api_INDChart
      * @param {type} row
      * @param {type} column
-     * @returns {undefined}
      */
     INDChart.prototype.click = function (row, column) {
         console.log("Click:  " + JSON.stringify(row) + ", " + column);

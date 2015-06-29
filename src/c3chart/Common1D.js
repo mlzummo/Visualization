@@ -55,7 +55,6 @@
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Common1D.prototype.update = function (domNode, element) {
         this._palette = this._palette.switch(this.paletteID());

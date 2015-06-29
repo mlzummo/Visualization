@@ -116,7 +116,6 @@
      * @memberof amchart_FloatingColumn
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     FloatingColumn.prototype.enter = function(domNode, element) {
         CommonSerial.prototype.enter.apply(this, arguments);
@@ -212,8 +211,7 @@
      * @instance
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
-     * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
+     * @param {D3Selection} element d3 selection object of widget.}
      */
     FloatingColumn.prototype.update = function(domNode, element) {
         CommonSerial.prototype.update.apply(this, arguments);

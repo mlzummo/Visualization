@@ -88,7 +88,6 @@
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Polar.prototype.enter = function(domNode, element) {
         CommonRadar.prototype.enter.apply(this, arguments);
@@ -150,7 +149,6 @@
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Polar.prototype.update = function(domNode, element) {
         CommonRadar.prototype.update.apply(this, arguments);

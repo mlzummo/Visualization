@@ -50,7 +50,6 @@
      * @memberof api_I1DChart
      * @param {type} row
      * @param {type} column
-     * @returns {undefined}
      */
     I2DChart.prototype.click = function (row, column) {
         console.log("Click:  " + JSON.stringify(row) + ", " + column);

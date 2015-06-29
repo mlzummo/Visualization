@@ -47,7 +47,6 @@
      * @memberof amchart_Funnel
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Funnel.prototype.enter = function(domNode, element) {
         CommonFunnel.prototype.enter.apply(this, arguments);
@@ -77,7 +76,6 @@
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Funnel.prototype.update = function(domNode, element) {
         CommonFunnel.prototype.update.apply(this, arguments);

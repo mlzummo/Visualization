@@ -16,14 +16,34 @@
         XYAxis.call(this);
         I2DChart.call(this);
 
+        /**
+         * Linear Gap
+         * @member {number} _linearGap
+         * @memberof chart_Column
+         * @default 25
+         * @private
+         */
         this._linearGap = 25;
     }
     Column.prototype = Object.create(XYAxis.prototype);
-    Column.prototype._class += " chart_Column";
     Column.prototype.implements(I2DChart.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof chart_Bubble
+     * @private
+     */
+    Column.prototype._class += " chart_Column";
 
     Column.prototype.publish("paletteID", "default", "set", "Palette ID", Column.prototype._palette.switch(),{tags:['Basic','Shared']});
 
+    /**
+     * Updates chart with options from publish parameters.
+     * @method updateChartOptions
+     * @memberof chart_Column
+     * @instance
+     * @private
+     */
     Column.prototype.updateChart = function (domNode, element, margin, width, height) {
         var context = this;
 

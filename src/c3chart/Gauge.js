@@ -55,7 +55,6 @@
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Gauge.prototype.update = function (domNode, element) {
         this.c3Chart.internal.config.gauge_min = this.low();

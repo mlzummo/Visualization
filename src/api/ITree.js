@@ -68,7 +68,6 @@
      * @memberof api_INDChart
      * @param {type} row
      * @param {type} column
-     * @returns {undefined}
      */
     ITree.prototype.click = function (d) {
         console.log("Click:  " + d.label);

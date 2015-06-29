@@ -127,7 +127,6 @@
      * @memberof Comms.ESPMappings
      * @param {type} response
      * @param {type} resultName
-     * @returns {undefined}
      */
     ESPMappings.prototype.mapResult = function (response, resultName) {
         var mapping = this._mappings[resultName];
@@ -159,7 +158,6 @@
      * @method mapResponse
      * @memberof Comms.ESPMappings
      * @param {type} response
-     * @returns {undefined}
      */
     ESPMappings.prototype.mapResponse = function (response) {
         for (var key in response) {

@@ -14,6 +14,7 @@
         Common2D.call(this);
         /**
          * Specifies the widget type of the c3 Widget/HPCC Widget.
+         * @name _type
          * @member {string} _type
          * @memberof c3chart_Pie
          * @private
@@ -37,7 +38,6 @@
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Pie.prototype.update = function (domNode, element) {
         Common2D.prototype.update.apply(this, arguments);

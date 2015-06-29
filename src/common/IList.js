@@ -36,7 +36,6 @@
      * @memberof common_IList
      * @param {type} row
      * @param {type} column
-     * @returns {undefined}
      */
     IList.prototype.click = function (d) {
         console.log("Click:  " + d);

@@ -198,7 +198,6 @@
          * @memberof other_Persist
          * @param {Object} state The serialized widget string to convert back into a widget.
          * @param {Persist~CreateCb} [callback] The callback function to execute after create executes.
-         * @returns {undefined}
          * @example example
          * //TODO
          */
@@ -222,7 +221,6 @@
          * @memberof other_Persist
          * @param {Widget} widget The widget object to be cloned.
          * @param {Persist~CreateCb} [callback] The callback function to execute after clone executes.
-         * @returns {undefined}
          * @example example
          * //TODO
          * @see http://github.com

@@ -44,7 +44,6 @@
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Donut.prototype.enter = function (domNode, element) {
         this._config.donut = {
@@ -65,7 +64,6 @@
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {undefined}
      */
     Donut.prototype.update = function (domNode, element) {
         Common2D.prototype.update.apply(this, arguments);
