@@ -21,10 +21,6 @@
         this._type = "step";
     }
 
-    // Publish Params Common To Other Libraries
-
-    // Publish Params Unique To This Widget
-
     Step.prototype = Object.create(CommonND.prototype);
     /**
      * Specifies the class name of the container.

@@ -45,8 +45,6 @@
     Gauge.prototype = Object.create(HTMLWidget.prototype);
     Gauge.prototype.implements(I1DChart.prototype);
 
-    // Publish Params Common To Other Libraries
-
     Gauge.prototype.publish("paletteID", "default", "set", "Palette ID", Gauge.prototype._palette.switch(), {tags:['Basic','Shared']});
     Gauge.prototype.publish("low", 0, "number", "Gauge lower bound", null, {tags:['Intermediate','Shared']});
     Gauge.prototype.publish("high", 100, "number", "Gauge higher bound", null, {tags:['Intermediate','Shared']});
@@ -54,8 +52,6 @@
     Gauge.prototype.publish("fontSize", null, "number", "Font Size",null,{tags:['Basic','Shared']});
     Gauge.prototype.publish("fontFamily", null, "string", "Font Name",null,{tags:['Basic','Shared','Shared']});
     Gauge.prototype.publish("fontColor", null, "html-color", "Font Color",null,{tags:['Basic','Shared']});
-
-    // Publish Params Unique To This Widget
 
     Gauge.prototype.publish("axisLineWidth", 1, "number", "Thickness of axis",null,{tags:['Intermediate']});
 

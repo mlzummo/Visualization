@@ -45,13 +45,9 @@
     Candle.prototype = Object.create(CommonSerial.prototype);
     Candle.prototype.implements(INDChart.prototype);
 
-    // Publish Params Common To Other Libraries
-
     Candle.prototype.publish("paletteID", "default", "set", "Palette ID", Candle.prototype._palette.switch(), {tags:['Basic','Shared']});
     Candle.prototype.publish("isStacked", true, "boolean", "Stack CHart", null, {tags:['Basic','Shared']});
     Candle.prototype.publish("fillOpacity", 0.7, "number", "Opacity of The Fill Color", null, {min:0,max:1,step:0.001,inputType:'range',tags:['Intermediate','Shared']});
-
-    // Publish Params Unique To This Widget
 
     Candle.prototype.publish("paletteGrouping", "By Column", "set", "Palette Grouping",["By Category","By Column"],{tags:['Basic']});
 
@@ -179,7 +175,6 @@
      * @instance
      * @memberof amchart_Candle
      * @param {string} gType Value from this._gType.
-     * @returns {Widget}
      */
     Candle.prototype.buildGraphs = function(gType) {
         if (typeof(this._chart.graphs) === 'undefined') { this._chart.graphs = []; }

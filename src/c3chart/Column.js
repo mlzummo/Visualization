@@ -34,11 +34,8 @@
      */
     Column.prototype._class += " c3chart_Column";
 
-    // Publish Params Common To Other Libraries
-
     Column.prototype.publish("isStacked", false, "boolean", "Stack Chart",null,{tags:['Basic','Shared']});
 
-    // Publish Params Unique To This Widget
     /**
      * The function that is called when this widget "enters" the web page.
      * @method enter

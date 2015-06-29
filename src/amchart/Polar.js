@@ -45,11 +45,7 @@
     Polar.prototype = Object.create(CommonRadar.prototype);
     Polar.prototype.implements(INDChart.prototype);
 
-    // Publish Params Common To Other Libraries
-
     Polar.prototype.publish("paletteID", "default", "set", "Palette ID", Polar.prototype._palette.switch(), {tags:['Basic','Shared']});
-
-    // Publish Params Unique To This Widget
 
     Polar.prototype.publish("tooltipTemplate","[[category]]([[title]]): [[value]]", "string", "Tooltip Text",null,{tags:['Intermediate']});
 
@@ -121,7 +117,6 @@
      * @instance
      * @memberof amchart_Polar
      * @param {string} gType Value from this._gType.
-     * @returns {Widget}
      */
     Polar.prototype.buildGraphs = function(gType) {
         if (typeof(this._chart.graphs) === 'undefined') { this._chart.graphs = []; }

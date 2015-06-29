@@ -38,8 +38,6 @@
 
     CommonSerial.prototype = Object.create(HTMLWidget.prototype);
 
-    // Publish Params Common To Other Libraries
-
     CommonSerial.prototype.publish("fontSize", null, "number", "Font Size",null,{tags:['Basic','Shared']});
     CommonSerial.prototype.publish("fontFamily", null, "string", "Font Name",null,{tags:['Basic','Shared','Shared']});
     CommonSerial.prototype.publish("fontColor", null, "html-color", "Font Color",null,{tags:['Basic','Shared']});
@@ -70,8 +68,6 @@
     CommonSerial.prototype.publish("xAxisLabelRotation", null, "number", "X-Axis Label Rotation", null, {min:0,max:90,step:0.1,inputType:'range',tags:['Intermediate','Shared']});
 
     CommonSerial.prototype.publish("axisLineWidth", 1, "number", "Axis Line Width",null,{tags:['Intermediate','Shared']});
-
-    // Publish Params Unique To This Widget
 
     CommonSerial.prototype.publish("axisAlpha", 1, "number", "Axis Alpha",null,{tags:['Intermediate']}); // share?
 

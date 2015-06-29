@@ -45,13 +45,9 @@
     FloatingColumn.prototype = Object.create(CommonSerial.prototype);
     FloatingColumn.prototype.implements(INDChart.prototype);
 
-    // Publish Params Common To Other Libraries
-
     FloatingColumn.prototype.publish("paletteID", "Dark2", "set", "Palette ID", FloatingColumn.prototype._palette.switch(), {tags:['Basic','Shared']});
     FloatingColumn.prototype.publish("isStacked", true, "boolean", "Stacked", null, {tags:['Basic','Shared']});
     FloatingColumn.prototype.publish("fillOpacity", 0.7, "number", "Opacity of The Fill Color", null, {min:0,max:1,step:0.001,inputType:'range',tags:['Intermediate','Shared']});
-
-    // Publish Params Unique To This Widget
 
     FloatingColumn.prototype.publish("paletteGrouping", "By Column", "set", "Palette Grouping",["By Category","By Column"],{tags:['Intermediate']});
 
@@ -172,7 +168,6 @@
      * @memberof amchart_FloatingColumn
      * @instance
      * @param {string} gType Value from this._gType.
-     * @returns {Widget}
      */
     FloatingColumn.prototype.buildGraphs = function(gType) {
         if (typeof(this._chart.graphs) === 'undefined') { this._chart.graphs = []; }

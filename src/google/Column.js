@@ -18,9 +18,6 @@
     Column.prototype = Object.create(CommonND.prototype);
     Column.prototype._class += " google_Column";
 
-
-    // Publish Params Common To Other Libraries
-
     Column.prototype.publish("isStacked", false, "boolean", "Stacks the elements in a series",null,{tags:['Advanced','Shared']});
 
     Column.prototype.publish("axisFontSize", null, "number", "X/Y Axis Label Font Size",null,{tags:['Basic','Shared']});
@@ -45,9 +42,6 @@
     Column.prototype.publish("yAxisTitleFontFamily", null, "string", "Vertical Axis Title Text Style (Font Name)",null,{tags:['Intermediate','Shared']});
 
     Column.prototype.publish("xAxisLabelRotation", 0, "number", "X Axis Label Angle",null,{tags:['Intermediate','Shared']});
-
-
-    // Publish Params Unique To This Widget
 
     Column.prototype.publish("groupWidth", "", "string", "The width of a group of bars, Percent or Pixels",null,{tags:['Advanced']});
     Column.prototype.publish("dataOpacity", 1.0, "number", "Transparency of Data Points",null,{tags:['Advanced']});

@@ -51,11 +51,7 @@
     Scatter.prototype = Object.create(CommonXY.prototype);
     Scatter.prototype.implements(INDChart.prototype);
 
-    // Publish Params Common To Other Libraries
-
     Scatter.prototype.publish("paletteID", "default", "set", "Palette ID", Scatter.prototype._palette.switch(), {tags:['Basic','Shared']});
-
-    // Publish Params Unique To This Widget
 
     Scatter.prototype.publish("tooltipTemplate","x:[[x]] y:[[y]]", "string", "Tooltip Text");
 
@@ -96,7 +92,6 @@
      * @instance
      * @memberof amchart_Scatter
      * @param {string} gType Value from this._gType.
-     * @returns {Widget}
      */
     Scatter.prototype.buildGraphs = function(gType) {
         if (typeof(this._chart.graphs) === 'undefined') { this._chart.graphs = []; }

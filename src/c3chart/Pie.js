@@ -29,10 +29,6 @@
      */
     Pie.prototype._class += " c3chart_Pie";
 
-    // Publish Params Common To Other Libraries
-
-    // Publish Params Unique To This Widget
-
     /**
      * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
      * @method update

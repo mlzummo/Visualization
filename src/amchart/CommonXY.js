@@ -36,8 +36,6 @@
     }
     CommonXY.prototype = Object.create(HTMLWidget.prototype);
 
-    // Publish Params Common To Other Libraries
-
     CommonXY.prototype.publish("fontSize", null, "number", "Font Size",null,{tags:['Basic','Shared']});
     CommonXY.prototype.publish("fontFamily", null, "string", "Font Name",null,{tags:['Basic','Shared']});
     CommonXY.prototype.publish("fontColor", null, "html-color", "Font Color",null,{tags:['Basic','Shared']});
@@ -66,8 +64,6 @@
     CommonXY.prototype.publish("xAxisLabelRotation", null, "number", "X-Axis Label Rotation", null, {min:0,max:90,step:0.1,inputType:'range',tags:['Intermediate','Shared']});
 
     CommonXY.prototype.publish("axisLineWidth", 1, "number", "Thickness of axis",null,{tags:['Intermediate','Shared']});
-
-    // Publish Params Unique To This Widget
 
     CommonXY.prototype.publish("axisAlpha", 1, "number", "Axis opacity",null,{tags:['Intermediate']});
 

@@ -45,11 +45,7 @@
      */
     Common1D.prototype._class += " c3chart_Common1D";
 
-    // Publish Params Common To Other Libraries
-
     Common1D.prototype.publish("paletteID", "default", "set", "Palette ID", Common1D.prototype._palette.switch(), {tags:['Basic','Shared']});
-
-    // Publish Params Unique To This Widget
 
     /**
      * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.

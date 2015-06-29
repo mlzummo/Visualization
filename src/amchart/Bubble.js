@@ -50,11 +50,7 @@
     Bubble.prototype = Object.create(CommonXY.prototype);
     Bubble.prototype.implements(INDChart.prototype);
 
-    // Publish Params Common To Other Libraries
-
     Bubble.prototype.publish("paletteID", "default", "set", "Palette ID", Bubble.prototype._palette.switch(), {tags:['Basic','Shared']});
-
-    // Publish Params Unique To This Widget
 
     Bubble.prototype.publish("tooltipTemplate","x:[[x]] y:[[y]]", "string", "Tooltip Text");
 
@@ -93,7 +89,6 @@
      * @instance
      * @memberof amchart_Bubble
      * @param {string} gType Value from this._gType.
-     * @returns {Widget}
      */
     Bubble.prototype.buildGraphs = function(gType) {
         if (typeof(this._chart.graphs) === 'undefined') { this._chart.graphs = []; }

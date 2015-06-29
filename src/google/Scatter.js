@@ -17,9 +17,6 @@
     Scatter.prototype = Object.create(CommonND.prototype);
     Scatter.prototype._class += " google_Scatter";
 
-
-    // Publish Params Unique To This Widget
-
     Scatter.prototype.publish("aggregationTarget", "auto", "string", "How multiple data selections are rolled up into tooltips: 'category'- Group selected data by x-value; 'series'- Group selected data by series; 'auto'- Group selected data by x-value if all selections have the same x-value, and by series otherwise; 'none'- Show only one tooltip per selection.  aggregationTarget will often be used in tandem with selectionMode and tooltip.trigger",null,{tags:['Basic']});
 
     Scatter.prototype.publish("curveType", "none", "set", "Controls the curve of the lines when the line width is not zero. Can be one of the following: 'none' - Straight lines without curve; 'function' - The angles of the line will be smoothed..",['none', 'function'],{tags:['Basic']});
@@ -29,9 +26,6 @@
     Scatter.prototype.publish("pointsVisible", true, "boolean", "Determines whether points will be displayed. Set to false to hide all points.",null,{tags:['Basic']});
 
     Scatter.prototype.publish("selectionMode", 'single', "set", "When selectionMode is 'multiple', users may select multiple data points.",['single','multiple'],{tags:['Basic']});
-
-
-    // Publish Params Common To Other Libraries
 
     Scatter.prototype.publish("backgroundColor", null, "html-color", "The background color for the main area of the chart. Can be either a simple HTML color string, for example: 'red' or '#00cc00', or an object with the following properties.",null,{tags:['Basic']});
 

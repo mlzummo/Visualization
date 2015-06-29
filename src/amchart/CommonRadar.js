@@ -41,8 +41,6 @@
 
     // NO X-Axis  !!!
 
-    // Publish Params Common To Other Libraries
-
     CommonRadar.prototype.publish("fontSize", null, "number", "Font Size",null,{tags:['Basic','Shared']});
     CommonRadar.prototype.publish("fontFamily", null, "string", "Font Name",null,{tags:['Basic','Shared']});
     CommonRadar.prototype.publish("fontColor", null, "html-color", "Font Color",null,{tags:['Basic','Shared']});
@@ -61,8 +59,6 @@
     CommonRadar.prototype.publish("yAxisTitleFontSize", null, "html-color", "Font Size of axis value labels. Will use chart's color if not set.",null,{tags:['Basic','Shared']});
 
     CommonRadar.prototype.publish("axisLineWidth", 1, "number", "Thickness of axis",null,{tags:['Basic','Shared']});
-
-    // Publish Params Unique To This Widget
 
     CommonRadar.prototype.publish("marginLeft", null, "number", "Margin (Left)",null,{tags:['Intermediate']});
     CommonRadar.prototype.publish("marginRight", null, "number", "Margin (Right)",null,{tags:['Intermediate']});

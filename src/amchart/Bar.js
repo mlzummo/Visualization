@@ -44,13 +44,9 @@
     Bar.prototype = Object.create(CommonSerial.prototype);
     Bar.prototype.implements(INDChart.prototype);
 
-    // Publish Params Common To Other Libraries
-
     Bar.prototype.publish("paletteID", "default", "set", "Palette ID", Bar.prototype._palette.switch(),{tags:['Basic','Shared']});
     Bar.prototype.publish("isStacked", false, "boolean", "Stack Chart",null,{tags:['Basic','Shared']});
     Bar.prototype.publish("fillOpacity", 0.7, "number", "Opacity of The Fill Color", null, {min:0,max:1,step:0.001,inputType:'range',tags:['Intermediate','Shared']});
-
-    // Publish Params Unique To This Widget
 
     Bar.prototype.publish("paletteGrouping", "By Column", "set", "Palette Grouping",["By Category","By Column"],{tags:['Basic']});
 
@@ -136,7 +132,6 @@
      * @instance
      * @private
      * @param {string} gType Value from this._gType.
-     * @returns {Widget}
      */
     Bar.prototype.buildGraphs = function(gType) {
         if (typeof(this._chart.graphs) === 'undefined') { this._chart.graphs = []; }

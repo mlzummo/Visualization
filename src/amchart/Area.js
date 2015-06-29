@@ -99,7 +99,6 @@
      * @instance
      * @private
      * @param {string} gType Value from this._gType.
-     * @returns {Widget}
      */
     Area.prototype.buildGraphs = function(gType) {
         if (typeof(this._chart.graphs) === 'undefined') { this._chart.graphs = []; }
