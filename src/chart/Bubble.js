@@ -15,6 +15,12 @@
     function Bubble(target) {
         SVGWidget.call(this);
         I2DChart.call(this);
+        /**
+         * Specifies the draw start position depending on widget type "origin" (x:0, y:0) or "center"
+         * @member {string} _drawStartPos
+         * @memberof chart_Bubble
+         * @private
+         */
         this._drawStartPos = "origin";
 
         this.labelWidgets = {};
@@ -26,11 +32,31 @@
         ;
     }
     Bubble.prototype = Object.create(SVGWidget.prototype);
-    Bubble.prototype._class += " chart_Bubble";
     Bubble.prototype.implements(I2DChart.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof chart_Bubble
+     * @private
+     */
+    Bubble.prototype._class += " chart_Bubble";
 
     Bubble.prototype.publish("paletteID", "default", "set", "Palette ID", Bubble.prototype._palette.switch(),{tags:['Basic','Shared']});
 
+    /**
+     * Sets/Gets size of widget.
+     * @method size
+     * @memberof chart_Bubble
+     * @instance
+     * @param {Object} [size] An object with the properties "width" and "height".
+     * @param {Mixed} [size.width] Width in pixels.
+     * @param {Mixed} [size.height] Height in pixels.
+     * @returns {Widget|Object}
+     * @example <caption>Example with specific height and width in pixels.</caption>
+     * widget.size({width:"100",height:"100"}).render();
+     * @example <caption>Example getting size.</caption>
+     * var size = widget.size();
+     */
     Bubble.prototype.size = function (_) {
         var retVal = SVGWidget.prototype.size.apply(this, arguments);
         if (arguments.length) {
@@ -41,6 +67,16 @@
         return retVal;
     };
 
+    /**
+     * The function that is executed on first render, after enter() and everytime the widget is updated with subsequent render calls.
+     * @method update
+     * @memberof chart_Bubble
+     * @instance
+     * @private
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     * @returns {undefined}
+     */
     Bubble.prototype.update = function (domNode, element) {
         var context = this;
 

@@ -322,7 +322,7 @@
      * @method on
      * @memberof common_Widget
      * @instance
-     * @param {String} eventID The name of the event. Ex: "click"
+     * @param {String} eventID The name of the event. Ex: "click".
      * @param {Widget~EventCb} callback - The callback that is called when event is fired.
      * @param {Boolean} [stopPropagation=False] Sets whether the event is propogated.
      * @returns {Widget}

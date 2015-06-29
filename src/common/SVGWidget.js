@@ -20,7 +20,12 @@
         this._boundingBox = null;
 
         this.transition = new Transition(this);
-
+        /**
+         * Specifies the draw start position depending on widget type "origin" (x:0, y:0) or "center"
+         * @member {string} _drawStartPos
+         * @memberof common_SVGWidget
+         * @private
+         */
         this._drawStartPos = "center";
     }
     SVGWidget.prototype = Object.create(Widget.prototype);
