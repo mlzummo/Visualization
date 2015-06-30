@@ -101,6 +101,14 @@
     Area.prototype.publish("xAxisMaxTextLines", null, "number", "Maximum Number of Lines Allowed For the Text Labels",null,{tags:['Advanced']});
     Area.prototype.publish("xAxisMinTextSpacing", null, "number", "Minimum Horizontal Spacing, In Pixels, Allowed Between Two Adjacent Text Labels",null,{tags:['Advanced']});
 
+    /**
+     * Builds and returns a google configuration object based on publish param values.
+     * @method getChartOptions
+     * @memberof google_Area
+     * @instance
+     * @private
+     * @returns {Object}
+     */
     Area.prototype.getChartOptions = function () {
         var retVal = CommonND.prototype.getChartOptions.apply(this, arguments);
 
@@ -202,10 +210,28 @@
         return retVal;
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
+     * @method update
+     * @memberof google_Area
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML/SVG DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Area.prototype.enter = function (domNode, element) {
         CommonND.prototype.enter.apply(this, arguments);
     };
 
+    /**
+     * The function that is executed after render. It is used for doing destroying/cleanup.
+     * @method exit
+     * @memberof google_Area
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Area.prototype.update = function (domNode, element) {
         CommonND.prototype.update.apply(this, arguments);
     };

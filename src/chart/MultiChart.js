@@ -1,3 +1,8 @@
+/**
+ * @file HPCC VIZ MultiChart
+ * @author HPCC Systems
+ */
+
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -219,7 +224,6 @@
      * @protected
      * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
-     * @returns {Widget}
      */
     MultiChart.prototype.update = function (domNode, element) {
         SVGWidget.prototype.update.apply(this, arguments);

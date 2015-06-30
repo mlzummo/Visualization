@@ -44,10 +44,12 @@
 
     /**
      * Updates chart with options from publish parameters.
-     * @method updateChartOptions
+     * @method updateChart
      * @memberof chart_Column
      * @instance
      * @private
+     * @param {HTMLElement} domeNode HTML/SVG DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
      */
     Column.prototype.updateChart = function (domNode, element, margin, width, height) {
         var context = this;

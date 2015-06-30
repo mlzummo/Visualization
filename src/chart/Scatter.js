@@ -1,3 +1,8 @@
+/**
+ * @file HPCC VIZ Scatter
+ * @author HPCC Systems
+ */
+
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -17,13 +22,26 @@
         INDChart.call(this);
     }
     Scatter.prototype = Object.create(XYAxis.prototype);
-    Scatter.prototype._class += " chart_Scatter";
     Scatter.prototype.implements(INDChart.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof chart_Scatter
+     * @private
+     */
+    Scatter.prototype._class += " chart_Scatter";
 
     Scatter.prototype.publish("paletteID", "default", "set", "Palette ID", Scatter.prototype._palette.switch(),{tags:['Basic','Shared']});
     Scatter.prototype.publish("pointShape", "cross", "set", "Shape of the data points", ["circle", "rectangle", "cross"]);
     Scatter.prototype.publish("pointSize", 8, "number", "Point Size");
 
+    /**
+     * Updates chart with options from publish parameters.
+     * @method updateChartOptions
+     * @memberof chart_Scatter
+     * @instance
+     * @private
+     */
     Scatter.prototype.updateChart = function (domNode, element, margin, width, height) {
         var context = this;
 
@@ -180,6 +198,15 @@
         column.exit().remove();
     };
 
+    /**
+     * The function that is executed after render. It is used for doing destroying/cleanup.
+     * @method exit
+     * @memberof chart_Scatter
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Scatter.prototype.exit = function (domNode, element) {
         SVGWidget.prototype.exit.apply(this, arguments);
     };

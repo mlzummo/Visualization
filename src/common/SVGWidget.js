@@ -335,7 +335,21 @@
 
         return result;
     };
-
+    
+    /**
+     * Returns the first insersection point of a circle and a line. Given two line end points and given the widget is a circle, returns an object with [x,y] cordinates as properties.
+     * @method intersectCircle
+     * @memberof common_SVGWidget
+     * @instance
+     * @param {Object} [pointA] An object with the properties "x" and "y".
+     * @param {Mixed} [pointA.x] End point x coordinate of the line.
+     * @param {Mixed} [pointA.y] End point y coordinate of the line.
+     * @param {Object} [pointB] An object with the properties "x" and "y".
+     * @param {Mixed} [pointB.x] End point x coordinate of the line.
+     * @param {Mixed} [pointB.y] End point y coordinate of hte line.
+     * @returns {Object|Null}
+     * @example //TODO
+     */
     SVGWidget.prototype.intersectCircle = function (pointA, pointB) {
         var center = this.getOffsetPos();
         var radius = this.radius();
