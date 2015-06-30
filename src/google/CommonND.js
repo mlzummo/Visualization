@@ -18,11 +18,24 @@
         INDChart.call(this);
     }
     CommonND.prototype = Object.create(Common.prototype);
-    CommonND.prototype._class += " google_CommonND";
     CommonND.prototype.implements(INDChart.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof google_CommonND
+     * @private
+     */
+    CommonND.prototype._class += " google_CommonND";
 
     CommonND.prototype.publish("paletteID", "default", "set", "Palette ID", CommonND.prototype._palette.switch(),{tags:['Basic','Shared']});
-
+    /**
+     * Builds and returns a google configuration object based on publish param values.
+     * @method getChartOptions
+     * @memberof google_CommonND
+     * @instance
+     * @private
+     * @returns {Object}
+     */
     CommonND.prototype.getChartOptions = function () {
         var chartOptions = Common.prototype.getChartOptions.call(this);
         chartOptions.series = initSeries(this.getNumSeries());
@@ -31,11 +44,29 @@
         return chartOptions;
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
+     * @method update
+     * @memberof google_CommonND
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     CommonND.prototype.update = function (domNode, element) {
         this._palette = this._palette.switch(this.paletteID());
         Common.prototype.update.apply(this, arguments);
     };
 
+    /**
+     * Initializes empty object(s) for google chart series.
+     * @method initSeries
+     * @memberof google_CommonND
+     * @instance
+     * @protected
+     * @param {Number} num Number of series.
+     * @returns {Array}
+     */
     function initSeries(num) {
         var series = [];
         for (var i = 0; i < num; i++) {

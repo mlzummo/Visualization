@@ -12,10 +12,21 @@
      */
     function Bar() {
         CommonND.call(this);
-
+        /**
+         * Specifies the widget type of the google Widget/HPCC Widget.
+         * @member {string} _chartType
+         * @memberof google_Bar
+         * @private
+         */
         this._chartType = "BarChart";
     }
     Bar.prototype = Object.create(CommonND.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof google_Bar
+     * @private
+     */
     Bar.prototype._class += " google_Bar";
 
     Bar.prototype.publish("isStacked", false, "boolean", "Stacks the elements in a series",null,{tags:['Basic','Shared']});
@@ -91,6 +102,14 @@
     Bar.prototype.publish("xAxisViewWindowMin", null, "number", "The Minimum Horizontal Data Value To Render",null,{tags:['Advanced']});
     Bar.prototype.publish("yAxisViewWindowMin", null, "number", "The Minimum Vertical Data Value To Render",null,{tags:['Advanced']});
 
+    /**
+     * Builds and returns a google configuration object based on publish param values.
+     * @method getChartOptions
+     * @memberof google_Bar
+     * @instance
+     * @private
+     * @returns {Object}
+     */
     Bar.prototype.getChartOptions = function () {
         var retVal = CommonND.prototype.getChartOptions.apply(this, arguments);
 
@@ -184,10 +203,28 @@
         return retVal;
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page.
+     * @method enter
+     * @memberof google_Bar
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Bar.prototype.enter = function (domNode, element) {
         CommonND.prototype.enter.apply(this, arguments);
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
+     * @method update
+     * @memberof google_Bar
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML/SVG DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Bar.prototype.update = function (domNode, element) {
         CommonND.prototype.update.apply(this, arguments);
     };

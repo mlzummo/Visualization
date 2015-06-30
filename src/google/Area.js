@@ -12,10 +12,21 @@
      */
     function Area() {
         CommonND.call(this);
-
+        /**
+         * Specifies the widget type of the google Widget/HPCC Widget.
+         * @member {string} _chartType
+         * @memberof google_Area
+         * @private
+         */
         this._chartType = "AreaChart";
     }
     Area.prototype = Object.create(CommonND.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof google_Area
+     * @private
+     */
     Area.prototype._class += " google_Area";
 
     Area.prototype.publish("isStacked", false, "boolean", "Stacks The Elements In A Series",null,{tags:['Advanced','Shared']});
@@ -211,12 +222,12 @@
     };
 
     /**
-     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
-     * @method update
+     * The function that is called when this widget "enters" the web page.
+     * @method enter
      * @memberof google_Area
      * @instance
      * @protected
-     * @param {HTMLElement} domeNode HTML/SVG DOMNode of widget container.
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
      */
     Area.prototype.enter = function (domNode, element) {
@@ -224,12 +235,12 @@
     };
 
     /**
-     * The function that is executed after render. It is used for doing destroying/cleanup.
-     * @method exit
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
+     * @method update
      * @memberof google_Area
      * @instance
      * @protected
-     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {HTMLElement} domeNode HTML/SVG DOMNode of widget container.
      * @param {D3Selection} element d3 selection object of widget.
      */
     Area.prototype.update = function (domNode, element) {
