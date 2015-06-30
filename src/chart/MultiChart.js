@@ -135,7 +135,7 @@
     };
 
     /**
-     * An optional callback function as parameter. The current widget object being operated on is passed to the function. The function will execute ater the widget has completed rendering.
+     * An optional callback function as parameter. The current widget object being operated on is passed to the function. The function is used to call widget render and/or post/pre render tasks.
      * @name MultiChart~requireContentCb
      * @function
      * @param {Widget} widget - The rendered widget.
