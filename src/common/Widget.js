@@ -754,7 +754,7 @@
      * @method render
      * @memberof common_Widget
      * @instance
-     * @param {Widget~RenderCb} [callback] - The callback that is executed after widget render.
+     * @param {Widget~RenderCb} [callback] - The callback function that is executed after widget render.
      * @returns {Widget}
      * @example <caption>Example usage of render.</caption>
      * var w = new Widget.target("divID").render(function(widget) { console.log(widget); });

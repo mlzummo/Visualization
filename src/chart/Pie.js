@@ -16,8 +16,15 @@
         SVGWidget.call(this);
         I2DChart.call(this);
 
+        /**
+         * Put label inside pie or outside (true/false) respectively.
+         * @member {boolean} _outerText
+         * @memberof chart_Pie
+         * @default false
+         * @private
+         */
         this._outerText = false;  //  Put label inside pie or outside (true/false)
-        this._radius = 100;       // px
+        this._radius = 100;       // px NEED TO MAKE PUBLISH PARAM???
         this._innerRadius = 0;    // px
 
         this.labelWidgets = {};

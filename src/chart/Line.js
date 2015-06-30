@@ -17,15 +17,38 @@
         INDChart.call(this);
     }
     Line.prototype = Object.create(XYAxis.prototype);
-    Line.prototype._class += " chart_Line";
     Line.prototype.implements(INDChart.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof chart_Line
+     * @private
+     */
+    Line.prototype._class += " chart_Line";
 
     Line.prototype.publish("paletteID", "default", "set", "Palette ID", Line.prototype._palette.switch(),{tags:['Basic','Shared']});
 
+    /**
+     * The function that is called when this widget "enters" the web page.
+     * @method enter
+     * @protected
+     * @memberof chart_Line
+     * @instance
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     * @returns {Widget}
+     */
     Line.prototype.enter = function (domNode, element) {
         XYAxis.prototype.enter.apply(this, arguments);
     };
 
+    /**
+     * Updates chart with options from publish parameters.
+     * @method updateChartOptions
+     * @memberof chart_Line
+     * @instance
+     * @private
+     */
     Line.prototype.updateChart = function (domNode, element, margin, width, height) {
         var context = this;
         var d3Line;

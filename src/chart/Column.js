@@ -30,7 +30,7 @@
     /**
      * Specifies the class name of the container.
      * @member {string} _class
-     * @memberof chart_Bubble
+     * @memberof chart_Column
      * @private
      */
     Column.prototype._class += " chart_Column";
