@@ -11,6 +11,7 @@
      * @extends google_Common
      * @extends api_INDChart
      * @implements api_INDChart
+     * @abstract
      * @noinit
      */
     function CommonND() {

@@ -9,6 +9,7 @@
     /**
      * @class google_Common
      * @extends common_HTMLWidget
+     * @abstract
      * @noinit
      */
     function Common(tget) {

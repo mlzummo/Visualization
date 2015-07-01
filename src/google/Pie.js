@@ -12,10 +12,21 @@
      */
     function Pie() {
         Common2D.call(this);
-
+        /**
+         * Specifies the widget type of the google Widget/HPCC Widget.
+         * @member {string} _chartType
+         * @memberof google_Pie
+         * @private
+         */
         this._chartType = "PieChart";
     }
     Pie.prototype = Object.create(Common2D.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof google_Pie
+     * @private
+     */
     Pie.prototype._class += " google_Pie";
 
     Pie.prototype.publish("is3D", false, "boolean", "Enable 3D",null,{tags:['Basic','Shared']});
@@ -38,6 +49,14 @@
     Pie.prototype.publish("slicesTextStyle", [], "array", "Per Slice",null,{tags:['Private']}); // overrides pieSliceTextStyle
     Pie.prototype.publish("slicesColor", [], "array", "Per Slice Color",null,{tags:['Private']});
 
+    /**
+     * Builds and returns a google configuration object based on publish param values.
+     * @method getChartOptions
+     * @memberof google_Pie
+     * @instance
+     * @private
+     * @returns {Object}
+     */
     Pie.prototype.getChartOptions = function () {
         var retVal = Common2D.prototype.getChartOptions.apply(this, arguments);
 
@@ -82,10 +101,20 @@
         return retVal;
     };
 
+    //TODO
     Pie.prototype.getNumSlices = function () {
         return this.data().length;
     };
 
+    /**
+     * Initializes empty object(s) for Pie slices.
+     * @method initSlices
+     * @memberof google_Pie
+     * @instance
+     * @protected
+     * @param {Number} num Number of series.
+     * @returns {Array}
+     */
     function initSlices(num) {
         var slices = [];
         for (var i = 0; i < num; i++) {
@@ -94,10 +123,28 @@
         return slices;
     }
 
+    /**
+     * The function that is called when this widget "enters" the web page.
+     * @method enter
+     * @memberof google_Pie
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Pie.prototype.enter = function (domNode, element) {
         Common2D.prototype.enter.apply(this, arguments);
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
+     * @method update
+     * @memberof google_Pie
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML/SVG DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Pie.prototype.update = function (domNode, element) {
         Common2D.prototype.update.apply(this, arguments);
     };

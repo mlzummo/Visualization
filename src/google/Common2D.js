@@ -11,6 +11,7 @@
      * @extends google_Common
      * @extends api_I2DChart
      * @implements api_I2DChart
+     * @abstract
      * @noinit
      */
     function Common2D() {

@@ -12,10 +12,21 @@
      */
     function Line() {
         CommonND.call(this);
-
+        /**
+         * Specifies the widget type of the google Widget/HPCC Widget.
+         * @member {string} _chartType
+         * @memberof google_Line
+         * @private
+         */
         this._chartType = "LineChart";
     }
     Line.prototype = Object.create(CommonND.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof google_Line
+     * @private
+     */
     Line.prototype._class += " google_Line";
 
     Line.prototype.publish("lineWidth", 2, "number", "Line Width",null,{tags:['Basic','Shared']});
@@ -100,6 +111,14 @@
     Line.prototype.publish("xAxisMaxAlternation", 2, "number", "Maximum number of levels of horizontal axis text",null,{tags:['Advanced']});
     Line.prototype.publish("xAxisMinTextSpacing", null, "number", "Minimum horizontal spacing, in pixels, allowed between two adjacent text labels",null,{tags:['Advanced']});
 
+    /**
+     * Builds and returns a google configuration object based on publish param values.
+     * @method getChartOptions
+     * @memberof google_Line
+     * @instance
+     * @private
+     * @returns {Object}
+     */
     Line.prototype.getChartOptions = function () {
         var retVal = CommonND.prototype.getChartOptions.apply(this, arguments);
 
@@ -223,10 +242,28 @@
         return retVal;
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page.
+     * @method enter
+     * @memberof google_Line
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Line.prototype.enter = function (domNode, element) {
         CommonND.prototype.enter.apply(this, arguments);
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
+     * @method update
+     * @memberof google_Line
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML/SVG DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Line.prototype.update = function (domNode, element) {
         CommonND.prototype.update.apply(this, arguments);
     };

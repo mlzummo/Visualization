@@ -8,9 +8,9 @@
 }(this, function (d3, Widget, Transition) {
     /**
      * @class common_HTMLWidget
+     * @extends common_Widget
      * @abstract
      * @noinit
-     * @extends common_Widget
      */
     function HTMLWidget() {
         Widget.call(this);
