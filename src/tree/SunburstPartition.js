@@ -1,3 +1,8 @@
+/**
+* @file HPCC VIZ Sunburst Partition Chart
+* @author HPCC Systems
+*/
+
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -17,11 +22,25 @@
         ITree.call(this);
     }
     SunburstPartition.prototype = Object.create(SVGWidget.prototype);
-    SunburstPartition.prototype._class += " tree_SunburstPartition";
     SunburstPartition.prototype.implements(ITree.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof google_Scatter
+     * @private
+     */
+    SunburstPartition.prototype._class += " tree_SunburstPartition";
 
     SunburstPartition.prototype.publish("paletteID", "default", "set", "Palette ID", SunburstPartition.prototype._palette.switch(),{tags:['Basic','Shared']});
 
+    /**
+     * TODO
+     * @method root
+     * @memberof tree_SunburstPartition
+     * @instance
+     * @private
+     * @returns {Widget}
+     */
     SunburstPartition.prototype.root = function (_) {
         if (!arguments.length) return this._root || this._data;
         this._root = _;
@@ -35,6 +54,15 @@
         return this;
     };
 
+    /**
+     * Sets data to be render within widget.
+     * @method data
+     * @memberof common_Widget
+     * @instance
+     * @param {Mixed} _ The data being rendered.
+     * @returns {Widget}
+     * @example TODO
+     */
     SunburstPartition.prototype.data = function () {
         var retVal = SVGWidget.prototype.data.apply(this, arguments);
         if (arguments.length) {
@@ -43,6 +71,15 @@
         return retVal;
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page.
+     * @method enter
+     * @memberof tree_SunburstPartition
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     SunburstPartition.prototype.enter = function (domNode, element) {
         var context = this;
 
@@ -72,6 +109,15 @@
         this.svg = element.append("g");
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
+     * @method update
+     * @memberof tree_SunburstPartition
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML/SVG DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     SunburstPartition.prototype.update = function (domNode, element) {
         var context = this;
 
@@ -114,6 +160,14 @@
         }
     };
 
+    /**
+     * TODO
+     * @method arcTweenFunc
+     * @memberof common_Widget
+     * @instance
+     * @param {type} d
+     * @example TODO
+     */
     SunburstPartition.prototype.arcTweenFunc = function (d) {
         var xd = d3.interpolate(this._xScale.domain(), [d.x, d.x + d.dx]),
             yd = d3.interpolate(this._yScale.domain(), [d.y, 1]),

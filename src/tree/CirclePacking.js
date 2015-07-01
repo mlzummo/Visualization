@@ -1,3 +1,8 @@
+/**
+* @file HPCC VIZ Circle Packing Widget
+* @author HPCC Systems
+*/
+
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -17,11 +22,26 @@
         ITree.call(this);
     }
     CirclePacking.prototype = Object.create(SVGWidget.prototype);
-    CirclePacking.prototype._class += " tree_CirclePacking";
     CirclePacking.prototype.implements(ITree.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof chart_Bubble
+     * @private
+     */
+    CirclePacking.prototype._class += " tree_CirclePacking";
 
     CirclePacking.prototype.publish("paletteID", "default", "set", "Palette ID", CirclePacking.prototype._palette.switch(),{tags:['Basic','Shared']});
 
+    /**
+     * The function that is called when this widget "enters" the web page.
+     * @method enter
+     * @memberof tree_CirclePacking
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     CirclePacking.prototype.enter = function (domNode, element) {
         this.diameter = Math.min(this.width(), this.height());
 
@@ -38,6 +58,15 @@
         ;
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
+     * @method update
+     * @memberof tree_CirclePacking
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML/SVG DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     CirclePacking.prototype.update = function (domNode, element) {
         var context = this;
 
@@ -77,6 +106,14 @@
         this.zoomTo([root.x, root.y, root.r * 2]);
     };
 
+    /**
+     * TODO
+     * @method zoom
+     * @memberof tree_CirclePacking
+     * @instance
+     * @protected
+     * @param {type} d
+     */
     CirclePacking.prototype.zoom = function (d) {
         var context = this;
         var focus = d;
@@ -118,6 +155,14 @@
         ;
     };
 
+    /**
+     * TODO
+     * @method zoom
+     * @memberof tree_CirclePacking
+     * @instance
+     * @protected
+     * @param {type} d
+     */
     CirclePacking.prototype.zoomTo = function (v) {
         var k = this.diameter / v[2];
         this.view = v;
