@@ -217,7 +217,10 @@
      * @public
      * @param {String[]} _ An array of strings representing the column names for data passed to widget.
      * @returns {Widget}
-     * @example widget.columns(["ID", "Year 1", "Year 2"]).data([ [40, 66, 60], [30, 98, 92]  ]).render();
+     * @example widget
+     * .columns(["ID", "Year 1", "Year 2"])
+     * .data([ [40, 66, 60], [30, 98, 92]  ])
+     * .render();
      */
     CommonRadar.prototype.columns = function(colArr) {
         if (!arguments.length) return this._columns;

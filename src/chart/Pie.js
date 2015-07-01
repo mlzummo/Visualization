@@ -134,7 +134,7 @@
 
     /**
      * Returns the first insersection point of the widget and a line. Given two line end points and given the widget is a circle, returns an object with [x,y] cordinates as properties.
-     * @method intersectCircle
+     * @method intersection
      * @memberof common_SVGWidget
      * @instance
      * @param {Object} [pointA] An object with the properties "x" and "y".

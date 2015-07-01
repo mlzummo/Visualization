@@ -1,3 +1,8 @@
+/**
+ * @file List Interface
+ * @author HPCC Systems
+ */
+
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -9,12 +14,10 @@
     /**
      * @interface common_IList
      * @class common_IList
-     *
      */
     function IList() {
     }
 
-    //  Data ---
     /**
      * Populates Data and Columns with test data.
      * @method testData
@@ -28,11 +31,9 @@
         return this;
     };
 
-    //  Properties  ---
-
-    //  Events  ---
     /**
-     * @method Overridable click callback function.
+     * Overridable click callback function.
+     * @method click
      * @memberof common_IList
      * @param {type} row
      * @param {type} column

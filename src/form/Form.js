@@ -1,3 +1,8 @@
+/**
+ * @file Form Widget
+ * @author HPCC Systems
+ */
+
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -12,16 +17,34 @@
      */
     function Form() {
         HTMLWidget.call(this);
-
+        /**
+         * Specifies the HTML tag type of the container.
+         * @member {String} _tag
+         * @memberof form_Form
+         * @private
+         */
         this._tag = "form";
     }
     Form.prototype = Object.create(HTMLWidget.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof form_Form
+     * @private
+     */
     Form.prototype._class += " form_Form";
 
     Form.prototype.publish("validate", true, "boolean", "Enable/Disable input validation");
     Form.prototype.publish("inputs", [], "widgetArray", "Array of input widgets");
     Form.prototype.publish("showSubmit", true, "boolean", "Show Submit/Cancel Controls");
 
+    /**
+     * Populates Data and Columns with test data.
+     * @method testData
+     * @memberof form_Form
+     * @instance
+     * @returns {Widget}
+     */
     Form.prototype.testData = function () {
         this
             .inputs([
@@ -73,6 +96,12 @@
         return this;
     };
 
+    /**
+     * Function called when form submitted. Validation occurs and then .click method is called.
+     * @method submit
+     * @memberof form_Form
+     * @instance
+     */
     Form.prototype.submit = function(){
         var isValid = true;
         if(this.validate()){
@@ -87,6 +116,13 @@
             this.click(dataArr);
         }
     };
+
+    /**
+     * Clears form inputs.
+     * @method clear
+     * @memberof form_Form
+     * @instance
+     */
     Form.prototype.clear = function(){
         var inpArr = this.inputs();
         inpArr.forEach(function(inp){
@@ -102,6 +138,12 @@
         });
     };
 
+    /**
+     * Checks form inputs to make sure they are valid with isValid() method.
+     * @method checkValidation
+     * @memberof form_Form
+     * @instance
+     */
     Form.prototype.checkValidation = function(){
         var ret = true;
         var msgArr = [];
@@ -117,6 +159,15 @@
         return ret;
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page.
+     * @method enter
+     * @memberof form_Form
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Form.prototype.enter = function (domNode, element) {
         HTMLWidget.prototype.enter.apply(this, arguments);
         element.on("submit", function () {
@@ -156,6 +207,15 @@
         });
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
+     * @method update
+     * @memberof form_Form
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML/SVG DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Form.prototype.update = function (domNode, element) {
         HTMLWidget.prototype.update.apply(this, arguments);
         var rows = this.tbody.selectAll("tr").data(this.inputs());
@@ -181,10 +241,25 @@
         this.btntd.style("visibility", this.showSubmit() ? null : "hidden");
     };
 
+    /**
+     * The function that is executed after render. It is used for doing destroying/cleanup.
+     * @method exit
+     * @memberof form_Form
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Form.prototype.exit = function (domNode, element) {
         HTMLWidget.prototype.exit.apply(this, arguments);
     };
 
+    /**
+     * Overridable click callback function.
+     * @method click
+     * @memberof form_Form
+     * @param {type} row
+     */
     Form.prototype.click = function (row) {
         console.log("Clicked Submit: "+JSON.stringify(row));
     };

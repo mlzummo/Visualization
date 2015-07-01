@@ -25,7 +25,6 @@
      */
     ITree.prototype._palette = Palette.ordinal("default");
 
-    //  Data ---
     /**
      * Populates Data and Columns with test data.
      * @method testData
@@ -62,9 +61,9 @@
         return this;
     };
 
-    //  Events  ---
     /**
-     * @method Overridable click callback function.
+     * (event) Overridable click callback function.
+     * @method click
      * @memberof api_INDChart
      * @param {type} row
      * @param {type} column

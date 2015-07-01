@@ -1,3 +1,8 @@
+/**
+ * @file Menu Interface
+ * @author HPCC Systems
+ */
+
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -8,12 +13,12 @@
 }(this, function () {
     /**
      * @interface common_IMenu
+     * @class common_IMenu
      *
      */
     function IMenu() {
     }
 
-    //  Data ---
     /**
      * Populates Data and Columns with test data.
      * @method testData
@@ -27,9 +32,9 @@
         return this;
     };
 
-    //  Events  ---
     /**
-     * @method Overridable click callback function.
+     * Overridable click callback function.
+     * @method click
      * @memberof common_IMenu
      * @param {type} row
      * @param {type} column
@@ -37,9 +42,21 @@
     IMenu.prototype.click = function (d) {
         console.log("Click:  " + d);
     };
-    IMenu.prototype.preShowMenu = function () {
+    /**
+     * Overridable function that is fired before menu is shown.
+     * @method preShowMenu
+     * @memberof common_IMenu
+     * @param {type} d
+     */
+    IMenu.prototype.preShowMenu = function (d) {
         console.log("preShowMenu");
     };
+    /**
+     * Overridable function that is fired before menu is shown.
+     * @method postHideMenu
+     * @memberof common_IMenu
+     * @param {type} d
+     */
     IMenu.prototype.postHideMenu = function (d) {
         console.log("postHideMenu");
     };

@@ -1,3 +1,8 @@
+/**
+ * @file Base SVGWidget Class
+ * @author HPCC Systems
+ */
+
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -335,7 +340,7 @@
 
         return result;
     };
-    
+
     /**
      * Returns the first insersection point of a circle and a line. Given two line end points and given the widget is a circle, returns an object with [x,y] cordinates as properties.
      * @method intersectCircle

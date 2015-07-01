@@ -25,7 +25,6 @@
     IInput.prototype.publish("value", "", "string", "Input type");
     IInput.prototype.publish("validate", null, "string", "Input Validation");
 
-    //  Implementation  ---
     /**
      * Tests if an input is valid via regex
      * @method isValid
@@ -49,6 +48,17 @@
     IInput.prototype.click = function (w) {
     };
     IInput.prototype.change = function (w) {
+    };
+
+    /**
+     * Populates Data and Columns with test data. (empty testData function)
+     * @method testData
+     * @memberof api_IInput
+     * @instance
+     * @returns {Widget}
+     */
+    IInput.prototype.testData = function () {
+        return this;
     };
 
     return IInput;

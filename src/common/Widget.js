@@ -1,5 +1,5 @@
 /**
-* @fileoverview Base Widget Class
+* @file Base Widget Class
 * @author HPCC Systems
 */
 
@@ -367,7 +367,10 @@
      * @instance
      * @param {String[]} _ An array of strings representing the column names for data passed to widget.
      * @returns {Widget}
-     * @example widget.columns(["ID", "Year 1", "Year 2"]).data([ [40, 66, 60], [30, 98, 92]  ]).render();
+     * @example widget
+     * .columns(["ID", "Year 1", "Year 2"])
+     * .data([ [40, 66, 60], [30, 98, 92]  ])
+     * .render();
      */
     Widget.prototype.columns = function (_) {
         if (!arguments.length) return this._columns;
@@ -382,7 +385,10 @@
      * @instance
      * @param {Mixed} _ The data being rendered.
      * @returns {Widget}
-     * @example widget.columns(["ID", "Year 1", "Year 2"]).data([ [40, 66, 60], [30, 98, 92]  ]).render();
+     * @example widget
+     * .columns(["ID", "Year 1", "Year 2"])
+     * .data([ [40, 66, 60], [30, 98, 92]  ])
+     * .render();
      */
     Widget.prototype.data = function (_) {
         if (!arguments.length) return this._data;

@@ -18,9 +18,9 @@
     function IGraph() {
     }
 
-    //  Events  ---
     /**
-     * @method Overridable click callback function for Graph Vertex (Icon)
+     * (event) Overridable click callback function for Graph Vertex (Icon)
+     * @method vertex_click
      * @memberof api_I1DChart
      * @param {type} row
      * @param {type} column
@@ -30,7 +30,8 @@
     };
 
     /**
-     * @method Overridable click callback function for Graph Edge (Line/Arrow).
+     * (event) Overridable click callback function for Graph Edge (Line/Arrow).
+     * @method edge_click
      * @memberof api_I1DChart
      * @param {type} row
      * @param {type} column

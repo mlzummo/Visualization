@@ -1,3 +1,8 @@
+/**
+* @file Google Timeline Chart
+* @author HPCC Systems
+*/
+
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -87,7 +92,10 @@
      * @instance
      * @param {Mixed} _ The data being rendered.
      * @returns {Widget}
-     * @example widget.columns(["Row Label", "Bar Label", "Start", "End"]).data([ ["Geography", "", "1789-03-29", "1797-02-03"], ["English", "", "1797-02-03", "1801-02-03"]  ]).render();
+     * @example widget
+     * .columns(["Row Label", "Bar Label", "Start", "End"])
+     * .data([ ["Geography", "", "1789-03-29", "1797-02-03"], ["English", "", "1797-02-03", "1801-02-03"]  ])
+     * .render();
      */
     Timeline.prototype.data = function (_) {
         var context = this;

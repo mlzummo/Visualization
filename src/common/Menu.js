@@ -1,3 +1,8 @@
+/**
+ * @file Menu Widget
+ * @author HPCC Systems
+ */
+
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
@@ -14,13 +19,31 @@
         SVGWidget.call(this);
         IMenu.call(this);
 
+        /**
+         * Font Awesome widget/object instance.
+         * @member {Object} _shapeWidget
+         * @memberof common_Menu
+         * @private
+         */
         this._icon = new Icon()
             .shape("rect")
             .diameter(14)
         ;
+        /**
+         * Font Awesome widget/object instance.
+         * @member {Object} _shapeWidget
+         * @memberof common_Menu
+         * @private
+         */
         this._list = new List();
 
         var context = this;
+        /**
+         * (event) Overridable click callback function for the menu items (list).
+         * @method click
+         * @memberof common_Menu
+         * @param {type} d
+         */
         this._list.click = function (d) {
             d3.event.stopPropagation();
             context.hideMenu();
@@ -29,8 +52,14 @@
         this._visible = false;
     }
     Menu.prototype = Object.create(SVGWidget.prototype);
-    Menu.prototype._class += " common_Menu";
     Menu.prototype.implements(IMenu.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof common_Menu
+     * @private
+     */
+    Menu.prototype._class += " common_Menu";
 
     Menu.prototype.publishProxy("faChar", "_icon", null, "\uf0c9");
     Menu.prototype.publishProxy("paddingPercent", "_icon", null, 10);
@@ -83,6 +112,13 @@
         this.postHideMenu();
     };
 
+    /**
+     * Override normal testData function.
+     * @method testData
+     * @public
+     * @memberof common_Menu
+     * @instance
+     */
     Menu.prototype.testData = function () {
         this
             .data(["Menu A", "And B", "a longer C"])
@@ -90,6 +126,15 @@
         return this;
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page.
+     * @method enter
+     * @memberof common_Menu
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Menu.prototype.enter = function (domNode, element) {
         SVGWidget.prototype.enter.apply(this, arguments);
 
@@ -112,6 +157,15 @@
         ;
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
+     * @method update
+     * @memberof common_Menu
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML/SVG DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Menu.prototype.update = function (domNode, element) {
         SVGWidget.prototype.update.apply(this, arguments);
         element
