@@ -63,7 +63,13 @@
 
     Menu.prototype.publishProxy("faChar", "_icon", null, "\uf0c9");
     Menu.prototype.publishProxy("paddingPercent", "_icon", null, 10);
-
+    /**
+     * Toggles Menu Visability
+     * @method toggleMenu
+     * @public
+     * @memberof common_Menu
+     * @instance
+     */
     Menu.prototype.toggleMenu = function () {
         if (!this._visible) {
             this.showMenu();
@@ -72,6 +78,13 @@
         }
     };
 
+    /**
+     * Show menu.
+     * @method showMenu
+     * @public
+     * @memberof common_Menu
+     * @instance
+     */
     Menu.prototype.showMenu = function () {
         this.preShowMenu();
         this._visible = true;
@@ -100,6 +113,13 @@
         ;
     };
 
+    /**
+     * Hides menu.
+     * @method hideMenu
+     * @public
+     * @memberof common_Menu
+     * @instance
+     */
     Menu.prototype.hideMenu = function () {
         d3.select("body")
             .on("click." + this._id, null)
