@@ -17,13 +17,24 @@
      */
     function PropertyEditor() {
         HTMLWidget.call(this);
-
+        /**
+         * Specifies the HTML tag type of the container.
+         * @member {string} _tag
+         * @memberof other_PropertyEditor
+         * @private
+         */
         this._tag = "div";
         this._columns = ["Key", "Value"];
         this._contentEditors = [];
         this._show_settings = true;
     }
     PropertyEditor.prototype = Object.create(HTMLWidget.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof other_PropertyEditor
+     * @private
+     */
     PropertyEditor.prototype._class += " other_PropertyEditor";
 
     PropertyEditor.prototype.publish("themeMode", false, "boolean", "Edit default values",null,{tags:['Basic','TODO2']});

@@ -17,13 +17,24 @@
      */
     function Audio() {
         HTMLWidget.call(this);
-
+        /**
+         * Specifies the HTML tag type of the container.
+         * @member {string} _tag
+         * @memberof other_Audio
+         * @private
+         */
         this._tag = "audio";
 
         this._source = [];
         this._sections = {};
     }
     Audio.prototype = Object.create(HTMLWidget.prototype);
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof other_Audio
+     * @private
+     */
     Audio.prototype._class += " other_Audio";
 
     Audio.prototype.source = function (_) {
@@ -55,12 +66,29 @@
         return "";
     };
 
-
+    /**
+     * The function that is called when this widget "enters" the web page.
+     * @method enter
+     * @memberof other_Audio
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Audio.prototype.enter = function (domNode, element) {
         var context = this;
         element.on("play", function (d) { context.onPlay(d); });
     };
 
+    /**
+     * The function that is called when this widget "enters" the web page. after enter() and everytime the widget is updated with subsequent render calls.
+     * @method update
+     * @memberof other_Audio
+     * @instance
+     * @protected
+     * @param {HTMLElement} domeNode HTML/SVG DOMNode of widget container.
+     * @param {D3Selection} element d3 selection object of widget.
+     */
     Audio.prototype.update = function (domNode, element) {
         var source = element.selectAll("source").data(this._source, function (d) { return d; });
         source.enter().append("source")

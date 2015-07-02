@@ -45,12 +45,12 @@
         this._chart = null;
     }
     Common.prototype = Object.create(HTMLWidget.prototype);
-        /**
-         * Specifies the class name of the container.
-         * @member {string} _class
-         * @memberof google_Common
-         * @private
-         */
+    /**
+     * Specifies the class name of the container.
+     * @member {string} _class
+     * @memberof google_Common
+     * @private
+     */
     Common.prototype._class += " google_Common";
 
     Common.prototype.publish("fontSize", null, "number", "Font Size",null,{tags:['Basic','Shared']});
