@@ -74,7 +74,7 @@ function createTreeObj(str,obj) {
 }
 
 function parseHierarchyResponse(my_response, src, parentWidg, return_obj) {
-    src = src.replace('../src/', '');
+    src = src.replace('../../src/', ''); // NEED TO CHANGE if moving src directory around
     var src_obj = src.split('/'),
         return_obj = return_obj || [];
 
@@ -119,12 +119,11 @@ function parseHierarchyResponse(my_response, src, parentWidg, return_obj) {
         };
     }
 
-    getHierarchyDynamically('../src/' + class_path, parentWidg, return_obj);
+    getHierarchyDynamically('../../src/' + class_path, parentWidg, return_obj);
 }
 
 function getHierarchyDynamically(src, parentWidg, return_obj) {
     if (typeof src === "undefined" || src === null ) { return false; }
-
     var client = new XMLHttpRequest();
     client.open('GET', src + '.js');
     client.onload = function() {

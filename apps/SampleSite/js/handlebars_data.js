@@ -39,7 +39,7 @@ var configTabsObj = {
         {
             id: 'css-pane',
             label: 'Live Edit CSS',
-            content: '<div id="css-wrapper"><textarea id="css-textarea"></textarea></div>'
+            content: '<div id="css-wrapper"><div id="css-editor"></div></div>'
         }
     ]
 };
