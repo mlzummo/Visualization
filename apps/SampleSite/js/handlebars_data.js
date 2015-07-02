@@ -39,7 +39,7 @@ var configTabsObj = {
         {
             id: 'css-pane',
             label: 'Live Edit CSS',
-            content: '<div id="css-wrapper"><div id="css-editor"></div></div>'
+            content: '<div id="css-wrapper"><textarea id="css-textarea"></textarea></div>'
         }
     ]
 };
@@ -252,12 +252,12 @@ var dropDownObj = {
             'width':'500',
             'height':'500',
             'sample_url': baseHref + 'basic_choropleth_country.php'},
-//        {
-//            'name':'Choropleth (Google)',
-//            'path':'map/GMap',
-//            'width':'500',
-//            'height':'500',
-//            'sample_url': baseHref + 'basic_choropleth_google.php'},
+        {
+            'name':'Choropleth (Google)',
+            'path':'map/GMap',
+            'width':'500',
+            'height':'500',
+            'sample_url': baseHref + 'basic_choropleth_google.php'},
         {
             'title': 'Other'},
         {
@@ -296,6 +296,10 @@ var dropDownObj = {
             'sample_url': baseHref + 'basic_wordcloud.php'},
         {
             'title': 'UI'},
+        {
+            'name':'Button',
+            'path':'common/Button',
+            'sample_url': baseHref + 'basic_button.php'},
         {
             'name':'Shape',
             'path':'common/Shape',
@@ -368,15 +372,15 @@ var dropDownObj = {
             'width':'400',
             'height':'300',
             'sample_url': baseHref + 'basic_surface.php'},
-        {
-            'name':'Graph',
-            'path':'graph/Graph',
-            'width':'500',
-            'height':'500',
-            'sample_url': baseHref + 'graph_example.php'},
+//        {
+//            'name':'Graph',
+//            'path':'graph/Graph',
+//            'width':'500',
+//            'height':'500',
+//            'sample_url': baseHref + 'graph_example.php'},
         {
             'name':'Graph Marshaller',
             'path':'marshaller/Graph',
             'sample_url': baseHref + 'graph_example.php'
-        }
-    ]};
+        }]
+    };

@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <title>HPCC Systems - Theme Editor</title>
+        <title>HPCC Systems - Dynamic Grid Demo</title>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="//code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
@@ -19,18 +19,92 @@
         <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
         <script src="js/init_bootstrap_demo_page.js"></script>
+        <script src="js/rasterizeHTML.allinone.js"></script>
         <script src="js/svg_to_png.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.18/require.min.js"></script>
         <script type="text/javascript" src="config.js"></script>
         <script>var g_targetId = "graph-container";</script>
 
+        <script src="js/dynamic_grid.js"></script>
         <script src="js/theme_defaults.js"></script>
 
         <script src="js/demo_data.js"></script>
-        <script type="text/javascript" src="js/themeeditor.js"></script>
-
-        <link href="css/bootstrap_theme.css" rel="stylesheet" type="text/css">
-        <link href="css/themeeditor.css" rel="stylesheet" type="text/css">
+        <script>
+            var g_test2;
+            initialGridObj = [
+                {
+                    "title": "3D Amchart Bar Examples",
+                    "src": [
+                        "src/amchart/Bar",
+                        "src/amchart/Bar",
+                        "src/amchart/Bar",
+                        "src/amchart/FloatingColumn",
+                    ],
+                    "columns":[
+                        ["Subject", "Year 1"],
+                        ["Subject", "Year 1"],
+                        ["Subject", "Year 1"],
+                        ["Subject", "open", "close"],
+                    ],
+                    "data":[
+                        [["A",34],["B",54],["C",91],["D",75]],
+                        [["A",34],["B",54],["C",91],["D",75]],
+                        [["A",34],["B",54],["C",91],["D",75]],
+                        [
+                            ["Geography", 15, 35],
+                            ["English", 25, 45],
+                            ["Math", 10, 35],
+                            ["Science", 45, 60]
+                        ]
+                    ],
+                    "params":[
+                        {"Depth3D":10,"Angle3D":45,"paletteGrouping":"By Category","fillOpacity":1},
+                        {"Depth3D":10,"Angle3D":45,"paletteGrouping":"By Category","cylinderBars":true,"fillOpacity":1},
+                        {"Depth3D":10,"Angle3D":45,"paletteGrouping":"By Category","cylinderBars":true,"fillOpacity":1,"circleRadius":0.1},
+                        {"Depth3D":5,"Angle3D":45,"paletteGrouping":"By Category","fillOpacity":1},
+                    ],
+                    "buttons": []
+                },
+                {
+                    "title": "3D Amchart Bar Stacked",
+                    "src": [
+                        "src/amchart/Bar",
+                        "src/amchart/Bar",
+                    ],
+                    "params":[
+                        {"Depth3D":10,"Angle3D":45,"fillOpacity":1,"isStacked":true},
+                        {"Depth3D":10,"Angle3D":45,"fillOpacity":1,"isStacked":true,"cylinderBars":true},
+                    ],
+                    "buttons": []
+                },
+                {
+                    "title": "3D Amchart Pie",
+                    "src": [
+                        "src/amchart/Pie",
+                    ],
+                    "params":[
+                        {"Depth3D":10,"Angle3D":45,"paletteGrouping":"By Category","fillOpacity":1},
+                        {"Depth3D":10,"Angle3D":45,"fillOpacity":1},
+                    ],
+                    "buttons": []
+                },
+                {
+                    "title": "3D Amchart Pie (Donut)",
+                    "src": [
+                        "src/amchart/Pie",
+                    ],
+                    "params":[
+                        {"Depth3D":10,"Angle3D":35,"holePercent":30},
+                    ],
+                    "buttons": []
+                },
+            ];
+            $(function(){
+                $('#graph-container').css({
+                    'height':$(window).height() - $('#graph-container').offset().top - 10
+                });
+            });
+        </script>
     </head>
     <body onresize="doResize();">
         <nav class="navbar navbar-default" role="navigation">
@@ -45,8 +119,7 @@
         <div id="main">
             <div>
                 <ul id="tabs-ul" class="nav nav-tabs" role="tablist">
-                    <li role="presentation" data-for="widgets-pane" class="active"><a href="#widgets-pane" aria-controls="widgets-pane" role="tab" data-toggle="tab">Widgets</a></li>
-                    <li role="presentation" data-for="colors-pane"><a href="#colors-pane" aria-controls="colors-pane" role="tab" data-toggle="tab">Colors</a></li>
+                    <li role="presentation" data-for="colors-pane" class="active"><a href="#colors-pane" aria-controls="colors-pane" role="tab" data-toggle="tab">Colors</a></li>
                     <li role="presentation" data-for="fonts-pane"><a href="#fonts-pane" aria-controls="fonts-pane" role="tab" data-toggle="tab">Fonts</a></li>
                     <li role="presentation" data-for="layout-pane"><a href="#layout-pane" aria-controls="layout-pane" role="tab" data-toggle="tab">Layout</a></li>
                     <li style="float:right;" role="presentation" data-for="layout-pane">
@@ -89,34 +162,7 @@
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="widgets-pane">
-                        <div class="graph-options">
-                            <div class="btn-group" id="themeGroup">
-                                <button class="btn btn-sm btn-info dropdown-toggle" type="button" id="dropdownButton" data-toggle="dropdown" aria-expanded="true">
-                                    Theme Editor
-                                    <span class="caret"></span>
-                                </button>
-                                <div class="dropdown-menu" role="menu" aria-labelledby="dropdownButton">
-                                    <ul id="dropdown-checkbox-wrapper"></ul>
-                                    <div id="dropdown-checkbox-buttons">
-                                        <button type="button" class="done btn btn-success">Done</button>
-                                        <button type="button" class="cancel btn btn-default">Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="btn-group">
-                                <button class="btn btn-sm btn-info" type="button" onclick="javascript:teViewSaves('getThemes');">
-                                    View Themes
-                                </button>
-                            </div>
-                            <div class="btn-group">
-                                <button class="btn btn-sm btn-info" type="button" onclick="javascript:teViewSaves('getSerials');">
-                                    View Serials
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="colors-pane">
+                    <div role="tabpanel" class="tab-pane active" id="colors-pane">
                         <div class="graph-options"></div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="fonts-pane">

@@ -1,10 +1,19 @@
-function downloadGridPng(mainSelector) {
+var g_replaceBodyWithPNG = false;
+$(function(){
+    var urlSplitArr = window.location.search.split("?");
+    var urlSplit = urlSplitArr[urlSplitArr.length-1];
+    if(typeof (urlSplit) !== 'undefined' && urlSplit === 'png'){
+        g_replaceBodyWithPNG = true;
+    }
+})
+function downloadGridPng(obj,replaceBody) {
+    replaceBody = false;
     $('rect[class^="resize"]').each(function(){$(this).css('fill','transparent')});
     
     _forceInlineStyles('button',['float']);
     _forceInlineStyles('div','background-color');
     _forceInlineStyles('line,path,rect,g.common_Shape',['fill','stroke']);
-    _forceInlineStyles('table,tbody',['border-collapse','border-color','border-size','border-style']);
+    _forceInlineStyles('table',['border-collapse']);
     _forceInlineStyles('tspan',['font-family','fill','stroke','font-size','line-height','visibility']);
     _forceInlineStyles('th,td,tr',[
         'background-color','color','font-family',
@@ -12,8 +21,12 @@ function downloadGridPng(mainSelector) {
         'border-style','border-collapse',
         'padding-top','padding-right','padding-bottom','padding-left'
     ]);
-    
-    getPng($(mainSelector),'Grid.png');
+    if(replaceBody){
+        bodyPng(obj,'Grid.png');
+        $('body').css({'background-color':'#ffffff','background-image':'none'});
+    } else {
+        getPng(obj,'Grid.png');
+    }
     
     function _forceInlineStyles(cssSelector,cssStyles) {
         $(cssSelector).each(function() {
@@ -51,6 +64,22 @@ function forceSvgInlineStyles() {
         $(this).css('stroke', stroke);
     })
 }
+function bodyPng($obj,fileName) {
+    $('body').append('<canvas id="canvas" width="900" height="900" style="display:none;"></canvas>');
+    var mySheetList = ['layout/Grid.css', 'layout/Surface.css'];
+    var cssObjArr = [];
+    for (var i in document.styleSheets) {
+        var sheet = document.styleSheets[i];
+        if (typeof (sheet.href) === 'string') {
+            for (var j in mySheetList) {
+                if (sheet.href.indexOf(mySheetList[j]) !== -1) {
+                    cssObjArr.push(sheet);
+                }
+            }
+        }
+    }
+    fillCanvasBody($obj, cssObjArr, fileName);
+}
 function getPng($obj,fileName) {
     $('body').append('<canvas id="canvas" width="900" height="900" style="display:none;"></canvas>');
     var mySheetList = ['layout/Grid.css', 'layout/Surface.css'];
@@ -84,8 +113,8 @@ function fillCanvas($domNode, cssObjArr, fileName) {
         }
     }
     var $canvas = $("#canvas");
-    $canvas.attr('height', $domNode.height());
-    $canvas.attr('width', $domNode.width());
+    $canvas.attr('height', $domNode.outerHeight());
+    $canvas.attr('width', $domNode.outerWidth());
     var html = $domNode.html();
     rasterizeHTML.drawHTML(html, $canvas.get(0)).then(function() {
         var a = document.createElement('a');
@@ -93,6 +122,36 @@ function fillCanvas($domNode, cssObjArr, fileName) {
         a.href = $canvas.get(0).toDataURL('image/png');
         document.body.appendChild(a);
         a.click();
+    });
+}
+function fillCanvasBody($domNode, cssObjArr, fileName) {
+    for (var i in cssObjArr) {
+        for (var j in cssObjArr[i].rules) {
+            var selector = cssObjArr[i].rules[j].selectorText;
+            if (typeof (selector) !== 'undefined') {
+                var n = 0;
+                while (cssObjArr[i].rules[j].style[n] !== '') {
+                    var styleName = cssObjArr[i].rules[j].style[n];
+                    $(selector).each(function() {
+                        $(this).css(styleName, $(this).css(styleName));
+                    });
+                    n++;
+                }
+            }
+        }
+    }
+    var $canvas = $("#canvas");
+    $canvas.attr('height', $domNode.outerHeight() + 30);
+    $canvas.attr('width', $domNode.outerWidth() + 30);
+    var html = $domNode.html();
+	//console.log('<html><head><title>Static Viz</title></head><body style="background-image: none; background-color: rgb(255, 255, 255);"><img src="'+$canvas.get(0).toDataURL('image/png')+'"></body></html>');
+//    console.log('$domNode.get(0):');
+//    console.log($domNode.get(0));
+//    saveSvgAsPng($('svg').get(0), "diagram.png");
+    rasterizeHTML.drawHTML(html, $canvas.get(0)).then(function() {
+        console.dir($canvas.get(0).toDataURL('image/png'));
+//        window.open(document.getElementById('canvas').toDataURL(), "toDataURL() image", "width=600, height=200");
+//        $('body').html('<img src="'+$canvas.get(0).toDataURL('image/png')+'">');
     });
 }
 (function() {

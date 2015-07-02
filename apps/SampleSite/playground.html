@@ -9,13 +9,16 @@
 
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+        <script src="js/svg_to_png.js"></script>
+
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.18/require.min.js"></script>
         <script type="text/javascript" src="config.js"></script>
 
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> <!-- DO WE NEED THIS? FOR CHEVRONS? --> 
+        <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="css/playground.css" rel="stylesheet" type="text/css">
         <link href="css/bootstrap_theme.css" rel="stylesheet" type="text/css">
         <link href="//fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
@@ -25,17 +28,23 @@
         <script type="text/javascript" src="js/doc_section.js"></script>
         <script type="text/javascript" src="js/hierarchy.js"></script>
         <script type="text/javascript" src="js/playground.js"></script>
-
-        <script src="//ajaxorg.github.io/ace-builds/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="//ajaxorg.github.io/ace-builds/src-min-noconflict/mode-css.js" type="text/javascript" charset="utf-8"></script>
-
+        <!--
+        <script src="bower_components/codemirror/lib/codemirror.js"></script>
+        <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css">
+        <script src="bower_components/codemirror/mode/css/css.js"></script>
+        -->
+        <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css">
         <style id="live-edit-style"></style>
-            
-        <script type="text/javascript" src="//rawgit.com/therealglazou/jscssp/master/cssParser.js"></script>
+
+        <!--<script type="text/javascript" src="bower_components/jscssp/cssParser.js"></script>-->
 
         <script>
 
             var wName = window.location.search.split("?")[1] || "google/Bar";
+            if(wName === 'png'){
+                g_replaceBodyWithPNG = true;
+                wName = "google/Bar";
+            }
             // Ajax Load Handlebar Templates
 
             var bootstrapDropdown;
@@ -110,34 +119,33 @@
                     $("#documentation-wrapper").toggle();
                 });
 
-                // CSS Editor & Parsing
-                // https://github.com/ajaxorg/ace/wiki/Embedding-API
-                var editor = ace.edit("css-editor");
-                editor.getSession().setMode("ace/mode/css");
 
-                var cssData = "#discover-pane{overflow:auto}\n#discover-pane > div{overflow:visible !important}\n#documentation-wrapper{display:none}\npre.prettyprint{display:block;overflow:auto;width:100%}\n";
-                editor.getSession().setValue(cssData);
-
-                var parser = new CSSParser();
-                    
-                editor.on('change', function() {
-                    var sheet = parser.parse(editor.getSession().getValue(), false, true);
-                    if (sheet.cssRules) {
-                        var newCSSArr = [];
-                        $.each(sheet.cssRules, function(i,v) {
-                            newCSSArr.push("#widget-wrapper " + v.parsedCssText);
-                        });
-                        $("#live-edit-style").html(newCSSArr.join("\n"));
-                    }
-                });
-                
-                $('a[href="#css-pane"]').on("shown.bs.tab",function(e){
-                    $("#css-editor").css("width",$("#css-pane").width());
-                    $("#css-editor").css("height",$("#css-pane").height());
-                    editor.resize();
-                });
-                // editor.setReadOnly(true); 
-                // editor.container.style.opacity=0.9
+//                require(["../demos/bower_components/codemirror/lib/codemirror","../demos/bower_components/codemirror/mode/css/css"], function(CodeMirror) {
+//                    var cssData = "#discover-pane{overflow:auto}\n#discover-pane > div{overflow:visible !important}\n#documentation-wrapper{display:none}\npre.prettyprint{display:block;overflow:auto;width:100%}\n";
+//                    document.getElementById("css-textarea").value = cssData
+//
+//                    var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("css-textarea"), {
+//                        lineNumbers: true,
+//                        mode: "css",
+//                    });
+//
+//                    var parser = new CSSParser();
+//
+//                    myCodeMirror.on("change",function(cm) {
+//                        var sheet = parser.parse(cm.getValue(), false, true);
+//                        if (sheet.cssRules) {
+//                            var newCSSArr = [];
+//                            $.each(sheet.cssRules, function(i,v) {
+//                                newCSSArr.push("#widget-wrapper " + v.parsedCssText);
+//                            });
+//                            $("#live-edit-style").html(newCSSArr.join("\n"));
+//                        }
+//                    });
+//                    $('a[href="#css-pane"]').on("shown.bs.tab",function(e){
+//                        myCodeMirror.setSize($("#css-pane").width(),$("#css-pane").height());
+//                        myCodeMirror.refresh();
+//                    });
+//                });
             }
         </script>
     </head>
@@ -159,7 +167,11 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="playground.html">Playground</a></li>
                     <li><a href="themeeditor.html">Theme Editor</a></li>
+                    <li><a href="dynamic_grid.html">Dynamic Grid</a></li>
+                    <li><a href="example1.html">Example 1</a></li>
+                    <li><a href="example2.html">Example 2</a></li>
                 </ul>
+                <button class="btn btn-info" style="float:right;margin-top:9px;" onclick="javascript:downloadGridPng('#chartTab1');">Download Grid As PNG</button>
             </div>
         </nav>
         <!-- /.navbar-default -->
