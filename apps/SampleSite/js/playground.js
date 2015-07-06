@@ -1,6 +1,7 @@
 // General Page Functions
 var g_widget;
 var s_widget;
+var doc_page;
 function quickChartInit(path, width, height){
     var path = "src/" + path;
 
@@ -92,7 +93,7 @@ function update_chart(el) {
     $('#hierarchy-wrapper').empty();
     getHierarchyDynamically('../../src/' + chartObjPath, chartObjPath);
     $('a[href="#chartTab1"]').html(el.html()); // Update Tab Title
-
+    doc_page = chartObjPath; //for show doc button
     /* Doc Section */
     //resetDocVars();  // Reset Vars
     //buildWidgetDocumentation(chartObjPath); // Build Doc and Update
