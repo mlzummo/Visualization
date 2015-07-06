@@ -10,9 +10,9 @@
         HTMLWidget.call(this);
 
         this._tag = "div";
-        this._current_grouping;
-        this._showing_columns;
-        this._showing_data;
+        this._current_grouping = undefined;
+        this._showing_columns = undefined;
+        this._showing_data = undefined;
         this._columns = ["Key", "Value"];
         this._contentEditors = [];
         this._showSettings = true;
@@ -22,13 +22,13 @@
         this._widgetObjsById = {};
     }
     var getThemes = function(idx){ 
-        g_defaultThemes(idx);
+        g_defaultThemes(idx);// jshint ignore:line
         return JSON.parse(localStorage.themeEditorThemes);
-    }
+    };
     var getSerials = function(idx){ 
-        g_defaultSerials(idx);
+        g_defaultSerials(idx);// jshint ignore:line
         return JSON.parse(localStorage.themeEditorSerials);
-    }
+    };
     var getThemeNames = function(idx){ 
         var loadedThemes = getThemes();
         var themes = [];
@@ -39,7 +39,7 @@
             themes = themes[idx];
         }
         return themes;
-    }
+    };
     var getSerialNames = function(idx){ 
         var loadedSerials = getSerials();
         var serials = [];
@@ -50,7 +50,7 @@
             serials = serials[idx];
         }
         return serials;
-    }
+    };
     ThemeEditor.prototype = Object.create(HTMLWidget.prototype);
     ThemeEditor.prototype._class += " other_ThemeEditor";
 
@@ -78,7 +78,7 @@
         }
         this._showSettings = _;
         return this;
-    }
+    };
 
     ThemeEditor.prototype.onChange = function (widget, propID) {};
 
@@ -125,14 +125,14 @@
         }
         this.saveTheme("");
         if(this.themeMode()){
-            g_themeObj[name] = filterSerialObj(Persist.serialize(this._data[0]),allowList);
-            localStorage.themeEditorThemes = JSON.stringify(g_themeObj);
-            return g_themeObj[name];
+            g_themeObj[name] = filterSerialObj(Persist.serialize(this._data[0]),allowList);// jshint ignore:line
+            localStorage.themeEditorThemes = JSON.stringify(g_themeObj);// jshint ignore:line
+            return g_themeObj[name];// jshint ignore:line
         }
         else {
-            g_serialObj[name] = Persist.serialize(this._data[0]);
-            localStorage.themeEditorSerials = JSON.stringify(g_serialObj);
-            return g_serialObj[name];
+            g_serialObj[name] = Persist.serialize(this._data[0]);// jshint ignore:line
+            localStorage.themeEditorSerials = JSON.stringify(g_serialObj);// jshint ignore:line
+            return g_serialObj[name];// jshint ignore:line
         }
     };
     
@@ -147,14 +147,14 @@
         }
         this.saveTheme("");
         if(this.themeMode()){
-            g_themeObj[name] = filterSerialObj(Persist.serialize(this._data[0]),allowList);
-            localStorage.themeEditorThemes = JSON.stringify(g_themeObj);
-            return g_themeObj[name];
+            g_themeObj[name] = filterSerialObj(Persist.serialize(this._data[0]),allowList);// jshint ignore:line
+            localStorage.themeEditorThemes = JSON.stringify(g_themeObj);// jshint ignore:line
+            return g_themeObj[name];// jshint ignore:line
         }
         else {
-            g_serialObj[name] = Persist.serialize(this._data[0]);
-            localStorage.themeEditorSerials = JSON.stringify(g_serialObj);
-            return g_serialObj[name];
+            g_serialObj[name] = Persist.serialize(this._data[0]);// jshint ignore:line
+            localStorage.themeEditorSerials = JSON.stringify(g_serialObj);// jshint ignore:line
+            return g_serialObj[name];// jshint ignore:line
         }
     };
     
@@ -166,9 +166,7 @@
         function _filter(obj){
             for(var i in obj){
                 if(i !== "__proto__"){
-                    if(allow.indexOf(i) === -1 
-                            && i.slice(0,2) !== '__'
-                            && typeof(obj[i]) !== "object"){
+                    if(allow.indexOf(i) === -1 && i.slice(0,2) !== '__' && typeof(obj[i]) !== "object"){
                         delete obj[i];
                     }
                     else if (typeof(obj[i]) === "object"){
@@ -184,16 +182,16 @@
     };
     
     ThemeEditor.prototype.load = function (name) {
-        g_theme = name;
+        g_theme = name;// jshint ignore:line
         this.loadedTheme(name);
-        initWidgetTestArr();
-        testWidgetArr(widgetArrToTest);
+        initWidgetTestArr();// jshint ignore:line
+        testWidgetArr(widgetArrToTest);// jshint ignore:line
     };
 
     ThemeEditor.prototype.needsPropTableRedraw = function (domNode, element) {
         var ret = document.getElementById('te-themeEditorOptions') === null;
         return ret;
-    }
+    };
     
     ThemeEditor.prototype.update = function (domNode, element) {
         HTMLWidget.prototype.update.apply(this, arguments);
@@ -227,7 +225,7 @@
         this.buildTableObjects(domNode,this._sharedProperties);
         
         this.initFunctionality(domNode);
-    }
+    };
     
     ThemeEditor.prototype.exit = function (domNode, element) {
         HTMLWidget.prototype.exit.apply(this, arguments);
@@ -248,8 +246,7 @@
             rowArr: []
         };
         for(var i in editorParams){
-            if(editorParams[i].ext.tags.indexOf('Theme') === -1 
-                    && editorParams[i].ext.tags.indexOf('Serial') === -1){
+            if(editorParams[i].ext.tags.indexOf('Theme') === -1 && editorParams[i].ext.tags.indexOf('Serial') === -1){
                 tableObj.rowArr.push({
                     th:camelizeString(editorParams[i].id),
                     td:editorParams[i].input,
@@ -272,7 +269,7 @@
             html += this.tableObjHtml(modeTableObj);
         }
         return html;
-    }
+    };
     ThemeEditor.prototype.buildTableObjects = function(targetElement, propObjs){
         var sectionObjs = {};
         if(this.themeMode()){
@@ -305,15 +302,14 @@
                     label:'Chart Properties',
                     rowObjArr: []
                 }
-            }
+            };
         }
         for(var p in propObjs){
             if(this.themeMode()){
                 if(p.toUpperCase().indexOf('GRID') !== -1 || p === 'designMode'){
                     sectionObjs['gridOptions'].rowObjArr.push(propObjs[p]);
                 } 
-                else if(p.toUpperCase().indexOf('FONT') !== -1 
-                        && !(propObjs[p].arr[0].widget._class.indexOf("layout_Surface") !== -1 && p.toUpperCase().indexOf('COLOR') !== -1)){
+                else if(p.toUpperCase().indexOf('FONT') !== -1 && !(propObjs[p].arr[0].widget._class.indexOf("layout_Surface") !== -1 && p.toUpperCase().indexOf('COLOR') !== -1)){
                     sectionObjs['fontSection'].rowObjArr.push(propObjs[p]);
                 } 
                 else if(p === "paletteID"){
@@ -333,7 +329,7 @@
             html += this.sharedPropertyTableHtml(sectionObjs[i]);
         }
         targetElement.innerHTML += html;
-    }
+    };
     
     ThemeEditor.prototype.initFunctionality = function(elm){
         var context = this;
@@ -371,7 +367,7 @@
                     } else {
                         alert('Save Name cannot be empty.');
                     }
-                }
+                };
             }
         }
         function _inputOnChange(elm){
@@ -384,7 +380,7 @@
                     inputElm.onchange = function (e){
                         var elm = e.srcElement;
                         context.load(elm.value);
-                    }
+                    };
                 }
                 else if(inputID !== null && inputID.indexOf("te-input-themeMode") !== -1){
                     inputElm.onchange = function (e){
@@ -394,7 +390,7 @@
                         var name = document.getElementById("te-load-theme");
                         var nameToLoad = name !== null ? name.value : "Default";
                         context.load(nameToLoad);
-                    }
+                    };
                 }
                 else if(inputElm.tagName === 'INPUT' || inputElm.tagName === 'SELECT' || inputElm.tagName === 'TEXTAREA'){
                     inputElm.onchange = function(e){
@@ -437,11 +433,11 @@
                                     indElm.previousSibling.value = elm.value;
                                 }
                             }
-                        })
+                        });
                         context._data.forEach(function(d){
                             d.render();
                         });
-                    }
+                    };
                 }
             }
         }
@@ -470,9 +466,9 @@
                 }
             }
             var sharedRowArr = elm.getElementsByClassName('sharedPropertyRow');
-            for(var i in sharedRowArr){
-                if(typeof(sharedRowArr[i].getElementsByClassName) === 'function'){
-                    var label = sharedRowArr[i].getElementsByClassName('te-label');
+            for(var j in sharedRowArr){
+                if(typeof(sharedRowArr[j].getElementsByClassName) === 'function'){
+                    var label = sharedRowArr[j].getElementsByClassName('te-label');
                     label[0].onclick = function(e){
                         var elm = e.toElement;
                         var parent = elm.parentElement;
@@ -497,7 +493,7 @@
                 }
             }
         }
-    }
+    };
     ThemeEditor.prototype.sharedPropertyTableHtml = function(sectionObj){
         var tableObj = {
             id:sectionObj.id,
@@ -564,12 +560,12 @@
                 return '';
             }
         }
-    }
+    };
     
     var camelizeString = function(str){
         var spacedText = str.split(/(?=[0-9A-Z])/).map(function(n){return n.length > 1 ? n+' ' : n;}).join('');
         return spacedText.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
-    }
+    };
     
     var tableInputHtml = function (rowObj,value,widgetArr,idSuffix){
         var inputHtml = '';
@@ -635,7 +631,7 @@
                 break;
         }
         if(typeof(rowObj.ext.saveButton) !== "undefined"){
-            inputHtml += '<button id="'+rowObj.ext.saveButtonID+'">'+rowObj.ext.saveButton+'</button>'
+            inputHtml += '<button id="'+rowObj.ext.saveButtonID+'">'+rowObj.ext.saveButton+'</button>';
         }
         return inputHtml;
 
@@ -644,10 +640,10 @@
             obj.set.forEach(function(s){
                 var selected = s === val ? ' selected' : '';
                 options += '<option value="'+s+'"'+selected+'>'+s+'</option>';
-            })
+            });
             return options;
         }
-    }
+    };
     
     ThemeEditor.prototype.tableObjHtml = function (tableObj) {
         var html = '<table id="'+tableObj.id+'" class="te-section-table expanded">';
@@ -658,13 +654,13 @@
                 },this);
             html += '</tbody>';
         return html + '</table>';
-    }
+    };
     ThemeEditor.prototype.tableRowObjHtml = function (rowObj) {
         var html = typeof (rowObj.trClass) !== 'undefined' ? '<tr class="'+rowObj.trClass+'">' : '<tr>';
             html += '<th class="te-label">'+rowObj.th+'</th>';
             html += '<td>'+rowObj.td+'</td>';
         return html + '</tr>';
-    }
+    };
     
     ThemeEditor.prototype.setWidgetObjsById = function (widgetProp) {
         var context = this;
@@ -672,12 +668,12 @@
         if(widgetProp.type === "widgetArray") {
             val.forEach(function(widget){
                 context._widgetObjsById[widget._id] = widget;
-            })
+            });
         } 
         else if(widgetProp.type === "widget" && val !== null) {
             this._widgetObjsById[val._id] = val;
         }
-    }
+    };
     ThemeEditor.prototype.checkTagFilter = function (tagArr) {
         var allowTags = ["Basic"];
         var ret = false;
@@ -687,12 +683,12 @@
             }
         });
         return ret;
-    }
+    };
     ThemeEditor.prototype.findSharedProperties = function (data) {
         var context = this;
+        var propsByID = {};
         if (typeof (data) !== 'undefined' && data.length > 0) {
             var allProps = [];
-            var propsByID = {};
             var surfacePropsByID = {};
             var nonSurfacePropsByID = {};
             data.forEach(function (widget) {
@@ -769,11 +765,11 @@
                         var temp = _getParams(childWidget, depth + 1);
                         retArr = retArr.concat(temp);
                     }
-                })
+                });
             }
             return retArr;
         }
-    }
+    };
 
     return ThemeEditor;
 }));
