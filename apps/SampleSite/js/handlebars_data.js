@@ -296,10 +296,10 @@ var dropDownObj = {
             'sample_url': baseHref + 'basic_wordcloud.php'},
         {
             'title': 'UI'},
-        {
-            'name':'Button',
-            'path':'common/Button',
-            'sample_url': baseHref + 'basic_button.php'},
+        // {
+        //     'name':'Button',
+        //     'path':'common/Button',
+        //     'sample_url': baseHref + 'basic_button.php'},
         {
             'name':'Shape',
             'path':'common/Shape',
@@ -382,5 +382,30 @@ var dropDownObj = {
             'name':'Graph Marshaller',
             'path':'marshaller/Graph',
             'sample_url': baseHref + 'graph_example.php'
-        }]
+        },
+        {
+            'title': 'Form'},
+        {
+            'name':'Form',
+            'path':'form/Form',
+            'width':'250',
+            'height': '250',
+            'sample_url': ''},
+        {
+            'name':'Input',
+            'path':'form/Input',
+            'width':'250',
+            'height': '250',
+            'sample_url': ''},
+        {
+            'name':'Slider',
+            'path':'form/Slider',
+            'width':'250',
+            'height': '250',
+            'sample_url': ''},
+
+
+
+
+        ]
     };
