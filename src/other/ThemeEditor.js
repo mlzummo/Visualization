@@ -10,26 +10,26 @@
         HTMLWidget.call(this);
 
         this._tag = "div";
-        this._current_grouping = undefined;
-        this._showing_columns = undefined;
-        this._showing_data = undefined;
+        this._current_grouping;
+        this._showing_columns;
+        this._showing_data;
         this._columns = ["Key", "Value"];
         this._contentEditors = [];
         this._showSettings = true;
-
+        
         this._defaultThemes = [];
-
+        
         this._widgetObjsById = {};
     }
-    var getThemes = function(idx){
-        g_defaultThemes(idx); // jshint ignore:line
+    var getThemes = function(idx){ 
+        g_defaultThemes(idx);
         return JSON.parse(localStorage.themeEditorThemes);
-    };
-    var getSerials = function(idx){
-        g_defaultSerials(idx); // jshint ignore:line
+    }
+    var getSerials = function(idx){ 
+        g_defaultSerials(idx);
         return JSON.parse(localStorage.themeEditorSerials);
-    };
-    var getThemeNames = function(idx){
+    }
+    var getThemeNames = function(idx){ 
         var loadedThemes = getThemes();
         var themes = [];
         for(var themeName in loadedThemes){
@@ -39,8 +39,8 @@
             themes = themes[idx];
         }
         return themes;
-    };
-    var getSerialNames = function(idx){
+    }
+    var getSerialNames = function(idx){ 
         var loadedSerials = getSerials();
         var serials = [];
         for(var serialName in loadedSerials){
@@ -50,11 +50,11 @@
             serials = serials[idx];
         }
         return serials;
-    };
+    }
     ThemeEditor.prototype = Object.create(HTMLWidget.prototype);
     ThemeEditor.prototype._class += " other_ThemeEditor";
 
-    ThemeEditor.prototype.publish("themeMode", true, "boolean", "Edit default values",null,{tags:['Basic']});
+    ThemeEditor.prototype.publish("themeMode", true, "boolean", "Enable/Disable Theme Mode. Theme Mode allows the user to modify generic styles that will apply to all charts and chart containers (such as color and font schemes)",null,{tags:['Basic']});    
     ThemeEditor.prototype.publish("saveTheme", "", "string", "Save Theme",null,{tags:['Basic','Theme'],saveButton:'Save',saveButtonID:'te-save-button'});
     ThemeEditor.prototype.publish("loadedTheme", getThemeNames(1), "set", "Loaded Theme",getThemeNames(),{tags:['Basic','Theme']});
     ThemeEditor.prototype.publish("saveSerial", "", "string", "Save Serial",null,{tags:['Basic','Serial'],saveButton:'Save',saveButtonID:'te-save-button'});
@@ -71,14 +71,14 @@
     ThemeEditor.prototype.getSerials = getSerials;
     ThemeEditor.prototype.getDefaultThemes = getThemeNames;
     ThemeEditor.prototype.getDefaultSerials = getSerialNames;
-
+    
     ThemeEditor.prototype.showSettings = function (_) {
         if (!arguments.length) {
             return this._showSettings;
         }
         this._showSettings = _;
         return this;
-    };
+    }
 
     ThemeEditor.prototype.onChange = function (widget, propID) {};
 
@@ -86,7 +86,7 @@
         HTMLWidget.prototype.enter.apply(this, arguments);
         this._parentElement.style("overflow", "auto");
     };
-
+    
     var tableNeedsRedraw = function (context) {
         var needsRedraw = false;
         if (typeof (context._current_grouping) === 'undefined') {
@@ -106,23 +106,95 @@
         }
         return needsRedraw;
     };
-
+    
     ThemeEditor.prototype.widgetProperty = function (widget, propID, _) {
         if (_ === undefined) {
             return widget[propID]();
         }
         return widget[propID](_);
     };
-
-    ThemeEditor.prototype.load = function(){};
-
-    ThemeEditor.prototype.save = function(){};
+    
+    ThemeEditor.prototype.save = function (name) {
+        var allowList = [];
+        for(var i in this._sharedProperties){
+            var hasSharedTag = this._sharedProperties[i].ext.tags.indexOf('Shared') !== -1;
+            var hasBasicTag = this._sharedProperties[i].ext.tags.indexOf('Basic') !== -1;
+            if(hasSharedTag || hasBasicTag){
+                allowList.push(i);
+            }
+        }
+        this.saveTheme("");
+        if(this.themeMode()){
+            g_themeObj[name] = filterSerialObj(Persist.serialize(this._data[0]),allowList);
+            localStorage.themeEditorThemes = JSON.stringify(g_themeObj);
+            return g_themeObj[name];
+        }
+        else {
+            g_serialObj[name] = Persist.serialize(this._data[0]);
+            localStorage.themeEditorSerials = JSON.stringify(g_serialObj);
+            return g_serialObj[name];
+        }
+    };
+    
+    ThemeEditor.prototype.getActiveTheme = function () {
+        var allowList = [];
+        for(var i in this._sharedProperties){
+            var hasSharedTag = this._sharedProperties[i].ext.tags.indexOf('Shared') !== -1;
+            var hasBasicTag = this._sharedProperties[i].ext.tags.indexOf('Basic') !== -1;
+            if(hasSharedTag || hasBasicTag){
+                allowList.push(i);
+            }
+        }
+        this.saveTheme("");
+        if(this.themeMode()){
+            g_themeObj[name] = filterSerialObj(Persist.serialize(this._data[0]),allowList);
+            localStorage.themeEditorThemes = JSON.stringify(g_themeObj);
+            return g_themeObj[name];
+        }
+        else {
+            g_serialObj[name] = Persist.serialize(this._data[0]);
+            localStorage.themeEditorSerials = JSON.stringify(g_serialObj);
+            return g_serialObj[name];
+        }
+    };
+    
+    var filterSerialObj = function (serial, allow) {
+        var retObj = {__themeSerial:true};
+        _filter(JSON.parse(serial));
+        return retObj;
+        
+        function _filter(obj){
+            for(var i in obj){
+                if(i !== "__proto__"){
+                    if(allow.indexOf(i) === -1 
+                            && i.slice(0,2) !== '__'
+                            && typeof(obj[i]) !== "object"){
+                        delete obj[i];
+                    }
+                    else if (typeof(obj[i]) === "object"){
+                        obj[i] = _filter(obj[i]);
+                    }
+                    else if (i.slice(0,2) !== '__') {
+                        retObj[i] = obj[i];
+                    }
+                }
+            }
+            return obj;
+        }
+    };
+    
+    ThemeEditor.prototype.load = function (name) {
+        g_theme = name;
+        this.loadedTheme(name);
+        initWidgetTestArr();
+        testWidgetArr(widgetArrToTest);
+    };
 
     ThemeEditor.prototype.needsPropTableRedraw = function (domNode, element) {
         var ret = document.getElementById('te-themeEditorOptions') === null;
         return ret;
-    };
-
+    }
+    
     ThemeEditor.prototype.update = function (domNode, element) {
         HTMLWidget.prototype.update.apply(this, arguments);
         if (tableNeedsRedraw(this)) {
@@ -131,7 +203,7 @@
         this._current_grouping = this.paramGrouping();
         this._widgetObjsById[this._id] = this;
         this._sharedProperties = this.findSharedProperties(this._data);
-
+        
         var needsPropertiesTableRedraw = this.needsPropTableRedraw();
         if(needsPropertiesTableRedraw && this.showSettings()){
             var teParams = Persist.discover(this);
@@ -151,19 +223,19 @@
             evt.initEvent("TE Properties Ready", true, true);
             document.dispatchEvent(evt);
         }
-
+        
         this.buildTableObjects(domNode,this._sharedProperties);
-
+        
         this.initFunctionality(domNode);
-    };
-
+    }
+    
     ThemeEditor.prototype.exit = function (domNode, element) {
         HTMLWidget.prototype.exit.apply(this, arguments);
     };
 
     ThemeEditor.prototype.click = function (d) {
     };
-
+    
     ThemeEditor.prototype.propertiesTableHtml = function (editorParams) {
         var tableObj = {
             id:'te-themeEditorOptions',
@@ -176,38 +248,21 @@
             rowArr: []
         };
         for(var i in editorParams){
-            if(this.themeMode()){
-                if(editorParams[i].ext.tags.indexOf('Theme') === -1 && editorParams[i].ext.tags.indexOf('Serial') === -1){
-                    tableObj.rowArr.push({
-                        th:camelizeString(editorParams[i].id),
-                        td:editorParams[i].input,
-                        trClass:'propertyRow',
-                    });
-                }
-                else if(editorParams[i].ext.tags.indexOf('Theme') !== -1){
-                    modeTableObj.rowArr.push({
-                        th:camelizeString(editorParams[i].id),
-                        td:editorParams[i].input,
-                        trClass:'propertyRow',
-                    });
-                }
-            } else {
-                if (editorParams[i].ext.tags.indexOf('Serial') === -1 && editorParams[i].ext.tags.indexOf('Theme') === -1){
-                    tableObj.rowArr.push({
-                        th:camelizeString(editorParams[i].id),
-                        td:editorParams[i].input,
-                        trClass:'propertyRow',
-                    });
-                }
-                else if (editorParams[i].ext.tags.indexOf('Serial') !== -1){
-                    modeTableObj.rowArr.push({
-                        th:camelizeString(editorParams[i].id),
-                        td:editorParams[i].input,
-                        trClass:'propertyRow',
-                    });
-                }
+            if(editorParams[i].ext.tags.indexOf('Theme') === -1 
+                    && editorParams[i].ext.tags.indexOf('Serial') === -1){
+                tableObj.rowArr.push({
+                    th:camelizeString(editorParams[i].id),
+                    td:editorParams[i].input,
+                    trClass:'propertyRow'
+                });
             }
-
+            else if(editorParams[i].ext.tags.indexOf(this.themeMode() ? 'Theme' : 'Serial') !== -1){
+                modeTableObj.rowArr.push({
+                    th:camelizeString(editorParams[i].id),
+                    td:editorParams[i].input,
+                    trClass:'propertyRow'
+                });
+            }
         }
         var html = '';
         if(tableObj.rowArr.length > 0){
@@ -217,11 +272,16 @@
             html += this.tableObjHtml(modeTableObj);
         }
         return html;
-    };
+    }
     ThemeEditor.prototype.buildTableObjects = function(targetElement, propObjs){
         var sectionObjs = {};
         if(this.themeMode()){
             sectionObjs = {
+                'gridOptions':{
+                    id:'te-gridOptions',
+                    label:'Grid Options',
+                    rowObjArr: []
+                },
                 'chartColorSection':{
                     id:'te-colorOptions',
                     label:'Chart Colors',
@@ -245,23 +305,27 @@
                     label:'Chart Properties',
                     rowObjArr: []
                 }
-            };
+            }
         }
         for(var p in propObjs){
             if(this.themeMode()){
-                if(p.toUpperCase().indexOf('FONT') !== -1 && !(propObjs[p].arr[0].widget._class.indexOf("layout_Surface") !== -1 && p.toUpperCase().indexOf('COLOR') !== -1)){
+                if(p.toUpperCase().indexOf('GRID') !== -1 || p === 'designMode'){
+                    sectionObjs['gridOptions'].rowObjArr.push(propObjs[p]);
+                } 
+                else if(p.toUpperCase().indexOf('FONT') !== -1 
+                        && !(propObjs[p].arr[0].widget._class.indexOf("layout_Surface") !== -1 && p.toUpperCase().indexOf('COLOR') !== -1)){
                     sectionObjs['fontSection'].rowObjArr.push(propObjs[p]);
-                }
+                } 
                 else if(p === "paletteID"){
                     sectionObjs['chartColorSection'].rowObjArr.push(propObjs[p]);
-                }
+                } 
                 else if(propObjs[p].arr[0].widget._class.indexOf("layout_Surface") !== -1){
                     sectionObjs['surfaceSection'].rowObjArr.push(propObjs[p]);
-                }
+                } 
             } else {
                 if(propObjs[p].arr[0].widget._class.indexOf("layout_Surface") === -1){
                     sectionObjs['nonSurfaceSection'].rowObjArr.push(propObjs[p]);
-                }
+                } 
             }
         }
         var html = '';
@@ -269,8 +333,8 @@
             html += this.sharedPropertyTableHtml(sectionObjs[i]);
         }
         targetElement.innerHTML += html;
-    };
-
+    }
+    
     ThemeEditor.prototype.initFunctionality = function(elm){
         var context = this;
         _expandCollapse(elm);
@@ -307,7 +371,7 @@
                     } else {
                         alert('Save Name cannot be empty.');
                     }
-                };
+                }
             }
         }
         function _inputOnChange(elm){
@@ -320,28 +384,28 @@
                     inputElm.onchange = function (e){
                         var elm = e.srcElement;
                         context.load(elm.value);
-                    };
+                    }
                 }
                 else if(inputID !== null && inputID.indexOf("te-input-themeMode") !== -1){
                     inputElm.onchange = function (e){
                         var elm = e.srcElement;
                         context.themeMode(elm.checked);
-
+                        
                         var name = document.getElementById("te-load-theme");
                         var nameToLoad = name !== null ? name.value : "Default";
                         context.load(nameToLoad);
-                    };
+                    }
                 }
                 else if(inputElm.tagName === 'INPUT' || inputElm.tagName === 'SELECT' || inputElm.tagName === 'TEXTAREA'){
                     inputElm.onchange = function(e){
                         var elm = e.srcElement;
 
                         var id = elm.getAttribute('id');
-
+                        
                         if (elm.className.split(' ').indexOf('te-html-color-button') !== -1){
                             id = elm.previousSibling.getAttribute('id');
                             elm.previousSibling.value = elm.value;
-                        }
+                        } 
                         var elmType = elm.getAttribute('type');
                         var splitId = id.split('-');
                         var genericId = splitId.slice(0,splitId.length-1).join('-') + '-';
@@ -355,7 +419,7 @@
                             if(elmType === "checkbox"){
                                 indElm.checked = elm.checked;
                                 context._widgetObjsById[wid][paramId](elm.checked);
-                            }
+                            } 
                             else if (elm.getAttribute('data-type') === 'array') {
                                 indElm.value = elm.value;
                                 try{
@@ -365,19 +429,19 @@
                             else {
                                 indElm.value = elm.value;
                                 context._widgetObjsById[wid][paramId](elm.value);
-
+                                
                                 if (indElm.className.split(' ').indexOf('te-html-color-input') !== -1){
                                     indElm.nextSibling.value = elm.value;
-                                }
+                                } 
                                 else if (indElm.className.split(' ').indexOf('te-html-color-button') !== -1) {
                                     indElm.previousSibling.value = elm.value;
                                 }
                             }
-                        });
+                        })
                         context._data.forEach(function(d){
                             d.render();
                         });
-                    };
+                    }
                 }
             }
         }
@@ -406,9 +470,9 @@
                 }
             }
             var sharedRowArr = elm.getElementsByClassName('sharedPropertyRow');
-            for(var n in sharedRowArr){
-                if(typeof(sharedRowArr[n].getElementsByClassName) === 'function'){
-                    var label = sharedRowArr[n].getElementsByClassName('te-label');
+            for(var i in sharedRowArr){
+                if(typeof(sharedRowArr[i].getElementsByClassName) === 'function'){
+                    var label = sharedRowArr[i].getElementsByClassName('te-label');
                     label[0].onclick = function(e){
                         var elm = e.toElement;
                         var parent = elm.parentElement;
@@ -433,7 +497,7 @@
                 }
             }
         }
-    };
+    }
     ThemeEditor.prototype.sharedPropertyTableHtml = function(sectionObj){
         var tableObj = {
             id:sectionObj.id,
@@ -456,9 +520,9 @@
                 });
             });
         });
-
+        
         return this.tableObjHtml(tableObj);
-
+        
         function _propertyLabel(widgetObj){
             var spaceSplit = widgetObj.widget._class.split(' ');
             var splitClass = spaceSplit[spaceSplit.length-1].split('_');
@@ -468,12 +532,12 @@
         function _sharedPropertyLabel(rowObj){
             return camelizeString(rowObj.id);
         }
-
+        
         function _propertyInput(rowObj,idx){
             var value = _value(rowObj,idx);
             var html = tableInputHtml(rowObj,value,[rowObj.arr[idx]],rowObj.arr[idx].widget._id);
             return html;
-
+            
             function _value(rowObj,idx){
                 var value = rowObj.arr[idx].widget[rowObj.id]();
                 return value !== null ? value : '';
@@ -483,7 +547,7 @@
             var value = _sharedValue(rowObj);
             var html = tableInputHtml(rowObj,value,rowObj.arr,'shared');
             return html;
-
+            
             function _sharedValue(rowObj){
                 var value = rowObj.arr[0].widget[rowObj.id]();
                 rowObj.arr.forEach(function(w,i){
@@ -500,13 +564,13 @@
                 return '';
             }
         }
-    };
-
+    }
+    
     var camelizeString = function(str){
         var spacedText = str.split(/(?=[0-9A-Z])/).map(function(n){return n.length > 1 ? n+' ' : n;}).join('');
         return spacedText.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
-    };
-
+    }
+    
     var tableInputHtml = function (rowObj,value,widgetArr,idSuffix){
         var inputHtml = '';
         var id = 'te-input-'+rowObj.id+'-'+idSuffix;
@@ -520,7 +584,7 @@
             id = rowObj.inputID;
         }
 
-        var dataWIDs = 'data-paramid="'+rowObj.id+'" data-wids="'+widgetArr.map(function(w){
+        var dataWIDs = 'data-paramid="'+rowObj.id+'" data-wids="'+widgetArr.map(function(w){ 
             if(typeof(w.widget) === "object"){
                 return w.widget._id;
             } else {
@@ -571,7 +635,7 @@
                 break;
         }
         if(typeof(rowObj.ext.saveButton) !== "undefined"){
-            inputHtml += '<button id="'+rowObj.ext.saveButtonID+'">'+rowObj.ext.saveButton+'</button>';
+            inputHtml += '<button id="'+rowObj.ext.saveButtonID+'">'+rowObj.ext.saveButton+'</button>'
         }
         return inputHtml;
 
@@ -580,11 +644,11 @@
             obj.set.forEach(function(s){
                 var selected = s === val ? ' selected' : '';
                 options += '<option value="'+s+'"'+selected+'>'+s+'</option>';
-            });
+            })
             return options;
         }
-    };
-
+    }
+    
     ThemeEditor.prototype.tableObjHtml = function (tableObj) {
         var html = '<table id="'+tableObj.id+'" class="te-section-table expanded">';
             html += '<thead><tr><th colspan="2">'+tableObj.label+'</th></tr></thead>';
@@ -594,26 +658,26 @@
                 },this);
             html += '</tbody>';
         return html + '</table>';
-    };
+    }
     ThemeEditor.prototype.tableRowObjHtml = function (rowObj) {
         var html = typeof (rowObj.trClass) !== 'undefined' ? '<tr class="'+rowObj.trClass+'">' : '<tr>';
             html += '<th class="te-label">'+rowObj.th+'</th>';
             html += '<td>'+rowObj.td+'</td>';
         return html + '</tr>';
-    };
-
+    }
+    
     ThemeEditor.prototype.setWidgetObjsById = function (widgetProp) {
         var context = this;
         var val = widgetProp.widget[widgetProp.id]();
         if(widgetProp.type === "widgetArray") {
             val.forEach(function(widget){
                 context._widgetObjsById[widget._id] = widget;
-            });
-        }
+            })
+        } 
         else if(widgetProp.type === "widget" && val !== null) {
             this._widgetObjsById[val._id] = val;
         }
-    };
+    }
     ThemeEditor.prototype.checkTagFilter = function (tagArr) {
         var allowTags = ["Basic"];
         var ret = false;
@@ -623,16 +687,18 @@
             }
         });
         return ret;
-    };
+    }
     ThemeEditor.prototype.findSharedProperties = function (data) {
         var context = this;
-        var propsByID;
         if (typeof (data) !== 'undefined' && data.length > 0) {
             var allProps = [];
-            propsByID = {};
+            var propsByID = {};
             var surfacePropsByID = {};
             var nonSurfacePropsByID = {};
             data.forEach(function (widget) {
+                if(widget._class.indexOf('layout_Grid') !== -1){
+                    context._widgetObjsById[widget._id] = widget;
+                }
                 var gpResponse = _getParams(widget, 0);
                 allProps = allProps.concat(gpResponse);
             });
@@ -675,7 +741,7 @@
             });
         }
         return propsByID;
-
+        
         function _getParams(widgetObj, depth) {
             var retArr = [];
             if(widgetObj !== null){
@@ -703,11 +769,11 @@
                         var temp = _getParams(childWidget, depth + 1);
                         retArr = retArr.concat(temp);
                     }
-                });
+                })
             }
             return retArr;
         }
-    };
+    }
 
     return ThemeEditor;
 }));

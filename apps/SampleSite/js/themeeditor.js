@@ -80,7 +80,7 @@ function findExceptionPartials(arr){
         }
     });
     return ret_arr;
-    
+
     function _isPartialMathOnSomething(path){
         var ret = false;
         arr.forEach(function(b){
@@ -102,7 +102,7 @@ function teViewSaves(method){
         body += '<textarea style="width:100%;">'+JSON.stringify(saves[i])+'</textarea><br>';
     }
     bsModal(method === 'getThemes' ? 'Saved Themes' : 'Saved Serials',body);
-        
+
     $('#modal').modal();
     $('#modal .modal-dialog').css({"width":'90%',"height":'90%'});
     $('#modal textarea').height(100);
@@ -130,7 +130,7 @@ var g_serialObj;
 g_defaultThemes();
 g_defaultSerials();
 
-require(["src/layout/Surface", "src/layout/Grid", "src/other/Persist", "src/other/ThemeEditor", "src/common/Palette"], 
+require(["src/layout/Surface", "src/layout/Grid", "src/other/Persist", "src/other/ThemeEditor", "src/common/Palette"],
     function (Surface, Grid, Persist, ThemeEditor, Palette) {
         g_persist = Persist;
         g_palette = Palette;
@@ -266,7 +266,6 @@ function doResize() {
         debouncedResize();
     }
 }
-
 $(function(){
     //over ride the defaullt bootstrap behavior of closing the dropdown
     $('#themeGroup').on('hide.bs.dropdown', function () {
@@ -298,8 +297,6 @@ function buildCheckboxList() {
             var defaultRandomChartCount = 4;
             g_checkedFilter = _defaultRandomCharts(defaultRandomChartCount);
             g_showTitles = true;
-            //g_checkedFilter = "src";//Uncomment to display all charts
-            //g_showTitles = false;
         }
         var filterArr = g_checkedFilter.split('|');
         filterArr.forEach(function(filt) {
@@ -308,7 +305,7 @@ function buildCheckboxList() {
             }
         });
         return ret;
-        
+
         function _defaultRandomCharts(n){
             var retArr = [];
             var allSrc = [];
@@ -376,7 +373,7 @@ function afterGridLoads() {
                         var height = w[0].getBoundingClientRect().height;
                         ghostHTML += ghostDiv(top, left, width, height);
                     }
-                })
+                });
                 $('body').append(ghostHTML);
             }
         }
@@ -391,7 +388,7 @@ function afterGridLoads() {
             downloadGridPng($('.layout_Grid').eq(1).parent(),true);
         },1000);
     }
-    
+
 }
 function ghostDiv(top, left, width, height) {
     var style = "top:" + top + "px;left:" + left + "px;width:" + width + "px;height:" + height + "px;";
@@ -403,20 +400,20 @@ function insertJQueryThemeEditorOptions(){
         var jqueryTeOptions = [
             {
                 th: 'Show Titles',
-                td: '<input id="te-jq-show-titles" class="te-checkbox" type="checkbox"' + (g_showTitles ? ' checked' : '') + '>',
+                td: '<input id="te-jq-show-titles" class="te-checkbox" type="checkbox"' + (g_showTitles ? ' checked' : '') + '>'
             },
             {
                 th: 'Show Hover',
-                td: '<input id="te-jq-show-hover" class="te-checkbox" type="checkbox"' + (g_showHover ? ' checked' : '') + '>',
+                td: '<input id="te-jq-show-hover" class="te-checkbox" type="checkbox"' + (g_showHover ? ' checked' : '') + '>'
             },
             {
                 th: 'Grid Columns',
-                td: '<input id="te-jq-grid-cols" class="te-input" type="number" min="1" step="1" value="'+g_gridCols+'">',
+                td: '<input id="te-jq-grid-cols" class="te-input" type="number" min="1" step="1" value="'+g_gridCols+'">'
             },
             {
                 th: 'Grid Fit All',
-                td: '<input id="te-jq-grid-fit" class="te-checkbox" type="checkbox"' + (g_gridFitAll ? ' checked' : '') + '>',
-            },
+                td: '<input id="te-jq-grid-fit" class="te-checkbox" type="checkbox"' + (g_gridFitAll ? ' checked' : '') + '>'
+            }
         ];
         jqueryTeOptions.forEach(function(opt) {
             $('#te-themeEditorOptions').find('tbody').append('<tr class="propertyRow"><th class="te-label">' + opt.th + '</th><td>' + opt.td + '</td></tr>');
@@ -502,7 +499,7 @@ function g_defaultThemes(idx,doReset) {
             "fontFamily": "Trebuchet MS",
             "fontSize": 12,
             "paletteID": "Set1"
-        },
+        }
     };
     if(doReset){
         localStorage.themeEditorThemes = JSON.stringify(defaultThemes);
@@ -524,10 +521,10 @@ function g_defaultThemes(idx,doReset) {
             console.log("Here's what it tried to parse:");
             console.log('localStorage.themeEditorThemes:');
             console.log(localStorage.themeEditorThemes);
-            
+
             console.log("Reverting to defaultThemes");
             console.groupEnd();
-            
+
             localStorage.themeEditorThemes = JSON.stringify(defaultThemes);
         }
     } else {
@@ -536,7 +533,7 @@ function g_defaultThemes(idx,doReset) {
 }
 function g_defaultSerials(idx,doReset) {
     var defaultSerials = {
-        "Default": {"__themeEditorSerial": true},
+        "Default": {"__themeEditorSerial": true}
     };
     if(doReset){
         localStorage.themeEditorSerials = JSON.stringify(defaultSerials);
@@ -558,10 +555,10 @@ function g_defaultSerials(idx,doReset) {
             console.log("Here's what it tried to parse:");
             console.log('localStorage.themeEditorSerials:');
             console.log(localStorage.themeEditorSerials);
-            
+
             console.log("Reverting to defaultSerials");
             console.groupEnd();
-            
+
             localStorage.themeEditorSerials = JSON.stringify(defaultSerials);
         }
     } else {
