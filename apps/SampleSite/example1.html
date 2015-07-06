@@ -143,24 +143,6 @@
                     fillLoadSavedThemesDropdown();
                 });
             });
-            function _save_theme(){
-                var obj = persistAll(g_mainGrid);
-
-//                console.log('Serialized Theme:');
-//                for(var i in obj){
-//                    console.log(JSON.stringify(obj[i]));
-//                }
-                var saveName = $('#save-name').val();
-                saveLocal(saveName,obj);
-
-                fillLoadSavedThemesDropdown(saveName);
-            }
-            function _load_theme(){
-
-            }
-            function _delete_theme(){
-
-            }
         </script>
     </head>
     <body onresize="doResize();">
@@ -179,44 +161,6 @@
                     <li role="presentation" data-for="colors-pane" class="active"><a href="#colors-pane" aria-controls="colors-pane" role="tab" data-toggle="tab">Colors</a></li>
                     <li role="presentation" data-for="fonts-pane"><a href="#fonts-pane" aria-controls="fonts-pane" role="tab" data-toggle="tab">Fonts</a></li>
                     <li role="presentation" data-for="layout-pane"><a href="#layout-pane" aria-controls="layout-pane" role="tab" data-toggle="tab">Layout</a></li>
-                    <li style="float:right;" role="presentation" data-for="layout-pane">
-                        <div id="saveLoadWrapper" class="btn-group pull-right default-mode-btn" style="margin-left:6px;">
-                            <button type="button" class="btn btn-sm btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-save"></i>
-                                Save/Load Styles
-                            </button>
-                            <ul class="dropdown-menu save-dropdown" role="menu" style="padding:0;margin-top:0;border-radius:4px">
-                                <li style="padding:8px;">
-                                    <fieldset>
-                                        <legend>Save Current Theme</legend>
-                                        <input id="save-name" type="text" placeholder="Theme Name" style="margin-bottom:6px;">
-                                        <br>
-                                        <button class="btn btn-default" onclick="javascript:_save_theme();">
-                                            <i class="fa fa-save"></i>
-                                            Save Theme
-                                        </button>
-                                    </fieldset>
-                                </li>
-                                <li style="padding:0px 8px;">
-                                    <fieldset style="white-space:nowrap;">
-                                        <legend>Load Saved Theme</legend>
-                                        <select id="load-theme" style="width:100%;height:26px;margin-bottom:6px;">
-                                            <option value="Default Theme">Default Theme</option>
-                                        </select>
-                                        <br>
-                                        <button class="btn btn-default" onclick="javascript:_load_theme($('#load-theme'));">
-                                            <i class="fa fa-download"></i>
-                                            Load Theme
-                                        </button>
-                                        <button class="btn btn-default" onclick="javascript:_delete_theme($('#load-theme'));">
-                                            <i class="fa fa-trash"></i>
-                                            Delete Theme
-                                        </button>
-                                    </fieldset>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="colors-pane">

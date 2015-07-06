@@ -20,6 +20,7 @@
 
 
         <script src="js/init_bootstrap_demo_page.js"></script>
+        <script src="js/demo_theme_saveLoad.js"></script>
         <script src="js/svg_to_png.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.18/require.min.js"></script>
         <script type="text/javascript" src="config.js"></script>
@@ -33,6 +34,17 @@
         <link href="css/bootstrap_theme.css" rel="stylesheet" type="text/css">
         <link href="css/themeeditor.css" rel="stylesheet" type="text/css">
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <script>
+            $(function(){
+                $('#saveLoadWrapper').on('hide.bs.dropdown',function(){
+                    if($('#saveLoadWrapper .dropdown-menu:hover').length > 0){
+                        return false;
+                    }
+                });
+            });
+        </script>
+
     </head>
     <body onresize="doResize();">
         <nav class="navbar navbar-default" role="navigation">
@@ -53,7 +65,7 @@
                     <li role="presentation" data-for="layout-pane"><a href="#layout-pane" aria-controls="layout-pane" role="tab" data-toggle="tab">Layout</a></li>
                     <li style="float:right;" role="presentation" data-for="layout-pane">
                         <div id="saveLoadWrapper" class="btn-group pull-right default-mode-btn" style="margin-left:6px;">
-                            <button type="button" class="btn btn-sm btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-save"></i>
                                 Save/Load Styles
                             </button>
@@ -76,11 +88,11 @@
                                             <option value="Default Theme">Default Theme</option>
                                         </select>
                                         <br>
-                                        <button class="btn btn-default" onclick="javascript:_load_theme($('#load-theme'));">
+                                        <button class="btn btn-default" onclick="javascript:_load_theme($('#load-theme').val());">
                                             <i class="fa fa-download"></i>
                                             Load Theme
                                         </button>
-                                        <button class="btn btn-default" onclick="javascript:_delete_theme($('#load-theme'));">
+                                        <button class="btn btn-default" onclick="javascript:_delete_theme($('#load-theme').val());">
                                             <i class="fa fa-trash"></i>
                                             Delete Theme
                                         </button>

@@ -23,7 +23,7 @@ function fillLinksNavbar(activeHREF){
         }
     }
     html += '</ul>';
-    html += '<button class="btn btn-info" style="float:right;margin-top:9px;" onclick="javascript:downloadGridPng($(\'#graph-container\'));"><i class="fa fa-download"></i>Download Grid As PNG</button>';
+    html += '<button class="btn btn-default" style="float:right;margin-top:9px;" onclick="javascript:downloadGridPng($(\'#graph-container\'));"><i class="fa fa-download"></i>Download Grid As PNG</button>';
     $('#links-navbar').html(html);
 }
 function testModal(){
@@ -34,11 +34,11 @@ function testModal(){
 }
 function bsModal(title,bodyHTML,btnObjArr){
     var $bsModal = $('#modal');
-    
+
     $bsModal.find('.modal-title').html(title);
-    
+
     $bsModal.find('.modal-body').html(bodyHTML);
-    
+
     if(typeof (btnObjArr) !== 'undefined'){
         var $modalFooter = $bsModal.find('.modal-footer');
         $modalFooter.html('');
@@ -50,7 +50,7 @@ function bsModal(title,bodyHTML,btnObjArr){
             }
         }
     }
-    
+
     $('#modal .modal-dialog').css({"width":'auto'});
 }
 function categorize_choro(arr, cat_count){
