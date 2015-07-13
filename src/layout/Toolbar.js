@@ -85,10 +85,10 @@
         ;
 
         var widgets = this._toolbarContainer.selectAll(".toolbar-widget").data(this.toolbarAnnotations());
-
+        
         widgets.enter().append("div")
             .attr("class", "toolbar-widget")
-            .each(function (obj, idx) {
+            .each(function (obj) {
                 if (obj.type !== "button") {
                     d3.select(this).style("width",obj.width+"px");
                     d3.select(this).style("height",obj.height+"px");
@@ -101,8 +101,12 @@
                         widget._inputElement.style("height",obj.height+"px");
                     });
                 }
-                d3.select(this).style("padding-left",(idx > 0 ? (context.gutter()/2)+"px" : null));
-                d3.select(this).style("padding-right",(idx > 0 ? (context.gutter()/2)+"px" : null));
+            })
+        ;
+        
+        widgets
+            .each(function (obj) {
+                d3.select(this).style("padding",(context.gutter()/2)+"px");
                 this._widgetArr = obj.widget.render();
             })
         ;
