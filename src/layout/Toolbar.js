@@ -36,31 +36,36 @@
                 width:55,
                 height: 25,
                 type: "button",
+                alignment: "left",
                 //widget: new formInput().type("button").value("button 1").label("button 1").name("button1")
                 widget: new formInput().name("textbox-test").label("Only Alpha").type("textbox").value("SomeString")
             },
             {
-                width:55,
+                width:25,
                 height: 25,
                 type: "button",
+                alignment: "left",
                 widget: new formInput().name("checkbox-test").label("Checkbox Test").type("checkbox").value(true)
             },
             {
                 width:455,
                 height: 25,
                 type: "icon",
+                alignment: "right",
                 widget: new Slider().name("slider-test").label("Slider Test").value(66)
             },
             {
                 width:55,
                 height: 25,
                 type: "button",
+                alignment: "right",
                 widget: new formInput().type("button").value("button 2").label("button 2").name("button2")
             },
             {
                 width:25,
                 height: 25,
                 type: "icon",
+                alignment: "right",
                 widget: new Icon().testData()
             }
         ]);
@@ -85,31 +90,43 @@
         ;
 
         var widgets = this._toolbarContainer.selectAll(".toolbar-widget").data(this.toolbarAnnotations());
-        
+        var maxWidgetHeight = 0;
         widgets.enter().append("div")
             .attr("class", "toolbar-widget")
             .each(function (obj) {
                 if (obj.type !== "button") {
                     d3.select(this).style("width",obj.width+"px");
                     d3.select(this).style("height",obj.height+"px");
+                    d3.select(this).style("margin","0px");
+                    d3.select(this).style("text-align","center");
                     obj.widget.target(this);
                 }
                 if (obj.type === "button") {
                     obj.widget.target(this).render(function(widget) {
                         widget._inputElement.style("display","inline-block");
                         widget._element.style("width",obj.width+"px");
+                        widget._element.style("height",obj.height+"px");
+                        widget._element.style("text-align","center");
                         widget._inputElement.style("height",obj.height+"px");
+                        widget._inputElement.style("margin","0px");
                     });
                 }
+                maxWidgetHeight = maxWidgetHeight < obj.height + context.gutter() ? obj.height + context.gutter() : maxWidgetHeight;
             })
         ;
         
         widgets
             .each(function (obj) {
-                d3.select(this).style("padding",(context.gutter()/2)+"px");
+                d3.select(this)
+                    .style("padding",(context.gutter()/2)+"px")
+                    .style("float",typeof (obj.alignment) !== 'undefined' ? obj.alignment : 'left');
                 this._widgetArr = obj.widget.render();
             })
         ;
+        console.log('maxWidgetHeight:');
+        console.log(maxWidgetHeight);
+        this._toolbarContainer
+            .style("height",maxWidgetHeight + 'px');
     };
 
     Toolbar.prototype.exit = function (domNode, element) {
