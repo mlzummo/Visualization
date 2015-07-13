@@ -28,35 +28,31 @@
         if (!arguments.length) { return this._tabAnnotations; }
         this._tabAnnotations = _;
         return this;
-    }
+    };
 
     Toolbar.prototype.testData = function () {
         this.toolbarAnnotations([
             {
-                width:55,
-                height: 25,
                 type: "button",
                 alignment: "left",
                 //widget: new formInput().type("button").value("button 1").label("button 1").name("button1")
                 widget: new formInput().name("textbox-test").label("Only Alpha").type("textbox").value("SomeString")
             },
             {
-                width:25,
-                height: 25,
                 type: "button",
                 alignment: "left",
                 widget: new formInput().name("checkbox-test").label("Checkbox Test").type("checkbox").value(true)
             },
             {
                 width:455,
-                height: 25,
+                height: 35,
                 type: "icon",
                 alignment: "right",
                 widget: new Slider().name("slider-test").label("Slider Test").value(66)
             },
             {
                 width:55,
-                height: 25,
+                //height: 25,
                 type: "button",
                 alignment: "right",
                 widget: new formInput().type("button").value("button 2").label("button 2").name("button2")
@@ -74,7 +70,11 @@
 
     Toolbar.prototype.enter = function (domNode, element) {
         HTMLWidget.prototype.enter.apply(this, arguments);
-        this._toolbarContainer = element.append("div").attr("class", "toolbar-container");
+        this._toolbarContainer = element
+                .append("div")
+                .attr("class", "toolbar-container")
+                .style("position","relative")
+        ;
     };
 
     Toolbar.prototype.update = function (domNode, element) {
@@ -93,10 +93,16 @@
         var maxWidgetHeight = 0;
         widgets.enter().append("div")
             .attr("class", "toolbar-widget")
+            .style("position", "absolute")
             .each(function (obj) {
                 if (obj.type !== "button") {
-                    d3.select(this).style("width",obj.width+"px");
-                    d3.select(this).style("height",obj.height+"px");
+                    if(typeof(obj.width) !== 'undefined'){
+                        d3.select(this).style("width",obj.width+"px");
+                    }
+                    if(typeof(obj.height) !== 'undefined'){
+                        d3.select(this).style("height",obj.height+"px");
+                    }
+
                     d3.select(this).style("margin","0px");
                     d3.select(this).style("text-align","center");
                     obj.widget.target(this);
@@ -104,10 +110,13 @@
                 if (obj.type === "button") {
                     obj.widget.target(this).render(function(widget) {
                         widget._inputElement.style("display","inline-block");
-                        widget._element.style("width",obj.width+"px");
-                        widget._element.style("height",obj.height+"px");
+                        if(typeof(obj.width) !== 'undefined'){
+                            widget._element.style("width",obj.width+"px");
+                        }
+                        if(typeof(obj.height) !== 'undefined'){
+                            widget._element.style("height",obj.height+"px");
+                        }
                         widget._element.style("text-align","center");
-                        widget._inputElement.style("height",obj.height+"px");
                         widget._inputElement.style("margin","0px");
                     });
                 }
@@ -115,18 +124,36 @@
             })
         ;
         
+        this._toolbarContainer
+            .style("height",maxWidgetHeight + 'px');
+        var conBox = this._toolbarContainer.node().getBoundingClientRect();
+        var leftConsumption = 0;
+        var rightConsumption = 0;
         widgets
             .each(function (obj) {
+                var twNode = d3.select(this).node();
+                var twBox = twNode.getBoundingClientRect();
+                var twTop = maxWidgetHeight/2 - twBox.height/2 - context.gutter()/2;
+                var twLeft;
+                
+                if(typeof(obj.alignment) === 'undefined'){
+                    obj.alignment = 'left';
+                }
+                if(obj.alignment === 'left'){
+                    twLeft = leftConsumption;
+                    leftConsumption = twLeft + twBox.width + context.gutter();
+                } else if (obj.alignment === 'right') {
+                    twLeft = conBox.width - rightConsumption - twBox.width;
+                    rightConsumption = rightConsumption + twBox.width + context.gutter();
+                }
+                
                 d3.select(this)
                     .style("padding",(context.gutter()/2)+"px")
-                    .style("float",typeof (obj.alignment) !== 'undefined' ? obj.alignment : 'left');
+                    .style("top",twTop+'px')
+                    .style("left",twLeft+'px');
                 this._widgetArr = obj.widget.render();
             })
         ;
-        console.log('maxWidgetHeight:');
-        console.log(maxWidgetHeight);
-        this._toolbarContainer
-            .style("height",maxWidgetHeight + 'px');
     };
 
     Toolbar.prototype.exit = function (domNode, element) {
