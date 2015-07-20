@@ -406,6 +406,17 @@ var dropDownObj = {
 
 
 
+        {
+            'title': 'HPCC Charts'},
+        {
+            'name':'C3 Bar Chart',
+            'path':'c3chart/Bar',
+            'sample_url': baseHref + 'basic_c3_bar.php'},
+        {
+            'name':'C3 Column Chart',
+            'path':'c3chart/Column',
+            'sample_url': baseHref + 'basic_c3_column.php'},
+
 
         ]
     };

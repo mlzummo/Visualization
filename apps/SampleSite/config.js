@@ -15,7 +15,7 @@ require.config({
         "topojson": "bower_components/topojson/topojson",
         "colorbrewer": "bower_components/colorbrewer/colorbrewer",
         "d3.layout.cloud": "bower_components/d3-cloud/d3.layout.cloud",
-        //"font-awesome": "bower_components/font-awesome/css/font-awesome",
+        "font-awesome": "bower_components/font-awesome/css/font-awesome",
         "amcharts": "bower_components/amcharts/dist/amcharts/amcharts",
         "amcharts.funnel": "bower_components/amcharts/dist/amcharts/funnel",
         "amcharts.gauge": "bower_components/amcharts/dist/amcharts/gauge",
