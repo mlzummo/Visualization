@@ -330,6 +330,7 @@
                         var name = document.getElementById("te-load-theme");
                         var nameToLoad = name !== null ? name.value : "Default";
                         context.load(nameToLoad);
+                        context.render();
                     };
                 }
                 else if(inputElm.tagName === 'INPUT' || inputElm.tagName === 'SELECT' || inputElm.tagName === 'TEXTAREA'){
