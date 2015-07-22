@@ -29,6 +29,9 @@
         <script type="text/javascript" src="//ajaxorg.github.io/ace-builds/src-min-noconflict/mode-css.js" charset="utf-8"></script>
         <script type="text/javascript" src="//rawgit.com/therealglazou/jscssp/master/cssParser.js"></script>
 
+        <!-- SVG to PNG lib -->
+        <script type="text/javascript" src="js/rasterizeHTML.allinone.js"></script>
+
         <!-- requirejs -->
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.18/require.min.js"></script>
         <script type="text/javascript" src="config.js"></script>
@@ -179,7 +182,7 @@
                     <li><a href="example1.html">Example 1</a></li>
                     <li><a href="example2.html">Example 2</a></li>
                 </ul>
-                <button class="btn btn-info" style="float:right;margin-top:9px;" onclick="javascript:downloadGridPng('#chartTab1');">Download Grid As PNG</button>
+                <button class="btn btn-info" style="float:right;margin-top:9px;" onclick="javascript:downloadGridPng($('#chartTab1'));">Download Grid As PNG</button>
             </div>
         </nav>
         <!-- /.navbar-default -->
