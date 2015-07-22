@@ -107,6 +107,100 @@ function teViewSaves(method){
     $('#modal .modal-dialog').css({"width":'90%',"height":'90%'});
     $('#modal textarea').height(100);
 }
+function teViewCurrentSerialization(){
+    var title = '';
+    var body = '';
+    var serialization = '';
+    if(g_themeEditor.themeMode()){
+        serialization = g_themeEditor.currentTheme();
+        title += 'Current Theme';
+        body += '<textarea style="width:100%;">'+serialization+'</textarea><br>';
+    } else {
+        serialization = g_themeEditor.currentSerial();
+        title += 'Current Serial';
+        body += '<textarea style="width:100%;">'+serialization+'</textarea><br>';
+    }
+    
+    var btnArr = [
+        {'class':"btn btn-primary",'label':"How to use this...",callback:function(){
+                $('#modal button:contains("How to use this")').remove();
+                var mBody = $('#modal .modal-body');
+                var targH = mBody.outerWidth()*0.618;
+                targH -= $('#modal .modal-header').outerHeight();
+                targH -= $('#modal .modal-footer').outerHeight();
+                
+                mBody.html('<div id="sampleTarget" style="float:left;height:100%;width:50%;"></div>');
+                mBody.append('<div id="sampleCode" style="float:right;height:100%;width:49%;overflow-y:scroll;"></div>')
+                mBody.css('height',targH);
+                $('#sampleTarget,#sampleCode').css('height',targH-30);
+                serialUseExample(serialization);
+                serialUseExampleCode(serialization);
+            }
+        },
+        {'class':"btn btn-default",'label':"Close",callback:function(){
+                $('#modal').modal('hide');
+            }
+        },
+    ];
+    
+    bsModal(title,body,btnArr);
+//    bsModal(title,body);
+
+    $('#modal').modal();
+    $('#modal .modal-dialog').css({"width":'90%',"height":'90%'});
+    $('#modal textarea').height(100);
+}
+var g_grid2;
+function serialUseExample(themeString){
+    require(["src/layout/Grid", "src/layout/Surface", "src/amchart/Bar", "src/amchart/Line", "src/amchart/Area"],
+        function (Grid, Surface, Bar, Line, Area) {
+            _applyThisTheme(arguments,JSON.parse(themeString));
+            g_grid2 = new Grid()
+                .gutter(4)
+                .setContent(0, 0, new Bar().testData(), "AM Bar")
+                .setContent(0, 1, new Area().testData(), "AM Area")
+                .setContent(1, 0, new Line().testData(),"",1,2)
+                .target('sampleTarget')
+                .render()
+            ;
+        }
+    );
+    function _applyThisTheme(arr,themeObj){
+        for(var i in arr){
+            var widget = arr[i];
+            var proto = typeof(widget.prototype) !== "undefined" ? widget.prototype : Object.getPrototypeOf(widget);
+            for(var j in proto){
+                if(typeof(proto[j]) !== "undefined" && proto[j] !== null && j.slice(0,7) === "__meta_"){
+                    console.log('themeObj['+j.slice(7)+']:');
+                    console.log(themeObj[j.slice(7)]);
+                    if(typeof(themeObj[j.slice(7)]) !== "undefined"){
+                        if(typeof(proto[j].trueDefaultValue) === "undefined"){
+                            proto[j].trueDefaultValue = proto[j].defaultValue;
+                        }
+                        proto[j].defaultValue = themeObj[j.slice(7)];
+                    } 
+                }
+            }
+        }
+    }
+}
+function serialUseExampleCode(themeString){
+    $('#sampleCode').html('<pre id="example-code-pre" class="prettyprint">Loading...</pre>');
+    var exUrl = 'sample_html/SerialUse.html';
+    $.ajax({
+        url: exUrl,
+        success: function(html) {
+            html = html.replace('%INSERT%',themeString);
+            $('#example-code-pre').text(html);
+            $('#example-code-pre').removeClass('prettyprinted');
+            prettyPrint();
+        },
+        error: function() {
+            $('#example-code-pre').text('Example Code File Not Found: ' + exUrl );
+        }
+    });
+    $('#get_example_code').attr('href', exUrl);
+}
 var g_themeEditor;
 var g_args;
 var g_persist;
@@ -169,6 +263,8 @@ require(["src/layout/Surface", "src/layout/Grid", "src/other/Persist", "src/othe
 
             var includePathArr;
             g_themeEditor = themeEditor;
+            setThemeEditorSaveLoad();
+            
             themeEditor.__meta_loadedTheme.set = themeEditor.getDefaultThemes();
             themeEditor.__meta_loadedSerial.set = themeEditor.getDefaultSerials();
             if(typeof(testWidget) === "object"){
@@ -565,3 +661,63 @@ function g_defaultSerials(idx,doReset) {
         localStorage.themeEditorSerials = JSON.stringify(defaultSerials);
     }
 }
+function setThemeEditorSaveLoad(){
+    g_themeEditor.save = function (name) {
+        this.saveTheme("");
+        if(this.themeMode()){
+            g_themeObj[name] = filterSerialObj(g_persist.serialize(this._data[0]),this.getAllowList());// jshint ignore:line
+            localStorage.themeEditorThemes = JSON.stringify(g_themeObj);// jshint ignore:line
+            return g_themeObj[name];// jshint ignore:line
+        }
+        else {
+            g_serialObj[name] = g_persist.serialize(this._data[0]);// jshint ignore:line
+            localStorage.themeEditorSerials = JSON.stringify(g_serialObj);// jshint ignore:line
+            return g_serialObj[name];// jshint ignore:line
+        }
+    };
+    g_themeEditor.load = function (name) {
+        g_theme = name;// jshint ignore:line
+        this.loadedTheme(name);
+        initWidgetTestArr();// jshint ignore:line
+        testWidgetArr(widgetArrToTest);// jshint ignore:line
+    };
+    g_themeEditor.getAllowList = function () {
+        var allowList = [];
+        for(var i in this._sharedProperties){
+            var hasSharedTag = this._sharedProperties[i].ext.tags.indexOf('Shared') !== -1;
+            var hasBasicTag = this._sharedProperties[i].ext.tags.indexOf('Basic') !== -1;
+            if(hasSharedTag || hasBasicTag){
+                allowList.push(i);
+            }
+        }
+        return allowList;
+    };
+    g_themeEditor.currentTheme = function () {
+        return JSON.stringify(filterSerialObj(g_persist.serialize(this._data[0]),this.getAllowList()));
+    };
+    g_themeEditor.currentSerial = function () {
+        return g_persist.serialize(this._data[0]);
+    };
+}
+function filterSerialObj(serial, allow) {
+    var retObj = {__themeSerial:true};
+    _filter(JSON.parse(serial));
+    return retObj;
+
+    function _filter(obj){
+        for(var i in obj){
+            if(i !== "__proto__"){
+                if(allow.indexOf(i) === -1 && i.slice(0,2) !== '__' && typeof(obj[i]) !== "object"){
+                    delete obj[i];
+                }
+                else if (typeof(obj[i]) === "object"){
+                    obj[i] = _filter(obj[i]);
+                }
+                else if (i.slice(0,2) !== '__') {
+                    retObj[i] = obj[i];
+                }
+            }
+        }
+        return obj;
+    }
+};

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.18/require.min.js"></script>
+    <script type="text/javascript" src="../config.js"></script>
+</head>
+<body>
+<script>  
+require(["src/layout/Grid", "src/layout/Surface", "src/amchart/Bar", "src/amchart/Line", "src/amchart/Area"],
+    function (Grid, Surface, Bar, Line, Area) {
+        _applyThisTheme(arguments,%INSERT%);
+        new Grid()
+            .gutter(4)
+            .setContent(0, 0, new Bar().testData(), "AM Bar")
+            .setContent(0, 1, new Area().testData(), "AM Area")
+            .setContent(1, 0, new Line().testData(),"",1,2)
+            .target('widget-wrapper')
+            .render()
+        ;
+    }
+);
+function _applyThisTheme(arr,themeObj){
+    for(var i in arr){
+        var widget = arr[i];
+        var proto = typeof(widget.prototype) !== "undefined" ? widget.prototype : Object.getPrototypeOf(widget);
+        for(var j in proto){
+            if(typeof(proto[j]) !== "undefined" && proto[j] !== null && j.slice(0,7) === "__meta_"){
+                if(typeof(themeObj[j.slice(7)]) !== "undefined"){
+                    if(typeof(proto[j].trueDefaultValue) === "undefined"){
+                        proto[j].trueDefaultValue = proto[j].defaultValue;
+                    }
+                    proto[j].defaultValue = themeObj[j.slice(7)];
+                } 
+            }
+        }
+    }
+}
+</script>
+<div id="widget-wrapper"></div>
+</body>
+</html>
