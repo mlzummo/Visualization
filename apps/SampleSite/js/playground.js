@@ -89,7 +89,9 @@ function update_chart(el) {
     $('#hierarchy-wrapper').empty();
     getHierarchyDynamically('../../src/' + chartObjPath, chartObjPath);
     $('a[href="#chartTab1"]').html(el.html()); // Update Tab Title
+
     doc_page = chartObjPath; //for show doc button
+
     /* Doc Section */
     //resetDocVars();  // Reset Vars
     //buildWidgetDocumentation(chartObjPath); // Build Doc and Update
