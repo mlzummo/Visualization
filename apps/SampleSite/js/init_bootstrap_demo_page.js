@@ -13,6 +13,7 @@ function fillLinksNavbar(activeHREF){
         {"href":"dynamic_grid.html","label":"Dynamic Grid"},
         {"href":"example1.html","label":"Example 1"},
         {"href":"example2.html","label":"Example 2"},
+        {"href":"popups.html","label":"Popup Examples"}
     ];
     var html = '<ul class="nav navbar-nav">';
     for(var i in arr){
