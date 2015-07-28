@@ -191,7 +191,10 @@
         };
         this._chart = AmCharts.makeChart(domNode, initObj);
         this._chart.addListener("clickGraphItem", function(e) {
-            context.click(context.rowToObj(context._data[e.index]), context._columns[e.target.columnIndex+1]); // not showing the correct year yet???
+            //context.click(context.rowToObj(context._data[e.index]), context._columns[e.target.columnIndex+1]);
+            context.click(context.rowToObj(context._data[e.index]), context._columns[e.target.index+1]);
+            console.log(e);
+
         });
     };
 
