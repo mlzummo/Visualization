@@ -183,12 +183,16 @@
 
     CommonRadar.prototype.enter = function(domNode, element) {
         HTMLWidget.prototype.enter.apply(this, arguments);
+        var context = this;
         var initObj = {
             theme: "none",
             type: "radar",
             chartScrollbar: {}
         };
         this._chart = AmCharts.makeChart(domNode, initObj);
+        this._chart.addListener("clickGraphItem", function(e) {
+            context.click(context.rowToObj(context._data[e.index]), context._columns[e.target.columnIndex+1]); // not showing the correct year yet???
+        });
     };
 
     CommonRadar.prototype.update = function(domNode, element) {
