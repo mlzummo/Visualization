@@ -46,6 +46,11 @@
 
     Pie.prototype.publish("labelPosition", "right", "set", "Label Position", ["left","right"],{tags:['Intermediate']});
 
+    Pie.prototype.publish("pullOutDuration", 0.3, "number", "Animation duration (in seconds) to display a Pie slice to/from a selected state.", null, {tags: ['Basic']});
+    Pie.prototype.publish("pullOutEffect", '>', "set", "Animation effect to display a Pie slice to/from a selected state.", [">", "<", "elastic", "bounce"], {tags: ['Basic']});
+    Pie.prototype.publish("pullOutOnlyOne", true, "boolean", "Prevent 'selection' of more than one pie slice", null, {tags: ['Basic']});
+    Pie.prototype.publish("pullOutRadius", '20%', "string", "Percentage (of pie radius) Distance from center of a 'selected' pie slice", null, {tags: ['Basic']});
+
     Pie.prototype.updateChartOptions = function() {
         var context = this;
 
@@ -68,7 +73,12 @@
         this._chart.fontSize = this.fontSize();
         this._chart.fontSize = this.fontSize();
         this._chart.color = this.fontColor();
-
+        
+        this._chart.pullOutDuration = this.pullOutDuration();
+        this._chart.pullOutEffect = this.pullOutEffect();
+        this._chart.pullOutOnlyOne = this.pullOutOnlyOne();
+        this._chart.pullOutRadius = this.pullOutRadius();
+        
         this._chart.allLabels = [];
         this._chart.pieAlpha =  this.pieAlpha();
 
