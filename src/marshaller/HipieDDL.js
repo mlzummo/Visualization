@@ -571,17 +571,95 @@
                     });
                     break;
                 case "FORM":
-                    this.loadWidgets(["src/form/Form", "src/form/Input"], function (widget, widgetClasses) {
+                    this.loadWidgets(["src/form/Form", "src/form/Input", "src/layout/Grid"], function (widget, widgetClasses) {
                         var Input = widgetClasses[1];
+                        var Grid = widgetClasses[2];
                         widget
                             .id(visualization.id)
-                            .inputs(visualization.fields.map(function (field) {
-                                return new Input()
-                                    .name(field.id)
-                                    .label((field.properties ? field.properties.label : null) || field.label)
-                                    .type("textbox")
-                                    .value(field.properties.default ? field.properties.default : "")
-                                ;
+                            .inputs(visualization.fields.map(function(field) {
+
+                                var inputType = null;
+                                switch(field.properties.charttype) {
+                                    case "TEXT":
+                                        inputType = "textbox";
+                                        break;
+                                    case "TEXTAREA":
+                                        inputType = "textarea";
+                                        break;
+                                    case "CHECKBOX":
+                                        inputType = "checkbox";
+                                        break;
+                                    case "RADIO":
+                                        inputType = "radio";
+                                        break;
+                                    case "HIDDEN":
+                                        inputType = "hidden";
+                                        break;
+                                    default:
+                                        if (field.properties.enumvals) {
+                                            inputType = "select";
+                                            var selectOptions = [];
+                                            var options = field.properties.enumvals;
+                                            for (var val in options) {
+                                                 selectOptions.push([val,options[val]]);
+                                            }
+                                        } else {
+                                            inputType = "textbox";
+                                        }
+                                        break;
+                                }
+
+                                if (inputType === "checkbox") {
+                                    var options = field.properties.enumvals;
+
+                                    var inp = new Grid()
+                                    var c=0;
+                                    for (var val in options) {
+                                        var checkbox = new Input()
+                                            .name(field.id + (Object.keys(options).length > 1 ? "[]" : ""))
+                                            //.label((field.properties ? field.properties.label : null) || field.label)
+                                            .type(inputType)
+                                            .value(val)
+                                        ;
+                                        inp.setContent(0,c,checkbox);
+                                        c++;
+                                        // if (selectOptions && selectOptions.length) {
+                                        //     inp.selectOptions(selectOptions);
+                                        // }
+                                    }
+                                    inp
+                                        .cellPadding(0)
+                                        .gutter(0)
+                                        .cellPosition("relative")
+                                        .fitTo("all")
+                                    ;
+
+                                    inp.label = function() {
+                                        return (field.properties ? field.properties.label : null) || field.label;
+                                    }
+                                } else {
+                                // } else if (inputType = "radio") {
+                                //     var inp = new Input()
+                                //         .name(field.id)
+                                //         .label((field.properties ? field.properties.label : null) || field.label)
+                                //         .type(inputType)
+                                //         .value(field.properties.default ? field.properties.default : "")
+                                //     ;
+                                //     if (selectOptions && selectOptions.length) {
+                                //         inp.selectOptions(selectOptions);
+                                //     }
+                                // } else {
+                                    var inp = new Input()
+                                        .name(field.id)
+                                        .label((field.properties ? field.properties.label : null) || field.label)
+                                        .type(inputType)
+                                        .value(field.properties.default ? field.properties.default : "")
+                                    ;
+                                    if (selectOptions && selectOptions.length) {
+                                        inp.selectOptions(selectOptions);
+                                    }
+                                }
+                                return inp;
                             }))
                         ;
                     });

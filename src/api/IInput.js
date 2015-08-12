@@ -15,6 +15,7 @@
     IInput.prototype.publish("label", "", "string", "Descriptive label");
     IInput.prototype.publish("value", "", "string", "Input type");
     IInput.prototype.publish("validate", null, "string", "Input Validation");
+    IInput.prototype.publish("isChecked", false, "boolean", "Radio/Checkbox is selected");
 
     //  Implementation  ---
     IInput.prototype.isValid = function () {

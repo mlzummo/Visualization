@@ -39,7 +39,7 @@
                     .name("select-test")
                     .label("Select Test")
                     .type("select")
-                    .selectOptions(["A","B","C"])
+                    .selectOptions([["AAA"],["BBB"],["CCC"]])
                     .value("B"),
                 new WidgetArray()
                     .content([
@@ -213,10 +213,16 @@
 
                 var inputWidgetArray = inputWidget instanceof WidgetArray ? inputWidget.content() : [inputWidget];
                 inputWidgetArray.forEach(function (inputWidget, idx) {
-                    element.append("td")
-                        .attr("class", "prompt")
-                        .text(inputWidget.label() + ":")
-                    ;
+                    // if (inputWidget._class.indexOf("layout_Grid") == -1) {
+                        element.append("td")
+                            .attr("class", "prompt")
+                            .text(inputWidget.label() + ":")
+                        ;
+                    // } else {
+                    //     element.append("td")
+                    //         .attr("class", "prompt")
+                    //         .text("box" + ":")
+                    // }
                     var input = element.append("td")
                         .attr("class", "input")
                     ;

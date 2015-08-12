@@ -21,7 +21,7 @@
         return this;
     };
 
-    Input.prototype.publish("type", "text", "set", "Input type", ["textbox", "number", "checkbox", "button", "select", "textarea", "date"]);
+    Input.prototype.publish("type", "text", "set", "Input type", ["textbox", "number", "checkbox", "button", "select", "textarea", "date", "radio"]);
     Input.prototype.publish("selectOptions", [], "array", "Array of options used to fill a dropdown list");
 
     Input.prototype.testData = function () {
@@ -53,7 +53,9 @@
                 break;
             case "checkbox":
                 this.checkNodeName("INPUT", element);
-                this._inputElement.property("checked", this.value());
+                //this._inputElement.property("checked", this.value());
+                this._inputElement.property("value", this.value());
+                this._inputElement.property("checked", this.isChecked());
                 break;
             default:
                 this.checkNodeName("INPUT", element);
@@ -103,7 +105,9 @@
         var optionHTML = "";
         if (optionsArr.length > 0) {
             optionsArr.forEach(function (opt) {
-                optionHTML += "<option value='" + opt + "'>" + opt + "</option>";
+                var val = (typeof(opt) === "object" && opt.constructor === Array ? opt[0] : opt);
+                var text = (typeof(opt) === "object" && opt.constructor === Array ? (opt[1] ? opt[1] : opt[0]) : opt);
+                optionHTML += "<option value='" + val + "'>" + text + "</option>";
             });
         } else {
             optionHTML += "<option>selectOptions not set</option>";
