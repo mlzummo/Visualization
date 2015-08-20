@@ -406,6 +406,9 @@
         }
         this._chart = AmCharts.makeChart(domNode, initObj);
         this._chart.addListener("clickGraphItem", function(e) {
+            e.item.dataContext.fill = "#0079DC"; //todo param for selection color?
+            e.chart.validateData();
+            console.log(e);
             context.click(context.rowToObj(context._data[e.index]), context._columns[e.target.columnIndex+1]);
         });
     };
