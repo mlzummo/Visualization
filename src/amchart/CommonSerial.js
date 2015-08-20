@@ -24,9 +24,6 @@
 
         this._dateParserData = d3.time.format("%Y-%m-%d").parse;
         this._dateParserValue = d3.time.format("%Y-%m-%d").parse;
-
-        //this.dataScale = d3.time.scale();
-
     }
     CommonSerial.prototype = Object.create(HTMLWidget.prototype);
     CommonSerial.prototype.constructor = CommonSerial;
@@ -77,8 +74,8 @@
     CommonSerial.prototype.publish("bulletSize", 0, "number", "Bullet Size",null,{tags:["Intermediate"]});
     CommonSerial.prototype.publish("bulletType", "none", "set", "Bullet Type", ["none", "round", "square", "triangleUp", "triangleDown", "triangleLeft", "triangleRight", "bubble", "diamond"],{tags:["Basic"]});
 
-    CommonSerial.prototype.publish("dataDateFormat", null, "string", "",null,{tags:["Private"]});
-    CommonSerial.prototype.publish("balloonDateFormat", "MMM DD, YYYY HH mm ss" , "string", "",null,{tags:["Private"]});
+    //CommonSerial.prototype.publish("dataDateFormat", null, "string", "",null,{tags:["Private"]});
+    //CommonSerial.prototype.publish("balloonDateFormat", "MMM DD, YYYY HH mm ss" , "string", "",null,{tags:["Private"]});
 
     CommonSerial.prototype.publish("xAxisAutoGridCount", true, "boolean", "Specifies Whether Number of GridCount Is Specified Automatically, According To The Axis Size",null,{tags:["Advanced"]});
     CommonSerial.prototype.publish("xAxisGridPosition", "middle", "set", "Specifies If A Grid Line Is Placed On The Center of A Cell or On The Beginning of A Cell", ["start","middle"],{tags:["Advanced"]});
@@ -116,6 +113,8 @@
     CommonSerial.prototype.publish("xAxisType", "ordinal", "set", "X-Axis Type", ["ordinal", "linear", "time"]);
 
     CommonSerial.prototype.publish("yAxisTickFormat", "s", "string", "Y-Axis Tick Format");
+
+    CommonSerial.prototype.publish("balloonType", "amchart", "set", "Balloon Type", ["hpcc", "amchart"]);
 
     var xAxisTypeTimePattern = CommonSerial.prototype.xAxisTypeTimePattern;
     CommonSerial.prototype.xAxisTypeTimePattern = function (_) {
@@ -254,18 +253,14 @@
         this._chart.categoryAxis.titleColor = this.xAxisTitleFontColor();
         this._chart.categoryAxis.titleFontSize = this.xAxisTitleFontSize();
 
-        // this._chart.categoryAxis.labelFunction = function(d) {
-        //     console.log(d)
-        //     var abc = context.dataScale(context.formatData_X(d));
-        //     console.log(abc)
-        //     return d;
-        //     //return abc;
-        // }
+        this._chart.categoryAxis.labelFunction = function(d) {
+            return d;
+        }
 
-        this._chart.categoryAxis.parseDates = true; //TODO
-        //this._chart.categoryAxis.minPeriod = "hh";
-
-        //this._chart.categoryAxis.dateFormats = ''; // TODO
+        if (this.xAxisType() === 'time') {
+            this._chart.categoryAxis.parseDates = true;
+            this._chart.categoryAxis.minPeriod = "hh";
+        }
 
         this._chart.titles = [];
 
@@ -295,16 +290,14 @@
         this._chart.valueAxes[0].axisTitleOffset = this.yAxisTitleOffset();
 
         this._chart.valueAxes[0].labelFunction = function(d) {
-            //console.log(d)
-            //var abc = context.dataScale(context.formatData_X(d));
-            //console.log(abc)
             return d;
-            //return abc;
         }
 
+        if (this.yAxisType() === 'time') {
+            this._chart.valueAxes[0].parseDates = true;
+            this._chart.valueAxes[0].minPeriod = "hh";
+        }
 
-        //this._chart.valueAxes[0].parseDates = true; //TODO
-        //this._chart.valueAxes[0].dateFormats = ''; // TODO
 
         if (this.showScrollbar()) {
             this._chart.chartScrollbar.enabled = true;
@@ -319,12 +312,14 @@
         var context = this;
         var gObj = {};
 
-        //gObj.balloonText = context.tooltipTemplate();
-        gObj.balloonFunction = function(d) {
-            console.log(d);
-            //console.log(d.category);
-
-            return "bob";
+        if (this.balloonType() === "amchart") {
+            gObj.balloonFunction = function(d) {
+                var bArr = [];
+                for (var key in d.dataContext) {
+                    bArr.push(d.dataContext[key]);
+                }
+                return bArr.join(",");
+            }
         }
         gObj.lineAlpha = context.lineOpacity();
         gObj.lineColor = context.lineColor();
@@ -393,7 +388,7 @@
             colArr.slice(1, colArr.length).forEach(function(col) {
                 context._valueField.push(col);
             });
-            this._columns = colArr;
+            this._columns = colArr; // this might not work as expected cause were using __ now?
             return this;
         }
         return retVal;
@@ -405,14 +400,6 @@
         var initObj = {
             type: "serial",
             chartScrollbar: {},
-            // chartCursor: {
-            //     oneBalloonOnly: false,
-            //     categoryBalloonFunction: function(d) {
-            //         console.log(d);
-            //         return d;
-            //     },
-            //     categoryBalloonEnabled: true
-            // }
         };
         if (typeof define === "function" && define.amd) {
             initObj.pathToImages = require.toUrl("amchartsImg");
