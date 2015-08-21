@@ -309,6 +309,7 @@
     };
 
     CommonSerial.prototype.buildGraphObj = function(gType,i) {
+        console.log('here'+i);
         var context = this;
         var gObj = {};
 
@@ -406,8 +407,10 @@
         }
         this._chart = AmCharts.makeChart(domNode, initObj);
         this._chart.addListener("clickGraphItem", function(e) {
-            e.item.dataContext.fill = "#0079DC"; //todo param for selection color?
+            //e.item.dataContext.fill = "#0079DC"; //todo param for selection color?
+            e.item.dataContext[e.graph.fillColorsField] = "#0079DC";
             e.chart.validateData();
+            console.log(e.graph.fillColorsField);
             console.log(e);
             context.click(context.rowToObj(context._data[e.index]), context._columns[e.target.columnIndex+1]);
         });
