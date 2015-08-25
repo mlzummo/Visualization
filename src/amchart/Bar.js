@@ -112,7 +112,7 @@
 
             if(this.paletteGrouping() === "By Category"){
                 //gObj.colorField = "color";
-                gObj.fillsColorField = "color";
+                gObj.fillsColorsField = "color";
                 gObj.lineColorField = "linecolor";
             }
 
