@@ -241,7 +241,7 @@
         this._chart.addListener("clickGraphItem", function(e) {
             //e.item.dataContext[e.graph.colorField] = "#0079DC";
 
-            e.item.dataContext[e.graph.fillsColorsField] = "#0079DC";
+            //e.item.dataContext[e.graph.fillsColorsField] = "#0079DC";
             //e.item.dataContext[e.graph.fillColorsField] = "#0079DC";
             console.log(e);
             e.chart.validateData();
