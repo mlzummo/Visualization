@@ -111,7 +111,8 @@
             }
 
             if(this.paletteGrouping() === "By Category"){
-                gObj.colorField = "color";
+                //gObj.colorField = "color";
+                gObj.fillsColorField = "color";
                 gObj.lineColorField = "linecolor";
             }
 
