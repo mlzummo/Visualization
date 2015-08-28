@@ -99,7 +99,7 @@
             }
         }
 
-        function buildGraphObj(gObj) {
+        function buildGraphObj(gObj, i) {
             if (this.columnWidth()) {
                 gObj.columnWidth = this.columnWidth();
             }
@@ -111,9 +111,8 @@
             }
 
             if(this.paletteGrouping() === "By Category"){
-                //gObj.colorField = "color";
-                gObj.fillsColorsField = "color";
-                gObj.lineColorField = "linecolor";
+                gObj.fillColorsField = "color" + i;
+                gObj.lineColorField = "linecolor" + i;
             }
 
             gObj.fillAlphas = this.fillOpacity();
