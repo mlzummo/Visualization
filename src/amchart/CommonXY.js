@@ -57,7 +57,7 @@
     CommonXY.prototype.publish("marginTop", 20, "number", "Margin (Top)",null,{tags:["Intermediate"]});
     CommonXY.prototype.publish("marginBottom", 50, "number", "Margin (Bottom)",null,{tags:["Intermediate"]});
 
-    CommonXY.prototype.publish("dataDateFormat", null, "string", "",null,{tags:["Private"]});
+    //CommonXY.prototype.publish("dataDateFormat", null, "string", "",null,{tags:["Private"]});
 
     CommonXY.prototype.publish("xAxisAutoGridCount", true, "boolean", "Specifies whether number of gridCount is specified automatically, acoarding to the axis size",null,{tags:["Advanced"]});
     CommonXY.prototype.publish("yAxisAutoGridCount", true, "boolean", "Specifies whether number of gridCount is specified automatically, acoarding to the axis size",null,{tags:["Advanced"]});
@@ -82,6 +82,8 @@
 
     CommonXY.prototype.publish("useClonedPalette", false, "boolean", "Enable or disable using a cloned palette",null,{tags:["Intermediate","Shared"]});
 
+    CommonXY.prototype.publish("yAxisTickFormat", null, "string", "Y-Axis Tick Format", null, { optional: true });
+
     CommonXY.prototype.updateChartOptions = function() {
         var context = this;
 
@@ -97,7 +99,7 @@
         if (this.marginTop()) { this._chart.marginTop = this.marginTop(); }
         if (this.marginBottom()) { this._chart.marginBottom = this.marginBottom(); }
 
-        this._chart.dataDateFormat = this.dataDateFormat();
+        //this._chart.dataDateFormat = this.dataDateFormat();
 
         this._chart.valueAxes[0].position = "bottom";
         this._chart.valueAxes[0].axisAlpha = this.axisAlpha();
@@ -115,6 +117,8 @@
         this._chart.valueAxes[0].gridAlpha = this.xAxisGridAlpha();
         this._chart.valueAxes[0].dashLength = this.xAxisDashLength();
 
+        //TODO ADD valuesAxes[0] tick format
+
         this._chart.valueAxes[1].position = "left";
         this._chart.valueAxes[1].axisAlpha = this.axisAlpha();
         this._chart.valueAxes[1].title = this.yAxisTitle();
@@ -130,6 +134,10 @@
         this._chart.valueAxes[1].gridAlpha = this.yAxisGridAlpha();
         this._chart.valueAxes[1].dashLength = this.yAxisDashLength();
         this._chart.valueAxes[1].axisTitleOffset = this.yAxisTitleOffset();
+
+        this._chart.valueAxes[1].labelFunction = function(d) {
+            return d3.format(context.yAxisTickFormat())(d);
+        };
 
         // DataProvider
         this._chart.dataProvider = this.formatData(this._data);
