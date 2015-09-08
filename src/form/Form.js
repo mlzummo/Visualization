@@ -113,6 +113,7 @@
             var value = inp.value();
             if (value || !this.omitBlank()) {
                 dataArr[inp.name()] = inp.value();
+                console.log(inp.value())
             }
         }, this);
         return dataArr;
@@ -123,6 +124,7 @@
         if (this.validate()) {
             isValid = this.checkValidation();
         }
+        //console.log(isValid ? this.values() : null);
         this.click(isValid ? this.values() : null);
     };
 

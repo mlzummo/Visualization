@@ -610,61 +610,18 @@
                                 }
 
                                 if (inputType === "checkbox" || inputType === "radio") {
-                                    // var options = field.properties.enumvals;
-
-                                    // var inp = new Grid()
-                                    // var c=0;
-                                    // for (var val in options) {
-                                    //     var checkbox = new Input()
-                                    //         .name(field.id + (Object.keys(options).length > 1 ? "[]" : ""))
-                                    //         //.label((field.properties ? field.properties.label : null) || field.label)
-                                    //         .type(inputType)
-                                    //         .value(val)
-                                    //     ;
-                                    //     inp.setContent(0,c,checkbox);
-                                    //     c++;
-                                    //     // if (selectOptions && selectOptions.length) {
-                                    //     //     inp.selectOptions(selectOptions);
-                                    //     // }
-                                    // }
-                                    // inp
-                                    //     .cellPadding(0)
-                                    //     .gutter(0)
-                                    //     .cellPosition("relative")
-                                    //     .fitTo("all")
-                                    // ;
-
-                                    // inp.label = function() {
-                                    //     return (field.properties ? field.properties.label : null) || field.label;
-                                    // }
-
                                     var options = field.properties.enumvals;
                                     var vals = Object.keys(options);
                                     var inp = new Input()
                                         .name(field.id + (vals.length > 1 && inputType == "checkbox" ? "[]" : ""))
                                         .label((field.properties ? field.properties.label : null) || field.label)
                                         .type(inputType)
-                                        .value(vals)
+                                        //.value(vals) // need a way of setting whats checked by default?
                                         //.value(field.properties.default ? field.properties.default : "")
                                         .selectOptions(vals);
 
                                     ;
-
-                                    console.log(Object.keys(options));
-
-
                                 } else {
-                                // } else if (inputType = "radio") {
-                                //     var inp = new Input()
-                                //         .name(field.id)
-                                //         .label((field.properties ? field.properties.label : null) || field.label)
-                                //         .type(inputType)
-                                //         .value(field.properties.default ? field.properties.default : "")
-                                //     ;
-                                //     if (selectOptions && selectOptions.length) {
-                                //         inp.selectOptions(selectOptions);
-                                //     }
-                                // } else {
                                     var inp = new Input()
                                         .name(field.id)
                                         .label((field.properties ? field.properties.label : null) || field.label)

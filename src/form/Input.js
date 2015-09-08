@@ -63,7 +63,7 @@
                 //this.checkNodeName("INPUT", element);
                 //this._inputElement.property("checked", this.value());
                 this._inputElement.forEach(function(e, idx) {
-                    e.property("value", context.value()[idx]);
+                    e.property("value", context.selectOptions()[idx]);
                 });
                 //this._inputElement.property("checked", this.isChecked());
                 break;
@@ -120,6 +120,7 @@
                         context._inputElement.forEach(function(d, idx) {
                             vals[d.property("value")] = d.property("checked");
                         });
+                        context.value(vals);
                         break;
                     default:
                         context.value([e.property("value")]);

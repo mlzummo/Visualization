@@ -16,7 +16,7 @@
     IInput.prototype.publish("name", "", "string", "HTML name for the input");
     IInput.prototype.publish("label", "", "string", "Descriptive label");
     //IInput.prototype.publish("value", "", "string", "Input type");
-    IInput.prototype.publish("value", [], "array", "Input Value");
+    IInput.prototype.publish("value", [], "array", "Input Current Value");
     IInput.prototype.publish("validate", null, "string", "Input Validation");
     //IInput.prototype.publish("isChecked", false, "boolean", "Radio/Checkbox is selected");
     IInput.prototype.publish("isChecked", [], "array", "Radio/Checkbox is selected");
