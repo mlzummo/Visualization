@@ -28,19 +28,19 @@
                     .label("Alphanumeric")
                     .type("textbox")
                     .validate("^[A-Za-z0-9]+$")
-                    .value("SomeString123"),
+                    .value(["SomeString123"]),
                 new Input()
                     .name("number-test")
                     .label("Number Test")
                     .type("number")
                     .validate("\\d+")
-                    .value(123),
+                    .value([123]),
                 new Input()
                     .name("select-test")
                     .label("Select Test")
                     .type("select")
                     .selectOptions([["AAA"],["BBB"],["CCC"]])
-                    .value("B"),
+                    .value(["B"]),
                 new WidgetArray()
                     .content([
                         new Input()
@@ -48,18 +48,18 @@
                             .label("Only Alpha")
                             .type("textbox")
                             .validate("^[A-Za-z]+$")
-                            .value("SomeString"),
+                            .value(["SomeString"]),
                         new Input()
                             .name("checkbox-test")
                             .label("Checkbox Test")
                             .type("checkbox")
-                            .value(true)
+                            .value([true])
                     ]),
                 new Input()
                     .name("textarea-test")
                     .label("Textarea Test")
                     .type("textarea")
-                    .value("Textarea Text")
+                    .value(["Textarea Text"])
             ])
         ;
         return this;
@@ -176,13 +176,13 @@
         var controls = [
                 new Input()
                     .type("button")
-                    .value("Submit")
+                    .value(["Submit"])
                     .on("click", function () {
                         context.submit();
                     }, true),
                 new Input()
                     .type("button")
-                    .value("Clear")
+                    .value(["Clear"])
                     .on("click", function () {
                         context.clear();
                     }, true)

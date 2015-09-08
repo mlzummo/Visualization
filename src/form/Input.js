@@ -136,8 +136,8 @@
         var optionHTML = "";
         if (optionsArr.length > 0) {
             optionsArr.forEach(function (opt) {
-                var val = (typeof(opt) === "object" && opt.constructor === Array ? opt[0] : opt);
-                var text = (typeof(opt) === "object" && opt.constructor === Array ? (opt[1] ? opt[1] : opt[0]) : opt);
+                var val = (opt instanceof Array ? opt[0] : opt);
+                var text = (opt instanceof Array ? (opt[1] ? opt[1] : opt[0]) : opt);
                 optionHTML += "<option value='" + val + "'>" + text + "</option>";
             });
         } else {
