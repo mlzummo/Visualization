@@ -26,8 +26,8 @@
     XYAxis.prototype.publish("xAxisTypeTimePattern", "%Y-%m-%d", "string", "Time Series Pattern");
     XYAxis.prototype.publish("xAxisDomainLow", "", "string", "X-Axis Low");
     XYAxis.prototype.publish("xAxisDomainHigh", "", "string", "X-Axis High");
-    XYAxis.prototype.publish("xAxisOverlapMode", "stagger", "set", "X-Axis Label Overlap Mode", ["none", "stagger", "hide", "rotate"]);
-    XYAxis.prototype.publish("xAxisLabelRotation", null, "number", "X-Axis Label Rotation");
+    XYAxis.prototype.publish("xAxisOverlapMode", "rotate", "set", "X-Axis Label Overlap Mode", ["none", "stagger", "hide", "rotate"]);
+    XYAxis.prototype.publish("xAxisLabelRotation", 45, "number", "X-Axis Label Rotation");
 
     XYAxis.prototype.publish("yAxisTitle", "", "string", "Y-Axis Title");
     XYAxis.prototype.publish("yAxisTickCount", null, "number", "Y-Axis Tick Count", null, { optional: true });
@@ -372,29 +372,37 @@
                 ;
                 break;
             case "rotate" :
-                if (margin.overlapModulus > 1) {
-                    var xRotation = -(this.xAxisLabelRotation()) || 0;
-                    xAxis.selectAll(".tick > text")
-                        .each(function() {
-                            var elm = d3.select(this);
-                            if (xRotation > 0 && xRotation <= 90) {
-                                 elm.style("text-anchor", "start");
-                                 elm.attr("transform", "rotate(" + (xRotation ? xRotation : 0) + ")");
-                                 elm.attr("dy", "-0.5em");
-                                 elm.attr("dx", "8px");
-                            }
-                            else if (xRotation < 0 && xRotation >= -90) {
-                                 elm.style("text-anchor", "end");
-                                 elm.attr("transform", "rotate(" + (xRotation ? xRotation : 0) + ")");
-                                 elm.attr("dy", "-.71em");
-                                 elm.attr("dx", "-8px");
-                            } 
-                            else if (xRotation === 0) {
-                                elm.style("text-anchor", "middle");
-                            }
-                        })
-                    ;
-                }
+                var deg = -(this.xAxisLabelRotation()) || 0;
+                xAxis.selectAll(".tick > text")
+                    .each(function() {
+                        var elm = d3.select(this);
+                        if (deg !== 0 && margin.overlapModulus > 1) {
+                            var bbox = elm.node().getBBox();
+                            
+                            var deg2 = 0;
+                            var dyOff = Math.sin(Math.PI * (deg / 180));
+                            elm.style("text-anchor", deg > 0 ? "start" : "end")
+                                .attr("dy", (bbox.height/2*dyOff)+"px")
+                                .attr("dx", deg > 0 ? "0.71em" : "-0.71em")
+                                .attr("transform","rotate("+deg+")");
+                        }
+                        else {
+                            elm.style("text-anchor", "middle")
+                                .attr("transform","rotate(0)")
+                                .attr("dy","0.71em")
+                                .attr("dx",0)
+                            ;
+                        }
+                    })
+                ;
+                
+//                setInterval(function(){
+//                    if(window._degrees === undefined){
+//                        window._degrees = -1;
+//                    }
+//                    window._degrees++;
+//                    currWidget.xAxisLabelRotation(window._degrees).render();
+//                },100);
                 break;
             default:
                 xAxis.selectAll(".tick > text")
@@ -431,6 +439,7 @@
         ;
 
         switch (this.xAxisOverlapMode()) {
+            case "rotate":
             case "stagger":
             case "hide":
                 var bboxArr = [];
