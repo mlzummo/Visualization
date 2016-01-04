@@ -1,0 +1,29 @@
+/*.popupWidget.acc-popup-a {
+    position: relative;
+    background: #88b7d5;
+    /*border: 0px solid #c2e1f5;
+}*/
+
+.popupWidget.acc-popup-a:after, .popupWidget.acc-popup-a:before {
+    right: 100%;
+    top: 85%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.popupWidget.acc-popup-a:after {
+    border-color: transparent;
+    border-right-color: #88b7d5;
+    border-width: 15px;
+    margin-top: -15px;
+}
+.popupWidget.acc-popup-a:before {
+    border-color: transparent;
+    border-right-color: #000000;
+    border-width: 16px;
+    margin-top: -16px;
+}

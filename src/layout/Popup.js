@@ -43,7 +43,7 @@
         
         var widgets = element.selectAll("#" + this._id + " > .popupWidget").data(this.widget() ? [this.widget()] : [], function (d) { return d._id; });
         widgets.enter().append("div")
-            .attr("class", "popupWidget")
+            .attr("class", "popupWidget acc-popup-a")
             .each(function (d) {
                 d.target(this);
             })
